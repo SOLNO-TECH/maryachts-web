@@ -1,0 +1,2614 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mar Exclusive Yachts - Yates de Lujo</title>
+    <meta name="description"
+        content="Agencia de alquiler de yates y embarcaciones de lujo en Puerto Vallarta y Marina La Cruz">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+            background: #0a0a15;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(10, 10, 21, 0.88) 0%, rgba(26, 42, 108, 0.75) 100%);
+            z-index: 2;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #26c6da 0%, #3498db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            padding: 6px 0 10px 0;
+            line-height: 1.4;
+            display: inline-block;
+        }
+
+        .card-hover {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(38, 198, 218, 0.4);
+        }
+
+        /* Fade-in animations mejoradas */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeInLeft 0.9s ease forwards;
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: fadeInRight 0.9s ease forwards;
+        }
+
+        .fade-in-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeInScale 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .wave-bg {
+            background: linear-gradient(135deg, #1a2a4e 0%, #0d0b18 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wave-bg::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle, rgba(38, 198, 218, 0.15) 0%, transparent 70%);
+            animation: wave 20s linear infinite;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #26c6da 0%, #00acc1 100%);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #00acc1 0%, #26c6da 100%);
+            box-shadow: 0 12px 30px rgba(38, 198, 218, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .navbar {
+            transition: all 0.4s ease;
+            background: rgba(13, 11, 24, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+        }
+
+        .logo-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            width: 320px;
+            /* Increased container further for desktop */
+        }
+
+        .logo-img {
+            height: 160px;
+            /* Increased height */
+            width: 300px;
+            /* Increased width */
+            object-fit: fill;
+            position: absolute;
+            top: -45px;
+            /* Adjusted top position */
+            left: 0;
+            z-index: 60;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 1024px) {
+            .logo-container {
+                position: relative;
+                /* Revert to relative for left alignment */
+                left: auto;
+                transform: none;
+                width: 240px;
+                /* Increased mobile container */
+                height: 50px;
+                display: block;
+            }
+
+            .logo-img {
+                position: absolute;
+                top: -35px;
+                /* Adjusted top */
+                left: 0;
+                /* Left align */
+                transform: none;
+                height: 120px;
+                /* Increased mobile height */
+                width: 220px;
+                /* Increased mobile width */
+                object-fit: fill;
+                max-width: none;
+            }
+
+            /* Reset margin for hamburger menu since logo is left again */
+            .flex.items-center.gap-4.fade-in-right {
+                margin-left: 0;
+            }
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 21, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 49;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .mobile-link {
+            font-size: 24px;
+            font-family: 'Playfair Display', serif;
+            color: white;
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .mobile-menu.open .mobile-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-btn:hover {
+            border-color: #26c6da;
+            background: rgba(38, 198, 218, 0.1);
+            color: #26c6da;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(38, 198, 218, 0.3);
+        }
+
+        .lang-btn.active {
+            border-color: #26c6da;
+            background: rgba(38, 198, 218, 0.2);
+            color: #26c6da;
+            box-shadow: 0 0 20px rgba(38, 198, 218, 0.4);
+        }
+
+        input,
+        textarea,
+        select {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            transition: all 0.4s ease;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #26c6da;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 25px rgba(38, 198, 218, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .yacht-badge {
+            background: linear-gradient(135deg, #26c6da 0%, #3498db 100%);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: inline-block;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(38, 198, 218, 0.4);
+        }
+
+        /* Hero Video */
+        .slider-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Video para escritorio - visible por defecto */
+        .hero-video-desktop {
+            display: block;
+        }
+
+        /* Video para móvil - oculto por defecto */
+        .hero-video-mobile {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero-video {
+                width: 100%;
+                height: 100%;
+            }
+
+            /* En móvil: ocultar video de escritorio, mostrar video móvil */
+            .hero-video-desktop {
+                display: none;
+            }
+
+            .hero-video-mobile {
+                display: block;
+            }
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .dot:hover {
+            background: rgba(38, 198, 218, 0.6);
+            transform: scale(1.2);
+        }
+
+        .dot.active {
+            background: #26c6da;
+            transform: scale(1.4);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .slider-nav:hover {
+            background: rgba(38, 198, 218, 0.4);
+            transform: translateY(-50%) scale(1.15);
+            box-shadow: 0 0 30px rgba(38, 198, 218, 0.6);
+        }
+
+        .slider-nav.prev {
+            left: 40px;
+        }
+
+        .slider-nav.next {
+            right: 40px;
+        }
+
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #26c6da, #3498db, transparent);
+            margin: 50px auto;
+            max-width: 250px;
+            border-radius: 10px;
+        }
+
+        .icon-gradient {
+            background: linear-gradient(135deg, #1abc9c 0%, #3498db 100%);
+        }
+
+        /* Animación de scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Parallax effect */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Pulse animation para badges */
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes blob {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+        }
+
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        /* Shimmer effect */
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Yacht Image Slider */
+        .yacht-slider {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .yacht-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .yacht-slide.active {
+            opacity: 1;
+        }
+
+        .yacht-slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .yacht-slider-nav:hover {
+            background: rgba(38, 198, 218, 0.6);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .yacht-slider-nav.prev {
+            left: 10px;
+        }
+
+        .yacht-slider-nav.next {
+            right: 10px;
+        }
+
+        .yacht-slider-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+
+        .yacht-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .yacht-dot:hover {
+            background: rgba(38, 198, 218, 0.8);
+            transform: scale(1.3);
+        }
+
+        .yacht-dot.active {
+            background: #26c6da;
+            transform: scale(1.4);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+
+
+            .slider-nav {
+                width: 45px;
+                height: 45px;
+            }
+
+            .slider-nav.prev {
+                left: 20px;
+            }
+
+            .slider-nav.next {
+                right: 20px;
+            }
+
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .yacht-slider {
+                height: 200px;
+            }
+
+            .yacht-slider-nav {
+                width: 30px;
+                height: 30px;
+            }
+
+            /* Asegurar que el select funcione en móvil */
+            .select-yate {
+                -webkit-appearance: menulist !important;
+                -moz-appearance: menulist !important;
+                appearance: menulist !important;
+                z-index: 20 !important;
+                position: relative;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .select-yate:focus {
+                z-index: 21 !important;
+            }
+        }
+
+        /* Loader */
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a15 0%, #1a2a4e 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1.2s ease-out, visibility 1.2s ease-out;
+            opacity: 1;
+        }
+
+        .loader-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .loader-logo {
+            width: 180px;
+            height: auto;
+            animation: pulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(26, 188, 156, 0.5));
+        }
+
+        .loader-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(26, 188, 156, 0.2);
+            border-top-color: #1abc9c;
+            border-right-color: #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Hero fade in */
+        .hero-section {
+            opacity: 0;
+            transition: opacity 1.5s ease-in;
+        }
+
+        .hero-section.fade-in {
+            opacity: 1;
+        }
+
+        .navbar-fade {
+            opacity: 0;
+            transition: opacity 1.5s ease-in;
+        }
+
+        .navbar-fade.fade-in {
+            opacity: 1;
+        }
+
+        /* Select mejorado */
+        select {
+            background-image: none;
+        }
+
+        select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.1);
+        }
+
+        select option {
+            background: #1a2a4e;
+            color: white;
+            padding: 12px;
+        }
+
+        /* Chatbot */
+        .chatbot-overlay {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9998;
+        }
+
+        .chatbot-popup {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 380px;
+            max-height: 600px;
+            background: linear-gradient(135deg, #0a0a15 0%, #1a2a4e 100%);
+            border: 1px solid rgba(38, 198, 218, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(38, 198, 218, 0.3);
+            z-index: 9999;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow: hidden;
+        }
+
+        .chatbot-popup.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, #26c6da 0%, #3498db 100%);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatbot-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chatbot-avatar {
+            width: 45px;
+            height: 45px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .chatbot-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+
+        .chatbot-info p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+
+        .chatbot-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .chatbot-body {
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .chatbot-message {
+            padding: 12px 16px;
+            border-radius: 15px;
+            max-width: 85%;
+            word-wrap: break-word;
+            animation: fadeInMessage 0.3s ease;
+        }
+
+        @keyframes fadeInMessage {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chatbot-message.bot {
+            background: rgba(38, 198, 218, 0.15);
+            border: 1px solid rgba(38, 198, 218, 0.3);
+            align-self: flex-start;
+            border-left: 3px solid #26c6da;
+        }
+
+        .chatbot-message.user {
+            background: rgba(52, 152, 219, 0.15);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+            align-self: flex-end;
+            border-right: 3px solid #3498db;
+        }
+
+        .chatbot-message p {
+            color: #e0e0e0;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .chatbot-input-container {
+            display: flex;
+            gap: 10px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatbot-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-input:focus {
+            outline: none;
+            border-color: #1abc9c;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .chatbot-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .chatbot-send {
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            border: none;
+            border-radius: 12px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .chatbot-send:hover {
+            background: linear-gradient(135deg, #16a085 0%, #1abc9c 100%);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(26, 188, 156, 0.4);
+        }
+
+        .chatbot-send:active {
+            transform: scale(0.95);
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-toggle:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .chatbot-toggle.active {
+            background: #e74c3c;
+        }
+
+        @media (max-width: 640px) {
+            .chatbot-popup {
+                width: calc(100vw - 40px);
+                right: 20px;
+                bottom: 80px;
+            }
+        }
+
+        /* Accordion styles */
+        .accordion-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .accordion-header {
+            cursor: pointer;
+            padding: 12px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            color: #1abc9c;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-content.active {
+            max-height: 1000px;
+            padding-bottom: 12px;
+        }
+
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body class="text-white">
+
+    <!-- LOADER -->
+    <div id="loader" class="loader-overlay">
+        <div class="loader-container">
+            <img src="logo.png" alt="Mar Odyssey" class="loader-logo">
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header id="navbar" class="navbar navbar-fade fixed w-full top-0 z-50 px-6 py-6 lg:py-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="logo-container fade-in-left">
+                <img src="logo.png" alt="MarOdyssey Exclusive" class="logo-img">
+            </div>
+
+            <nav class="hidden lg:flex space-x-8 items-center fade-in" style="animation-delay: 0.2s;">
+                <a href="#inicio" class="hover:text-teal-400 transition font-medium" id="nav-inicio">Inicio</a>
+                <a href="#acerca" class="hover:text-teal-400 transition font-medium" id="nav-acerca">Acerca de</a>
+                <a href="#yates" class="hover:text-teal-400 transition font-medium" id="nav-yates">Yates</a>
+                <a href="#servicios" class="hover:text-teal-400 transition font-medium" id="nav-servicios">Servicios</a>
+                <a href="#contacto" class="hover:text-teal-400 transition font-medium" id="nav-contacto">Contacto</a>
+            </nav>
+
+            <div class="flex items-center gap-4 fade-in-right" style="animation-delay: 0.3s;">
+                <div class="hidden lg:flex gap-2 items-center"> <!-- Hidden on mobile/tablet -->
+                    <button onclick="setLang('es')" id="btn-es" class="lang-btn active" title="Español">
+                        ES
+                    </button>
+                    <span class="text-gray-400">-</span>
+                    <button onclick="setLang('en')" id="btn-en" class="lang-btn" title="English">
+                        EN
+                    </button>
+                </div>
+                <!-- Hidden on mobile/tablet -->
+                <a href="https://wa.me/523221569131" target="_blank"
+                    class="hidden lg:flex bg-green-600 hover:bg-green-500 px-5 py-2.5 rounded-lg items-center space-x-2 transition shadow-lg hover:shadow-green-600/50">
+                    <span class="iconify text-xl" data-icon="mdi:whatsapp"></span>
+                    <span class="font-semibold">WhatsApp</span>
+                </a>
+            </div>
+            <!-- Hamburger Menu Button (Mobile) -->
+            <button class="lg:hidden text-white text-3xl z-50 relative ml-4" onclick="toggleMobileMenu()">
+                <span class="iconify" data-icon="mdi:menu" id="menu-icon"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu">
+        <a href="#inicio" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.1s;">Inicio</a>
+        <a href="#acerca" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.2s;">Acerca de</a>
+        <a href="#yates" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.3s;">Yates</a>
+        <a href="#servicios" class="mobile-link" onclick="toggleMobileMenu()"
+            style="transition-delay: 0.4s;">Servicios</a>
+        <a href="#contacto" class="mobile-link" onclick="toggleMobileMenu()"
+            style="transition-delay: 0.5s;">Contacto</a>
+    </div>
+
+    <!-- HERO VIDEO -->
+    <section id="inicio" class="slider-container hero-section">
+        <video autoplay muted loop playsinline class="hero-video hero-video-desktop">
+            <source src="video.mp4" type="video/mp4">
+            <span id="video-not-supported">Tu navegador no soporta el elemento de video.</span>
+        </video>
+        <video autoplay muted loop playsinline class="hero-video hero-video-mobile">
+            <source src="video2.mp4" type="video/mp4">
+            <span id="video-not-supported-mobile">Tu navegador no soporta el elemento de video.</span>
+        </video>
+
+        <div class="hero-overlay absolute inset-0"></div>
+
+        <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 pt-32">
+            <div class="max-w-5xl relative z-10">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 leading-tight fade-in"
+                    style="animation-delay: 0.2s;" id="hero-title">Creando experiencias de lujo en el mar</h1>
+
+                <div class="flex justify-center fade-in" style="animation-delay: 0.6s;">
+                    <a href="#contacto"
+                        class="btn-primary text-white px-8 sm:px-10 md:px-12 py-4 md:py-5 rounded-xl font-bold text-base md:text-lg shadow-2xl">
+                        <span class="relative z-10 flex items-center gap-2 justify-center">
+                            <span id="hero-btn-reservar">Reservar ahora</span>
+                            <span class="iconify" data-icon="mdi:arrow-right"></span>
+                        </span>
+                    </a>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-8 md:gap-12 justify-center items-center mt-12 md:mt-20 fade-in"
+                    style="animation-delay: 0.8s;">
+                    <a href="#yates"
+                        class="glass-effect text-white border border-white w-48 py-4 md:py-5 rounded-xl font-bold text-base md:text-lg hover:bg-white hover:bg-opacity-15 transition shadow-lg flex items-center justify-center"
+                        id="hero-btn-flota">
+                        Flota
+                    </a>
+                    <a href="#destinos"
+                        class="glass-effect text-white border border-white w-48 py-4 md:py-5 rounded-xl font-bold text-base md:text-lg hover:bg-white hover:bg-opacity-15 transition shadow-lg flex items-center justify-center"
+                        id="hero-btn-destinos">
+                        Destinos
+                    </a>
+                    <a href="#servicios"
+                        class="glass-effect text-white border border-white w-48 py-4 md:py-5 rounded-xl font-bold text-base md:text-lg hover:bg-white hover:bg-opacity-15 transition shadow-lg flex items-center justify-center"
+                        id="hero-btn-experiencias">
+                        Experiencias
+                    </a>
+                </div>
+            </div>
+
+            <!-- Watermark Image moved to bottom -->
+            <!-- Watermark Image moved to bottom -->
+            <div class="absolute bottom-0 left-0 w-full pointer-events-none flex justify-center items-end pb-0"
+                style="z-index: 0; transform: translateY(30%);">
+                <img src="ola.png" alt="Watermark" class="w-full md:w-auto opacity-30 filter drop-shadow-lg"
+                    style="max-height: 500px; object-fit: contain;">
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="py-24 px-4 wave-bg relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                <div
+                    class="glass-effect p-8 rounded-xl text-center reveal hover:bg-white hover:bg-opacity-15 transition">
+                    <div class="text-5xl md:text-7xl font-bold gradient-text mb-4">10+</div>
+                    <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-1">Yates de Lujo</div>
+                </div>
+                <div class="glass-effect p-8 rounded-xl text-center reveal hover:bg-white hover:bg-opacity-15 transition"
+                    style="transition-delay: 0.1s;">
+                    <div class="text-5xl md:text-7xl font-bold gradient-text mb-4">500+</div>
+                    <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-2">Clientes Felices</div>
+                </div>
+                <div class="glass-effect p-8 rounded-xl text-center reveal hover:bg-white hover:bg-opacity-15 transition"
+                    style="transition-delay: 0.2s;">
+                    <div class="text-5xl md:text-7xl font-bold gradient-text mb-4">15</div>
+                    <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-3">Años Experiencia</div>
+                </div>
+                <div class="glass-effect p-8 rounded-xl text-center reveal hover:bg-white hover:bg-opacity-15 transition"
+                    style="transition-delay: 0.3s;">
+                    <div class="text-5xl md:text-7xl font-bold gradient-text mb-4">100%</div>
+                    <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-4">Satisfacción</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACERCA DE -->
+    <section id="acerca" class="py-28 px-4 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-relaxed" id="acerca-title">Acerca
+                    de Mar Odyssey
+                </h2>
+                <p class="text-gray-300 max-w-3xl mx-auto text-xl md:text-2xl font-light leading-relaxed"
+                    id="acerca-subtitle">
+                    La experiencia náutica más exclusiva de Puerto Vallarta
+                </p>
+            </div>
+
+            <div class="max-w-5xl mx-auto">
+                <!-- Quiénes Somos -->
+                <div
+                    class="glass-effect p-12 md:p-16 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-10 gradient-text leading-tight text-center"
+                        id="acerca-quienes">Quiénes Somos</h3>
+                    <div class="space-y-6">
+                        <p class="text-gray-200 leading-relaxed text-lg md:text-xl font-light text-justify"
+                            id="acerca-quienes-text">
+                            En Mar Odyssey Exclusive, nos dedicamos a crear experiencias náuticas inolvidables. Con más
+                            de 15
+                            años de experiencia en el sector de yates de lujo, ofrecemos el más alto nivel de servicio y
+                            atención personalizada.
+                        </p>
+                        <p class="text-gray-200 leading-relaxed text-lg md:text-xl font-light text-justify"
+                            id="acerca-quienes-text2">
+                            Nuestra flota de embarcaciones premium está equipada con las mejores comodidades y
+                            tecnología,
+                            garantizando que cada viaje sea una aventura memorable en las aguas cristalinas de la Bahía
+                            de
+                            Banderas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visión y Valores -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                    <div class="glass-effect p-10 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6 gradient-text leading-tight text-center"
+                            id="acerca-vision">Visión</h3>
+                        <p class="text-gray-200 leading-relaxed text-lg font-light text-justify"
+                            id="acerca-vision-text">
+                            Ser la empresa líder en experiencias náuticas de lujo en Puerto Vallarta y Marina La Cruz,
+                            reconocida
+                            por nuestra excelencia en servicio, innovación y compromiso con la satisfacción total de
+                            nuestros clientes.
+                        </p>
+                    </div>
+                    <div class="glass-effect p-10 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6 gradient-text leading-tight text-center"
+                            id="acerca-valores">Valores</h3>
+                        <p class="text-gray-200 leading-relaxed text-lg font-light text-justify"
+                            id="acerca-valores-text">
+                            Excelencia, integridad, pasión por el servicio y respeto por el medio ambiente marino son
+                            los pilares
+                            que guían cada experiencia que creamos. Nos comprometemos a superar las expectativas en cada
+                            viaje.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Valores (tarjetas) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-effect p-6 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition flex items-start gap-5"
+                        style="transition-delay: 0.1s;">
+                        <div class="flex-shrink-0">
+                            <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24">
+                                <defs>
+                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#9ca3af;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#grad1)"
+                                    d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.4 16,13V16C16,17.4 15.4,18 14,18H10C8.6,18 8,17.4 8,16V13C8,12.4 8.6,11.5 9.2,11.5V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,10V11.5H13.5V10C13.5,8.7 12.8,8.2 12,8.2Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2 text-lg md:text-xl" id="valores-seguridad">Seguridad</h4>
+                            <p class="text-sm md:text-base text-gray-400 font-light leading-relaxed"
+                                id="valores-seguridad-desc">Certificados y seguros completos</p>
+                        </div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition flex items-start gap-5"
+                        style="transition-delay: 0.2s;">
+                        <div class="flex-shrink-0">
+                            <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24">
+                                <defs>
+                                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#9ca3af;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#grad2)"
+                                    d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2 text-lg md:text-xl" id="valores-calidad">Calidad</h4>
+                            <p class="text-sm md:text-base text-gray-400 font-light leading-relaxed"
+                                id="valores-calidad-desc">Yates premium mantenidos</p>
+                        </div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition flex items-start gap-5"
+                        style="transition-delay: 0.3s;">
+                        <div class="flex-shrink-0">
+                            <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24">
+                                <defs>
+                                    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#9ca3af;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#grad3)"
+                                    d="M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2 text-lg md:text-xl" id="valores-tripulacion">Tripulación</h4>
+                            <p class="text-sm md:text-base text-gray-400 font-light leading-relaxed"
+                                id="valores-tripulacion-desc">Personal experimentado</p>
+                        </div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition flex items-start gap-5"
+                        style="transition-delay: 0.4s;">
+                        <div class="flex-shrink-0">
+                            <svg class="w-16 h-16" fill="none" viewBox="0 0 24 24">
+                                <defs>
+                                    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#9ca3af;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#grad4)"
+                                    d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2 text-lg md:text-xl" id="valores-pasion">Pasión</h4>
+                            <p class="text-sm md:text-base text-gray-400 font-light leading-relaxed"
+                                id="valores-pasion-desc">Amor por el mar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- DESTINOS -->
+    <section id="destinos" class="py-28 px-4 relative">
+        <!-- Background elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <div
+                class="absolute top-1/2 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-screen filter blur-[120px] opacity-10 animate-blob">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-normal" id="destinos-title">
+                    Destinos Exclusivos
+                </h2>
+                <p class="text-gray-300 max-w-3xl mx-auto text-xl md:text-2xl font-light leading-relaxed"
+                    id="destinos-subtitle">
+                    Explora los rincones más bellos de la Bahía de Banderas
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Yelapa -->
+                <div class="group relative h-64 md:h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal">
+                    <img src="yelapa.jpg" alt="Yelapa"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">
+                            Yelapa</h3>
+                        <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Las Ánimas -->
+                <div class="group relative h-64 md:h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal"
+                    style="transition-delay: 0.1s;">
+                    <img src="animas.jpg" alt="Las Ánimas"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">Las
+                            Ánimas</h3>
+                        <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colomitos -->
+                <div class="group relative h-64 md:h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal"
+                    style="transition-delay: 0.2s;">
+                    <img src="colomitos.png" alt="Colomitos"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">
+                            Colomitos</h3>
+                        <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Los Arcos -->
+                <div class="group relative h-64 md:h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal"
+                    style="transition-delay: 0.3s;">
+                    <img src="arcos.jpg" alt="Los Arcos"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">Los
+                            Arcos</h3>
+                        <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Palito Verde -->
+                <div class="group relative h-64 md:h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal">
+                    <img src="palito.webp" alt="Palito Verde"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">
+                            Palito Verde</h3>
+                        <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Careyeros -->
+                <div class="group relative h-64 md:h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal"
+                    style="transition-delay: 0.1s;">
+                    <img src="careyeros.webp" alt="Careyeros"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">
+                            Careyeros</h3>
+                        <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Islas Marietas -->
+                <div class="group relative h-64 md:h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal md:col-span-2 lg:col-span-2"
+                    style="transition-delay: 0.2s;">
+                    <img src="marietas.webp" alt="Islas Marietas"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">Islas
+                            Marietas</h3>
+                        <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- YATES -->
+    <section id="yates" class="py-28 px-4 wave-bg relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 gradient-text" id="yates-title">Nuestra Flota</h2>
+                <div class="section-divider"></div>
+                <p class="text-gray-300 max-w-3xl mx-auto text-xl leading-relaxed" id="yates-descripcion">
+                    Descubre nuestra colección exclusiva de yates de lujo, equipados con todo lo necesario para una
+                    experiencia inolvidable
+                </p>
+            </div>
+            <div id="yates-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cards generadas por JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS / EXPERIENCIAS -->
+    <section id="servicios" class="py-28 px-4 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-normal" id="servicios-title">
+                    Experiencias
+                </h2>
+                <p class="text-gray-300 max-w-3xl mx-auto text-xl md:text-2xl font-light leading-relaxed"
+                    id="servicios-subtitle">
+                    Eleva tu viaje con nuestros servicios exclusivos
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Jetski -->
+                <div class="group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal">
+                    <img src="jetski.webp" alt="Jetski"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-2" id="exp-jetski-title">Jetski</h3>
+                        <p class="text-gray-300 font-light text-sm" id="exp-jetski-desc">Adrenalina pura en las olas</p>
+                    </div>
+                </div>
+
+                <!-- Masajista -->
+                <div class="group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal"
+                    style="transition-delay: 0.1s;">
+                    <img src="masaje.webp" alt="Masajista"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-2" id="exp-masaje-title">Masajista</h3>
+                        <p class="text-gray-300 font-light text-sm" id="exp-masaje-desc">Relajación total a bordo</p>
+                    </div>
+                </div>
+
+                <!-- DJ -->
+                <div class="group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal"
+                    style="transition-delay: 0.2s;">
+                    <img src="dj.webp" alt="DJ"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-2" id="exp-dj-title">DJ</h3>
+                        <p class="text-gray-300 font-light text-sm" id="exp-dj-desc">Tu música, tu ambiente</p>
+                    </div>
+                </div>
+
+                <!-- Fuegos Artificiales -->
+                <div class="group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal">
+                    <img src="fuegos.webp" alt="Fuegos Artificiales"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-2" id="exp-fuegos-title">Fuegos Artificiales</h3>
+                        <p class="text-gray-300 font-light text-sm" id="exp-fuegos-desc">Ilumina tu celebración</p>
+                    </div>
+                </div>
+
+                <!-- Fotógrafo -->
+                <div class="group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal"
+                    style="transition-delay: 0.1s;">
+                    <img src="fotografo.webp" alt="Fotógrafo"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-2" id="exp-foto-title">Fotógrafo</h3>
+                        <p class="text-gray-300 font-light text-sm" id="exp-foto-desc">Captura momentos inolvidables</p>
+                    </div>
+                </div>
+
+                <!-- Chef a Bordo -->
+                <div class="group relative h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal"
+                    style="transition-delay: 0.2s;">
+                    <img src="chef.webp" alt="Chef a bordo"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-90 transition-opacity">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <h3 class="text-2xl font-bold text-white mb-2" id="exp-chef-title">Chef a bordo</h3>
+                        <p class="text-gray-300 font-light text-sm" id="exp-chef-desc">Alta cocina en el mar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="py-28 px-4 relative overflow-hidden">
+        <!-- Background elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <div
+                class="absolute top-1/4 left-0 w-96 h-96 bg-teal-500 rounded-full mix-blend-screen filter blur-[100px] opacity-10 animate-blob">
+            </div>
+            <div
+                class="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] opacity-10 animate-blob animation-delay-2000">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-normal" id="testimonios-title">
+                    Experiencias Reales
+                </h2>
+                <p class="text-gray-300 max-w-3xl mx-auto text-xl md:text-2xl font-light leading-relaxed"
+                    id="testimonios-subtitle">
+                    Descubre lo que dicen quienes han vivido la experiencia Mar Odyssey
+                </p>
+                <!-- Rating Summary -->
+                <div class="flex items-center justify-center gap-4 mt-8">
+                    <div class="flex items-center gap-1 text-yellow-400 text-2xl">
+                        <span class="iconify" data-icon="mdi:star"></span>
+                        <span class="iconify" data-icon="mdi:star"></span>
+                        <span class="iconify" data-icon="mdi:star"></span>
+                        <span class="iconify" data-icon="mdi:star"></span>
+                        <span class="iconify" data-icon="mdi:star"></span>
+                    </div>
+                    <span class="text-2xl font-bold text-white">5.0/5.0</span>
+                    <span class="text-gray-400 text-lg">(+500 Reseñas)</span>
+                </div>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-effect p-8 rounded-2xl relative group hover:bg-white/5 transition-all duration-300 transform hover:-translate-y-2 reveal"
+                    style="transition-delay: 0.1s;">
+                    <div
+                        class="absolute -top-6 left-8 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <span class="iconify text-white text-2xl" data-icon="mdi:format-quote-close"></span>
+                    </div>
+
+                    <div class="mt-8 mb-6">
+                        <div class="flex text-yellow-400 mb-4 text-sm">
+                            <span class="iconify" data-icon="mdi:star"></span>
+                            <span class="iconify" data-icon="mdi:star"></span>
+                            <span class="iconify" data-icon="mdi:star"></span>
+                            <span class="iconify" data-icon="mdi:star"></span>
+                            <span class="iconify" data-icon="mdi:star"></span>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed italic" id="testimonio1-text">
+                            "Fue, sin duda, el mejor día de nuestras vacaciones. La tripulación fue increíblemente
+                            atenta y el yate estaba impecable. Ver el atardecer desde el mar fue mágico."
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-4 border-t border-white/10 pt-6">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-xl font-bold text-teal-400">
+                            SR
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Sarah Roberts</h4>
+                            <span class="text-teal-400 text-sm">USA - Cliente Verificado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-effect p-8 rounded-2xl relative group hover:bg-white/5 transition-all duration-300 transform hover:-translate-y-2 md:mt-12 reveal"
+                    style="transition-delay: 0.2s;">
+                    <div
+                        class="absolute -top-6 left-8 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <span class="iconify text-white text-2xl" data-icon="mdi:format-quote-close"></span>
+                    </div>
+
+                    <div class="mt-8 mb-6">
+                        <div class="flex text-yellow-400 mb-4 text-sm">
+                            <span class="iconify" data-icon="mdi:star"></span>
+                            <span class="iconify" data-icon="mdi:star"></span>
+                            <span class="iconify" data-icon="mdi:star"></span>
+                            <span class="iconify" data-icon="mdi:star"></span>
+                            <span class="iconify" data-icon="mdi:star"></span>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed italic" id="testimonio2-text">
+                            "Excelente servicio desde el primer contacto. El equipo de reservas hizo todo muy fácil y la
+                            experiencia a bordo superó nuestras expectativas. ¡Repetiremos seguro!"
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-4 border-t border-white/10 pt-6">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-xl font-bold text-teal-400">
+                            CR
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Carlos Rodriguez</h4>
+                            <span class="text-teal-400 text-sm">México - Cliente Verificado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glass-effect p-8 rounded-2xl relative group hover:bg-white/5 transition-all duration-300 transform hover:-translate-y-2 reveal"
+                    style="transition-delay: 0.3s;">
+                    <div
+                        class="absolute -top-6 left-8 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full p-3 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <span class="iconify text-white text-2xl" data-icon="mdi:format-quote-close"></span>
+                    </div>
+
+                    <div class="mt-8 mb-6">
+                        <div class="flex text-yellow-400 mb-4 text-sm">
+                            <span class="iconify" data-icon="mdi:star"></span>
+                            <span class="iconify" data-icon="mdi:star"></span>
+                            <span class="iconify" data-icon="mdi:star"></span>
+                            <span class="iconify" data-icon="mdi:star"></span>
+                            <span class="iconify" data-icon="mdi:star"></span>
+                        </div>
+                        <p class="text-gray-300 leading-relaxed italic" id="testimonio3-text">
+                            "Celebrar mi cumpleaños en el yate fue la mejor decisión. La comida, la música, el
+                            ambiente... todo perfecto. Gracias al equipo por los detalles especiales."
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-4 border-t border-white/10 pt-6">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-xl font-bold text-teal-400">
+                            EM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Emily Martinez</h4>
+                            <span class="text-teal-400 text-sm">Canada - Cliente Verificado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-28 px-4 wave-bg relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-normal" id="contacto-title">
+                    Contacto / Reserva
+                </h2>
+                <p class="text-gray-300 max-w-3xl mx-auto text-xl md:text-2xl font-light leading-relaxed"
+                    id="contacto-subtitle">Estamos listos para hacer realidad tu experiencia
+                    perfecta en el mar</p>
+            </div>
+            <form class="glass-effect p-10 md:p-16 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition">
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <label class="block text-sm font-bold mb-3 text-gray-200" id="form-nombre-label">Nombre /
+                            Name</label>
+                        <input type="text" placeholder="Tu nombre completo"
+                            class="p-5 rounded-xl w-full text-base bg-white bg-opacity-5 border border-white border-opacity-10 focus:border-teal-400 transition"
+                            id="input-name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-3 text-gray-200" id="form-email-label">Correo /
+                            Email</label>
+                        <input type="email" placeholder="tu@email.com"
+                            class="p-5 rounded-xl w-full text-base bg-white bg-opacity-5 border border-white border-opacity-10 focus:border-teal-400 transition"
+                            id="input-email">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <label class="block text-sm font-bold mb-3 text-gray-200" id="form-phone-label">Teléfono /
+                            Phone</label>
+                        <input type="tel" placeholder="+52 123 456 7890"
+                            class="p-5 rounded-xl w-full text-base bg-white bg-opacity-5 border border-white border-opacity-10 focus:border-teal-400 transition"
+                            id="input-phone">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-3 text-gray-200" id="form-yate-label">Yate</label>
+                        <div class="relative">
+                            <select id="select-yate"
+                                class="select-yate p-5 rounded-xl w-full text-base bg-white bg-opacity-5 border border-white border-opacity-10 focus:border-teal-400 transition appearance-none cursor-pointer relative z-10">
+                                <option value="">Selecciona tu yate / Select your yacht</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <label class="block text-sm font-bold mb-3 text-gray-200" id="form-mensaje-label">Mensaje /
+                        Message</label>
+                    <textarea placeholder="Cuéntanos sobre tu experiencia ideal..."
+                        class="p-5 rounded-xl w-full text-base bg-white bg-opacity-5 border border-white border-opacity-10 focus:border-teal-400 transition resize-none"
+                        rows="6" id="input-message"></textarea>
+                </div>
+                <button type="submit"
+                    class="btn-primary text-white px-12 py-5 rounded-xl font-bold text-lg w-full md:w-auto shadow-2xl mx-auto block">
+                    <span class="relative z-10 flex items-center justify-center gap-3">
+                        <span id="form-enviar-text">Enviar / Send</span>
+                        <span class="iconify text-xl" data-icon="mdi:send"></span>
+                    </span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-overlay">
+        <button id="chatbot-toggle" class="chatbot-toggle" onclick="toggleChatbot()">
+            <span class="iconify" data-icon="mdi:message-text"></span>
+        </button>
+    </div>
+
+    <div id="chatbot-popup" class="chatbot-popup">
+        <div class="chatbot-header">
+            <div class="chatbot-header-left">
+                <div class="chatbot-avatar">
+                    <span class="iconify text-teal-500 text-2xl" data-icon="mdi:robot"></span>
+                </div>
+                <div class="chatbot-info">
+                    <h4>Asistente de Soporte</h4>
+                    <p>Estamos aquí para ayudarte</p>
+                </div>
+            </div>
+            <button class="chatbot-close" onclick="toggleChatbot()">
+                <span class="iconify" data-icon="mdi:close"></span>
+            </button>
+        </div>
+        <div class="chatbot-body">
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chatbot-message bot">
+                    <p>¡Hola! 👋 Soy el asistente virtual de Mar Odyssey Exclusive.</p>
+                    <p style="margin-top: 8px;">Estoy aquí para ayudarte con cualquier pregunta sobre nuestras
+                        embarcaciones, servicios o reservas. ¿En qué puedo asistirte hoy?</p>
+                </div>
+            </div>
+            <div class="chatbot-input-container">
+                <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Escribe tu mensaje..."
+                    onkeypress="handleChatbotKeyPress(event)">
+                <button class="chatbot-send" onclick="sendChatbotMessage()">
+                    <span class="iconify" data-icon="mdi:send"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="py-20 px-4 border-t border-gray-800 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="reveal">
+                    <img src="logo.png" alt="MarOdyssey" class="h-14 mb-6 filter drop-shadow-lg">
+                    <p class="text-gray-300 leading-relaxed text-lg mb-6">Tu puerta al lujo náutico en Puerto Vallarta y
+                        Marina La Cruz</p>
+                    <div class="flex gap-5 mt-6">
+                        <a href="https://www.instagram.com/marexclusiveyachts?igsh=Nzk0cWxmaWgxd2xk" target="_blank"
+                            class="text-3xl hover:text-teal-400 transition transform hover:scale-125"><span
+                                class="iconify" data-icon="mdi:instagram"></span></a>
+                        <a href="https://www.facebook.com/profile.php?id=61585836017285&mibextid=wwXIfr&rdid=NNqFVuMsT0O5jjhF&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DuZrTh4tb%2F%3Fmibextid%3DwwXIfr#"
+                            target="_blank"
+                            class="text-3xl hover:text-teal-400 transition transform hover:scale-125"><span
+                                class="iconify" data-icon="mdi:facebook"></span></a>
+                    </div>
+                </div>
+                <div class="reveal" style="transition-delay: 0.1s;">
+                    <h4 class="font-bold mb-6 text-xl text-teal-400" id="footer-nav-title">Navegación</h4>
+                    <div class="space-y-4">
+                        <a href="#inicio" class="block text-gray-300 hover:text-teal-400 transition text-lg"
+                            id="footer-nav-inicio">Inicio</a>
+                        <a href="#acerca" class="block text-gray-300 hover:text-teal-400 transition text-lg"
+                            id="footer-nav-acerca">Acerca
+                            de</a>
+                        <a href="#yates" class="block text-gray-300 hover:text-teal-400 transition text-lg"
+                            id="footer-nav-yates">Yates</a>
+                        <a href="#servicios" class="block text-gray-300 hover:text-teal-400 transition text-lg"
+                            id="footer-nav-servicios">Servicios</a>
+                    </div>
+                </div>
+                <div class="reveal" style="transition-delay: 0.2s;">
+                    <h4 class="font-bold mb-6 text-xl text-teal-400" id="footer-contact-title">Contacto</h4>
+                    <div class="space-y-4 text-gray-300">
+                        <p class="flex items-center gap-3 text-lg">
+                            <span class="iconify text-teal-400" data-icon="mdi:phone"></span>
+                            +52 322 156 9131
+                        </p>
+                        <p class="flex items-center gap-3 text-lg">
+                            <span class="iconify text-teal-400" data-icon="mdi:email"></span>
+                            Info@marodysseyexclusive.com
+                        </p>
+                        <p class="flex items-center gap-3 text-lg">
+                            <span class="iconify text-teal-400" data-icon="mdi:map-marker"></span>
+                            Puerto Vallarta, México
+                        </p>
+                    </div>
+                </div>
+                <div class="reveal" style="transition-delay: 0.3s;">
+                    <h4 class="font-bold mb-6 text-xl text-teal-400" id="footer-horarios-title">Horarios</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <p class="text-lg" id="footer-dias">Lunes - Domingo</p>
+                        <p class="text-teal-400 font-bold text-xl">8:00 AM - 8:00 PM</p>
+                        <p
+                            class="text-base mt-5 bg-green-600/20 px-4 py-3 rounded-lg border border-green-600/30 flex items-center gap-2">
+                            <span class="iconify text-green-400" data-icon="mdi:whatsapp"></span>
+                            <span id="footer-whatsapp">Disponible 24/7 por WhatsApp</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-gray-400 border-t border-gray-800 pt-10">
+                <p class="text-lg" id="footer-copyright">&copy; 2026 MarOdyssey Exclusive. Todos los derechos
+                    reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/yacht-data.js"></script>
+    <script>
+
+        // Datos de yates cargados desde js/yacht-data.js
+
+        // Yacht Slider
+        const yachtSlides = {};
+
+        function showYachtSlide(yachtIndex, slideIndex) {
+            const slider = document.getElementById(`yacht-slider-${yachtIndex}`);
+            if (!slider) return;
+
+            const slides = slider.querySelectorAll('.yacht-slide');
+            const dots = slider.querySelectorAll('.yacht-dot');
+
+            if (!yachtSlides[yachtIndex]) {
+                yachtSlides[yachtIndex] = 0;
+            }
+
+            const totalSlides = slides.length;
+            slideIndex = (slideIndex + totalSlides) % totalSlides;
+            yachtSlides[yachtIndex] = slideIndex;
+
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === slideIndex);
+            });
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === slideIndex);
+            });
+        }
+
+        function changeYachtSlide(yachtIndex, direction) {
+            const currentSlide = yachtSlides[yachtIndex] || 0;
+            showYachtSlide(yachtIndex, currentSlide + direction);
+        }
+
+        function goToYachtSlide(yachtIndex, slideIndex) {
+            showYachtSlide(yachtIndex, slideIndex);
+        }
+
+
+
+        function mostrarYates(lang = 'es') {
+            const container = document.getElementById('yates-container');
+            const selectYate = document.getElementById('select-yate');
+            container.innerHTML = '';
+            const selectText = lang === 'es' ? 'Selecciona tu yate' : 'Select your yacht';
+            selectYate.innerHTML = `<option value="">${selectText}</option>`;
+
+            yates.forEach((y, index) => {
+                const nombre = lang === 'es' ? y.nombre : y.nombre_en;
+                const card = document.createElement('div');
+                card.className = 'rounded-xl overflow-hidden reveal transition flex flex-col h-full shadow-lg hover:shadow-2xl bg-[#0f172a]';
+                card.style.transitionDelay = `${index * 0.1}s`;
+
+
+                // Generar slider de imágenes
+                let sliderHTML = '';
+                if (y.imagenes && y.imagenes.length > 0) {
+                    const sliderId = `yacht-slider-${index}`;
+                    const slidesHTML = y.imagenes.map((img, imgIndex) => {
+                        const activeClass = imgIndex === 0 ? 'active' : '';
+                        return `<div class="yacht-slide ${activeClass}" style="background-image: url('${img}');"></div>`;
+                    }).join('');
+
+                    sliderHTML = `
+                        <div class="yacht-slider h-64 w-full relative" id="${sliderId}">
+                            ${slidesHTML}
+                            <div class="absolute inset-y-0 left-0 flex items-center px-2 cursor-pointer z-10 hover:bg-black/20 transition" onclick="changeYachtSlide(${index}, -1)">
+                                <span class="iconify text-white text-2xl drop-shadow-md" data-icon="mdi:chevron-left"></span>
+                            </div>
+                            <div class="absolute inset-y-0 right-0 flex items-center px-2 cursor-pointer z-10 hover:bg-black/20 transition" onclick="changeYachtSlide(${index}, 1)">
+                                <span class="iconify text-white text-2xl drop-shadow-md" data-icon="mdi:chevron-right"></span>
+                            </div>
+                        </div>
+                    `;
+                }
+
+
+
+                // Calculate variables for new card design
+                const capacity = `${y.capacidad.estandar}-${y.capacidad.maxima || y.capacidad.estandar} ${lang === 'es' ? 'Pax' : 'Pax'}`;
+                const priceStart = y.precioInicio;
+                const showBadge = index < 3;
+                const badgeHTML = showBadge ? `
+                    <div class="absolute top-4 left-4 z-20">
+                         <span class="bg-[#26c6da] text-[#0a0a15] text-[10px] font-extrabold px-3 py-1 rounded-sm uppercase tracking-widest shadow-lg">
+                            ${lang === 'es' ? 'Más Rentado' : 'Most Rented'}
+                         </span>
+                    </div>
+                ` : '';
+
+                card.innerHTML = `
+                    <div class="relative h-64 overflow-hidden bg-gray-900 group-hover:opacity-100 transition-opacity">
+                        ${badgeHTML}
+                        ${sliderHTML}
+                        <!-- Icons -->
+                        <div class="absolute top-4 right-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                             <button class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#26c6da] transition">
+                                <span class="iconify" data-icon="mdi:share-variant" style="font-size: 16px;"></span>
+                            </button>
+                             <button class="w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white hover:bg-red-500 transition">
+                                <span class="iconify" data-icon="mdi:heart-outline" style="font-size: 16px;"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 flex flex-col flex-grow bg-[#0f172a] group-hover:bg-[#131c33] transition-colors duration-300 relative border-t border-white/5">
+                        <h3 class="text-xl font-bold text-white mb-2 text-center uppercase tracking-wider font-['Montserrat'] truncate">
+                            ${nombre}
+                        </h3>
+                        
+                        <div class="flex items-center justify-center gap-3 text-xs text-gray-400 mb-6 border-y border-white/5 py-4 w-full">
+                            <span class="whitespace-nowrap flex items-center gap-1">
+                                <span class="iconify text-[#26c6da]" data-icon="mdi:account-group"></span> 
+                                ${capacity}
+                            </span>
+                            <span class="text-white/20">|</span>
+                            <span class="whitespace-nowrap flex items-center gap-1">
+                                <span class="iconify text-[#26c6da]" data-icon="mdi:tag"></span>
+                                ${lang === 'es' ? 'Desde' : 'From'} <span class="text-white font-bold ml-1">${priceStart}</span>
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 mt-auto">
+                            <a href="https://wa.me/523221569131?text=${lang === 'es' ? 'Hola, me interesa reservar el ' : 'Hi, I am interested in booking the '}${encodeURIComponent(nombre)}" target="_blank" 
+                               class="glass-effect hover:bg-white/20 text-white border border-white/30 py-3 px-2 rounded-[2px] font-bold text-[10px] sm:text-[11px] transition-all uppercase tracking-widest flex items-center justify-center shadow-lg hover:shadow-white/10 gap-1">
+                               ${lang === 'es' ? 'RESERVAR' : 'BOOK NOW'}
+                            </a>
+                            <a href="details.html?id=${index}&lang=${lang}"
+                               class="glass-effect hover:bg-white/20 text-white border border-white/30 py-3 px-2 rounded-[2px] font-bold text-[10px] sm:text-[11px] transition-all uppercase tracking-widest flex items-center justify-center gap-1 cursor-pointer">
+                                ${lang === 'es' ? 'VER MÁS' : 'LEARN MORE'}
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+
+                const option = document.createElement('option');
+                option.value = nombre;
+                option.textContent = nombre;
+                selectYate.appendChild(option);
+            });
+        }
+
+        function setLang(lang) {
+            mostrarYates(lang);
+
+            document.getElementById('btn-es').className = lang === 'es' ? 'lang-btn active' : 'lang-btn';
+            document.getElementById('btn-en').className = lang === 'en' ? 'lang-btn active' : 'lang-btn';
+
+            const textos = {
+                es: {
+                    heroTitle: "Creando experiencias de lujo en el mar",
+                    heroSubtitle: "Reserva tu experiencia náutica premium con Mar Exclusive Yachts",
+                    heroBtnReservar: "Reservar ahora",
+                    heroBtnFlota: "Flota",
+                    heroBtnDestinos: "Destinos",
+                    heroBtnExperiencias: "Experiencias",
+                    navInicio: "Inicio",
+                    navAcerca: "Acerca de",
+                    navYates: "Yates",
+                    navServicios: "Servicios",
+                    navContacto: "Contacto",
+                    stat1: "Yates de Lujo",
+                    stat2: "Clientes Felices",
+                    stat3: "Años Experiencia",
+                    stat4: "Satisfacción",
+                    acercaTitle: "Acerca de Mar Odyssey",
+                    acercaSubtitle: "La experiencia náutica más exclusiva de Puerto Vallarta",
+                    acercaQuienes: "Quiénes Somos",
+                    acercaQuienesText: "En Mar Odyssey Exclusive, nos dedicamos a crear experiencias náuticas inolvidables. Con más de 15 años de experiencia en el sector de yates de lujo, ofrecemos el más alto nivel de servicio y atención personalizada.",
+                    acercaQuienesText2: "Nuestra flota de embarcaciones premium está equipada con las mejores comodidades y tecnología, garantizando que cada viaje sea una aventura memorable en las aguas cristalinas de la Bahía de Banderas.",
+                    acercaMision: "Quiénes Somos",
+                    acercaMisionText: "En Mar Odyssey Exclusive, nos dedicamos a crear experiencias náuticas inolvidables. Con más de 15 años de experiencia en el sector de yates de lujo, ofrecemos el más alto nivel de servicio y atención personalizada.",
+                    acercaMisionText2: "Nuestra flota de embarcaciones premium está equipada con las mejores comodidades y tecnología, garantizando que cada viaje sea una aventura memorable en las aguas cristalinas de la Bahía de Banderas.",
+                    acercaVision: "Visión",
+                    acercaVisionText: "Ser la empresa líder en experiencias náuticas de lujo en Puerto Vallarta y Marina La Cruz, reconocida por nuestra excelencia en servicio, innovación y compromiso con la satisfacción total de nuestros clientes.",
+                    destinosTitle: "Destinos Exclusivos",
+                    destinosSubtitle: "Explora los rincones más bellos de la Bahía de Banderas",
+                    acercaValores: "Valores",
+                    acercaValoresText: "Excelencia, integridad, pasión por el servicio y respeto por el medio ambiente marino son los pilares que guían cada experiencia que creamos. Nos comprometemos a superar las expectativas en cada viaje.",
+                    valoresSeguridad: "Seguridad",
+                    valoresSeguridadDesc: "Certificados y seguros completos",
+                    valoresCalidad: "Calidad",
+                    valoresCalidadDesc: "Yates premium mantenidos",
+                    valoresTripulacion: "Tripulación",
+                    valoresTripulacionDesc: "Personal experimentado",
+                    valoresPasion: "Pasión",
+                    valoresPasionDesc: "Amor por el mar",
+                    yatesTitle: "Nuestra Flota",
+                    yatesDescripcion: "Descubre nuestra colección exclusiva de yates de lujo, equipados con todo lo necesario para una experiencia inolvidable",
+                    serviciosTitle: "Experiencias",
+                    serviciosSubtitle: "Eleva tu viaje con nuestros servicios exclusivos",
+                    expJetskiTitle: "Jetski",
+                    expJetskiDesc: "Adrenalina pura en las olas",
+                    expMasajeTitle: "Masajista",
+                    expMasajeDesc: "Relajación total a bordo",
+                    expDjTitle: "DJ",
+                    expDjDesc: "Tu música, tu ambiente",
+                    expFuegosTitle: "Fuegos Artificiales",
+                    expFuegosDesc: "Ilumina tu celebración",
+                    expFotoTitle: "Fotógrafo",
+                    expFotoDesc: "Captura momentos inolvidables",
+                    expChefTitle: "Chef a bordo",
+                    expChefDesc: "Alta cocina en el mar",
+                    testimoniosTitle: "Experiencias Reales",
+                    testimoniosSubtitle: "Descubre lo que dicen quienes han vivido la experiencia Mar Odyssey",
+                    testimonio1Text: "\"Fue, sin duda, el mejor día de nuestras vacaciones. La tripulación fue increíblemente atenta y el yate estaba impecable. Ver el atardecer desde el mar fue mágico.\"",
+                    testimonio2Text: "\"Excelente servicio desde el primer contacto. El equipo de reservas hizo todo muy fácil y la experiencia a bordo superó nuestras expectativas. ¡Repetiremos seguro!\"",
+                    testimonio3Text: "\"Celebrar mi cumpleaños en el yate fue la mejor decisión. La comida, la música, el ambiente... todo perfecto. Gracias al equipo por los detalles especiales.\"",
+                    servicioStarlinkTitle: "Internet Starlink",
+                    servicioStarlinkDesc: "Conexión de alta velocidad en alta mar para mantenerte conectado",
+                    servicioJacuzziTitle: "Jacuzzi y áreas de relax",
+                    servicioJacuzziDesc: "Espacios diseñados para tu máxima comodidad y relajación",
+                    servicioChefTitle: "Chef a bordo",
+                    servicioChefDesc: "Experiencia culinaria personalizada según tus preferencias",
+                    contactoTitle: "Contacto / Reserva",
+                    contactoSubtitle: "Estamos listos para hacer realidad tu experiencia perfecta en el mar",
+                    formNombreLabel: "Nombre / Name",
+                    formNombrePlaceholder: "Tu nombre completo",
+                    formEmailLabel: "Correo / Email",
+                    formEmailPlaceholder: "tu@email.com",
+                    formPhoneLabel: "Teléfono / Phone",
+                    formPhonePlaceholder: "+52 123 456 7890",
+                    formYateLabel: "Yate",
+                    formMensajeLabel: "Mensaje / Message",
+                    formMensajePlaceholder: "Cuéntanos sobre tu experiencia ideal...",
+                    formEnviarText: "Enviar / Send",
+                    footerNavTitle: "Navegación",
+                    footerContactTitle: "Contacto",
+                    footerHorariosTitle: "Horarios",
+                    footerDias: "Lunes - Domingo",
+                    footerWhatsapp: "Disponible 24/7 por WhatsApp",
+                    footerCopyright: "© 2026 MarOdyssey Exclusive. Todos los derechos reservados.",
+                    videoNotSupported: "Tu navegador no soporta el elemento de video."
+                },
+                en: {
+                    heroTitle: "Creating Luxury Sea Experiences",
+                    heroSubtitle: "Book your premium nautical experience with Mar Exclusive Yachts",
+                    heroBtnReservar: "Reserve Now",
+                    heroBtnFlota: "Fleet",
+                    heroBtnDestinos: "Destinations",
+                    heroBtnExperiencias: "Experiences",
+                    navInicio: "Home",
+                    navAcerca: "About",
+                    navYates: "Yachts",
+                    navServicios: "Services",
+                    navContacto: "Contact",
+                    stat1: "Luxury Yachts",
+                    stat2: "Happy Clients",
+                    stat3: "Years Experience",
+                    stat4: "Satisfaction",
+                    acercaTitle: "About Mar Odyssey",
+                    acercaSubtitle: "The most exclusive nautical experience in Puerto Vallarta",
+                    acercaQuienes: "Who We Are",
+                    acercaQuienesText: "At Mar Odyssey Exclusive, we are dedicated to creating unforgettable nautical experiences. With over 15 years of experience in the luxury yacht sector, we offer the highest level of service and personalized attention.",
+                    acercaQuienesText2: "Our fleet of premium vessels is equipped with the best amenities and technology, ensuring that each trip is a memorable adventure in the crystal-clear waters of Banderas Bay.",
+                    acercaMision: "Who We Are",
+                    acercaMisionText: "At Mar Odyssey Exclusive, we are dedicated to creating unforgettable nautical experiences. With over 15 years of experience in the luxury yacht sector, we offer the highest level of service and personalized attention.",
+                    acercaMisionText2: "Our fleet of premium vessels is equipped with the best amenities and technology, ensuring that each trip is a memorable adventure in the crystal-clear waters of Banderas Bay.",
+                    acercaVision: "Vision",
+                    acercaVisionText: "To be the leading company in luxury nautical experiences in Puerto Vallarta and Marina La Cruz, recognized for our excellence in service, innovation and commitment to total customer satisfaction.",
+                    destinosTitle: "Exclusive Destinations",
+                    destinosSubtitle: "Explore the most beautiful corners of Banderas Bay",
+                    acercaValores: "Values",
+                    acercaValoresText: "Excellence, integrity, passion for service and respect for the marine environment are the pillars that guide each experience we create. We are committed to exceeding expectations on every trip.",
+                    valoresSeguridad: "Security",
+                    valoresSeguridadDesc: "Complete certificates and insurance",
+                    valoresCalidad: "Quality",
+                    valoresCalidadDesc: "Premium maintained yachts",
+                    valoresTripulacion: "Crew",
+                    valoresTripulacionDesc: "Experienced personnel",
+                    valoresPasion: "Passion",
+                    valoresPasionDesc: "Love for the sea",
+                    yatesTitle: "Our Fleet",
+                    yatesDescripcion: "Discover our exclusive collection of luxury yachts, equipped with everything needed for an unforgettable experience",
+                    serviciosTitle: "Experiences",
+                    serviciosSubtitle: "Elevate your trip with our exclusive services",
+                    expJetskiTitle: "Jetski",
+                    expJetskiDesc: "Pure adrenaline on the waves",
+                    expMasajeTitle: "Masseuse",
+                    expMasajeDesc: "Total relaxation onboard",
+                    expDjTitle: "DJ",
+                    expDjDesc: "Your music, your vibe",
+                    expFuegosTitle: "Fireworks",
+                    expFuegosDesc: "Light up your celebration",
+                    expFotoTitle: "Photographer",
+                    expFotoDesc: "Capture unforgettable moments",
+                    expChefTitle: "Onboard Chef",
+                    expChefDesc: "Haute cuisine at sea",
+                    testimoniosTitle: "Real Experiences",
+                    testimoniosSubtitle: "Discover what those who have lived the Mar Odyssey experience have to say",
+                    testimonio1Text: "\"It was, without a doubt, the best day of our vacation. The crew was incredibly attentive and the yacht was impeccable. Watching the sunset from the sea was magical.\"",
+                    testimonio2Text: "\"Excellent service from the first contact. The booking team made everything very easy and the onboard experience exceeded our expectations. We will definitely be back!\"",
+                    testimonio3Text: "\"Celebrating my birthday on the yacht was the best decision. The food, the music, the atmosphere... everything perfect. Thanks to the team for the special details.\"",
+                    servicioStarlinkTitle: "Starlink Internet",
+                    servicioStarlinkDesc: "High-speed connection at sea to keep you connected",
+                    servicioJacuzziTitle: "Jacuzzi and Relaxation Areas",
+                    servicioJacuzziDesc: "Spaces designed for your maximum comfort and relaxation",
+                    servicioChefTitle: "Onboard Chef",
+                    servicioChefDesc: "Personalized culinary experience according to your preferences",
+                    contactoTitle: "Contact / Reservation",
+                    contactoSubtitle: "We are ready to make your perfect experience at sea a reality",
+                    formNombreLabel: "Name",
+                    formNombrePlaceholder: "Your full name",
+                    formEmailLabel: "Email",
+                    formEmailPlaceholder: "your@email.com",
+                    formPhoneLabel: "Phone",
+                    formPhonePlaceholder: "+52 123 456 7890",
+                    formYateLabel: "Yacht",
+                    formMensajeLabel: "Message",
+                    formMensajePlaceholder: "Tell us about your ideal experience...",
+                    formEnviarText: "Send",
+                    footerNavTitle: "Navigation",
+                    footerContactTitle: "Contact",
+                    footerHorariosTitle: "Hours",
+                    footerDias: "Monday - Sunday",
+                    footerWhatsapp: "Available 24/7 via WhatsApp",
+                    footerCopyright: "© 2026 MarOdyssey Exclusive. All rights reserved.",
+                    videoNotSupported: "Your browser does not support the video element."
+                }
+            };
+
+            const t = textos[lang];
+
+            // Hero section
+            document.getElementById('hero-title').textContent = t.heroTitle;
+            document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
+            document.getElementById('hero-btn-reservar').textContent = t.heroBtnReservar;
+            document.getElementById('hero-btn-flota').textContent = t.heroBtnFlota;
+            document.getElementById('hero-btn-destinos').textContent = t.heroBtnDestinos;
+            document.getElementById('hero-btn-experiencias').textContent = t.heroBtnExperiencias;
+
+            // Navbar
+            document.getElementById('nav-inicio').textContent = t.navInicio;
+            document.getElementById('nav-acerca').textContent = t.navAcerca;
+            document.getElementById('nav-yates').textContent = t.navYates;
+            document.getElementById('nav-servicios').textContent = t.navServicios;
+            document.getElementById('nav-contacto').textContent = t.navContacto;
+
+            // Stats
+            document.getElementById('stat-1').textContent = t.stat1;
+            document.getElementById('stat-2').textContent = t.stat2;
+            document.getElementById('stat-3').textContent = t.stat3;
+            document.getElementById('stat-4').textContent = t.stat4;
+
+            // Acerca de section
+            document.getElementById('acerca-title').textContent = t.acercaTitle;
+            document.getElementById('acerca-subtitle').textContent = t.acercaSubtitle;
+            const acercaQuienes = document.getElementById('acerca-quienes');
+            const acercaQuienesText = document.getElementById('acerca-quienes-text');
+            const acercaQuienesText2 = document.getElementById('acerca-quienes-text2');
+            const acercaVision = document.getElementById('acerca-vision');
+            const acercaVisionText = document.getElementById('acerca-vision-text');
+            const acercaValores = document.getElementById('acerca-valores');
+            const acercaValoresText = document.getElementById('acerca-valores-text');
+
+            if (acercaQuienes) acercaQuienes.textContent = t.acercaQuienes || t.acercaMision;
+            if (acercaQuienesText) acercaQuienesText.textContent = t.acercaQuienesText || t.acercaMisionText;
+            if (acercaQuienesText2) acercaQuienesText2.textContent = t.acercaQuienesText2 || t.acercaMisionText2;
+            if (acercaVision) acercaVision.textContent = t.acercaVision || 'Visión';
+            if (acercaVisionText) acercaVisionText.textContent = t.acercaVisionText || 'Ser la empresa líder en experiencias náuticas de lujo...';
+            if (acercaValores) acercaValores.textContent = t.acercaValores || 'Valores';
+            if (acercaValoresText) acercaValoresText.textContent = t.acercaValoresText || 'Excelencia, integridad, pasión por el servicio...';
+
+            // Valores section
+            document.getElementById('valores-seguridad').textContent = t.valoresSeguridad;
+            document.getElementById('valores-seguridad-desc').textContent = t.valoresSeguridadDesc;
+            document.getElementById('valores-calidad').textContent = t.valoresCalidad;
+            document.getElementById('valores-calidad-desc').textContent = t.valoresCalidadDesc;
+            document.getElementById('valores-tripulacion').textContent = t.valoresTripulacion;
+            document.getElementById('valores-tripulacion-desc').textContent = t.valoresTripulacionDesc;
+            document.getElementById('valores-pasion').textContent = t.valoresPasion;
+            document.getElementById('valores-pasion-desc').textContent = t.valoresPasionDesc;
+
+            // Yates y Servicios
+            document.getElementById('yates-title').textContent = t.yatesTitle;
+            document.getElementById('yates-descripcion').textContent = t.yatesDescripcion;
+            document.getElementById('servicios-title').textContent = t.serviciosTitle;
+            document.getElementById('servicios-subtitle').textContent = t.serviciosSubtitle;
+
+            // Experiencias (Nuevas)
+            if (document.getElementById('exp-jetski-title')) {
+                document.getElementById('exp-jetski-title').textContent = t.expJetskiTitle;
+                document.getElementById('exp-jetski-desc').textContent = t.expJetskiDesc;
+                document.getElementById('exp-masaje-title').textContent = t.expMasajeTitle;
+                document.getElementById('exp-masaje-desc').textContent = t.expMasajeDesc;
+                document.getElementById('exp-dj-title').textContent = t.expDjTitle;
+                document.getElementById('exp-dj-desc').textContent = t.expDjDesc;
+                document.getElementById('exp-fuegos-title').textContent = t.expFuegosTitle;
+                document.getElementById('exp-fuegos-desc').textContent = t.expFuegosDesc;
+                document.getElementById('exp-foto-title').textContent = t.expFotoTitle;
+                document.getElementById('exp-foto-desc').textContent = t.expFotoDesc;
+                document.getElementById('exp-chef-title').textContent = t.expChefTitle;
+                document.getElementById('exp-chef-desc').textContent = t.expChefDesc;
+            }
+
+            // Testimonios
+            if (document.getElementById('testimonios-title')) {
+                document.getElementById('testimonios-title').textContent = t.testimoniosTitle;
+                document.getElementById('testimonios-subtitle').textContent = t.testimoniosSubtitle;
+                document.getElementById('testimonio1-text').textContent = t.testimonio1Text;
+                document.getElementById('testimonio2-text').textContent = t.testimonio2Text;
+                document.getElementById('testimonio3-text').textContent = t.testimonio3Text;
+            }
+
+            // Destinos
+            if (document.getElementById('destinos-title')) {
+                document.getElementById('destinos-title').textContent = t.destinosTitle;
+                document.getElementById('destinos-subtitle').textContent = t.destinosSubtitle;
+            }
+            document.getElementById('contacto-title').textContent = t.contactoTitle;
+            document.getElementById('contacto-subtitle').textContent = t.contactoSubtitle;
+
+            // Formulario
+            document.getElementById('form-nombre-label').textContent = t.formNombreLabel;
+            document.getElementById('input-name').placeholder = t.formNombrePlaceholder;
+            document.getElementById('form-email-label').textContent = t.formEmailLabel;
+            document.getElementById('input-email').placeholder = t.formEmailPlaceholder;
+            document.getElementById('form-phone-label').textContent = t.formPhoneLabel;
+            document.getElementById('input-phone').placeholder = t.formPhonePlaceholder;
+            document.getElementById('form-yate-label').textContent = t.formYateLabel;
+            document.getElementById('form-mensaje-label').textContent = t.formMensajeLabel;
+            document.getElementById('input-message').placeholder = t.formMensajePlaceholder;
+            document.getElementById('form-enviar-text').textContent = t.formEnviarText;
+
+            // Footer
+            document.getElementById('footer-nav-title').textContent = t.footerNavTitle;
+            document.getElementById('footer-nav-inicio').textContent = t.navInicio;
+            document.getElementById('footer-nav-acerca').textContent = t.navAcerca;
+            document.getElementById('footer-nav-yates').textContent = t.navYates;
+            document.getElementById('footer-nav-servicios').textContent = t.navServicios;
+            document.getElementById('footer-contact-title').textContent = t.footerContactTitle;
+            document.getElementById('footer-horarios-title').textContent = t.footerHorariosTitle;
+            document.getElementById('footer-dias').textContent = t.footerDias;
+            document.getElementById('footer-whatsapp').textContent = t.footerWhatsapp;
+            document.getElementById('footer-copyright').textContent = t.footerCopyright;
+
+            // Video message
+            const videoNotSupported = document.getElementById('video-not-supported');
+            if (videoNotSupported) videoNotSupported.textContent = t.videoNotSupported;
+        }
+
+        // Scroll navbar mejorado
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal mejorado
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Smooth scroll mejorado
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Ocultar loader y mostrar hero
+        function hideLoader() {
+            const loader = document.getElementById('loader');
+            const navbar = document.getElementById('navbar');
+            const heroSections = document.querySelectorAll('.hero-section');
+
+            if (loader) {
+                loader.classList.add('hidden');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    // Activar fade in del hero y navbar
+                    if (navbar) {
+                        navbar.classList.add('fade-in');
+                    }
+                    heroSections.forEach(section => {
+                        section.classList.add('fade-in');
+                    });
+                }, 200);
+            }
+        }
+
+        // Chatbot
+        let chatbotVisible = false;
+
+        function toggleChatbot() {
+            const popup = document.getElementById('chatbot-popup');
+            const toggle = document.getElementById('chatbot-toggle');
+
+            chatbotVisible = !chatbotVisible;
+
+            if (chatbotVisible) {
+                popup.classList.add('show');
+                toggle.classList.add('active');
+            } else {
+                popup.classList.remove('show');
+                toggle.classList.remove('active');
+            }
+        }
+
+        // Función para toggle de acordeones
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            if (!content) return;
+
+            const accordionItem = content.closest('.accordion-item');
+            const header = accordionItem.querySelector('.accordion-header');
+
+            // Cerrar todos los demás acordeones del mismo card
+            const allItems = accordionItem.parentElement.querySelectorAll('.accordion-item');
+            allItems.forEach(item => {
+                if (item !== accordionItem) {
+                    const itemContent = item.querySelector('.accordion-content');
+                    const itemHeader = item.querySelector('.accordion-header');
+                    if (itemContent && itemContent.classList.contains('active')) {
+                        itemContent.classList.remove('active');
+                        itemHeader.classList.remove('active');
+                    }
+                }
+            });
+
+            // Toggle del acordeón actual
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                header.classList.remove('active');
+            } else {
+                content.classList.add('active');
+                header.classList.add('active');
+            }
+        }
+
+        function showChatbotPopup() {
+            setTimeout(() => {
+                const popup = document.getElementById('chatbot-popup');
+                if (popup && !chatbotVisible) {
+                    popup.classList.add('show');
+                    chatbotVisible = true;
+                }
+            }, 3000);
+        }
+
+        // Enviar mensaje en el chatbot
+        function sendChatbotMessage() {
+            const input = document.getElementById('chatbot-input');
+            const messagesContainer = document.getElementById('chatbot-messages');
+            const message = input.value.trim();
+
+            if (message === '') return;
+
+            // Agregar mensaje del usuario
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chatbot-message user';
+            userMessage.innerHTML = `<p>${message}</p>`;
+            messagesContainer.appendChild(userMessage);
+
+            // Limpiar input
+            input.value = '';
+
+            // Scroll al final
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // Responder después de un pequeño delay
+            setTimeout(() => {
+                const botResponse = getChatbotResponse(message);
+                const botMessage = document.createElement('div');
+                botMessage.className = 'chatbot-message bot';
+                botMessage.innerHTML = `<p>${botResponse.replace(/\n/g, '<br>')}</p>`;
+                messagesContainer.appendChild(botMessage);
+
+                // Scroll al final
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 500);
+        }
+
+        // Manejar Enter en el input
+        function handleChatbotKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendChatbotMessage();
+            }
+        }
+
+        // Obtener respuesta del chatbot basada en el mensaje
+        function getChatbotResponse(message) {
+            const msg = message.toLowerCase();
+
+            // Respuestas basadas en palabras clave
+            if (msg.includes('precio') || msg.includes('costo') || msg.includes('cuánto') || msg.includes('cuanto')) {
+                return 'Nuestros precios varían según el yate y la duración del viaje. Para 4 horas, los precios van desde $1,300 USD hasta $8,700 USD. Puedes ver todos los precios en la sección "Nuestra Flota". ¿Te gustaría que te ayude a elegir un yate?';
+            }
+
+            if (msg.includes('yate') || msg.includes('embarcación') || msg.includes('barco') || msg.includes('flota')) {
+                return 'Tenemos una flota de 14 yates de lujo, desde el 27\' Sea Ray hasta el 92\' President. Cada uno está equipado con diferentes comodidades. ¿Te gustaría que te recomiende uno según el tamaño de tu grupo?';
+            }
+
+            if (msg.includes('reserva') || msg.includes('reservar') || msg.includes('disponibilidad')) {
+                return 'Para hacer una reserva, puedes llenar el formulario de contacto o contactarnos directamente por WhatsApp al +52 322 156 9131. También puedes hacer clic en el botón de WhatsApp para iniciar una conversación.';
+            }
+
+            if (msg.includes('incluye') || msg.includes('incluido') || msg.includes('qué incluye')) {
+                return 'Cada yate incluye diferentes cosas, pero generalmente incluyen agua, hielo, refrescos, y algunos incluyen comida, bebidas alcohólicas y actividades acuáticas. Los detalles específicos están en cada yate de la sección "Nuestra Flota".';
+            }
+
+            if (msg.includes('actividades') || msg.includes('actividad') || msg.includes('water toys')) {
+                return 'Ofrecemos diversas actividades acuáticas como snorkel, paddle boards, lilypad, toboganes, jetski, kayak, pesca y más, dependiendo del yate. Cada yate tiene diferentes equipos disponibles. ¿Quieres saber qué actividades tiene un yate específico?';
+            }
+
+            if (msg.includes('capacidad') || msg.includes('personas') || msg.includes('cuántas personas')) {
+                return 'La capacidad varía según el yate. Nuestros yates pueden acomodar desde pequeños grupos hasta eventos de 30 personas. El 92\' President tiene la mayor capacidad. ¿Cuántas personas serán en tu grupo?';
+            }
+
+            if (msg.includes('horario') || msg.includes('hora') || msg.includes('cuándo') || msg.includes('cuando')) {
+                return 'Estamos disponibles de lunes a domingo de 8:00 AM a 8:00 PM. También puedes contactarnos 24/7 por WhatsApp. Los viajes pueden ser de 4, 6 u 8 horas. ¿Qué duración prefieres?';
+            }
+
+            if (msg.includes('contacto') || msg.includes('contactar') || msg.includes('teléfono') || msg.includes('telefono')) {
+                return 'Puedes contactarnos por:<br>• Teléfono: +52 322 156 9131<br>• WhatsApp: +52 322 156 9131<br>• Email: Info@marodysseyexclusive.com<br>• O llena el formulario de contacto en la página. Estamos aquí para ayudarte!';
+            }
+
+            if (msg.includes('hola') || msg.includes('hi') || msg.includes('hello') || msg.includes('buenos días') || msg.includes('buenas tardes') || msg.includes('buenas noches')) {
+                return '¡Hola! 👋 ¿En qué puedo ayudarte hoy? Puedo responder preguntas sobre nuestros yates, precios, disponibilidad, actividades y más.';
+            }
+
+            if (msg.includes('gracias') || msg.includes('thank you') || msg.includes('thanks')) {
+                return '¡De nada! 😊 Estoy aquí para ayudarte cuando lo necesites. Si tienes más preguntas, no dudes en preguntarme.';
+            }
+
+            if (msg.includes('ubicación') || msg.includes('ubicacion') || msg.includes('dónde') || msg.includes('donde') || msg.includes('localización')) {
+                return 'Estamos ubicados en Puerto Vallarta y Marina La Cruz, México. Nuestros yates están en diferentes marinas. ¿Te gustaría conocer la ubicación específica de algún yate?';
+            }
+
+            // Respuesta por defecto
+            return 'Gracias por tu pregunta. Puedo ayudarte con información sobre nuestros yates, precios, reservas, actividades y más. También puedes contactarnos directamente por WhatsApp al +52 322 156 9131 o llenar el formulario de contacto. ¿Hay algo específico en lo que pueda ayudarte?';
+        }
+
+        // Cerrar chatbot al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            const popup = document.getElementById('chatbot-popup');
+            const toggle = document.getElementById('chatbot-toggle');
+
+            if (chatbotVisible && popup && !popup.contains(e.target) && !toggle.contains(e.target)) {
+                toggleChatbot();
+            }
+        });
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            mostrarYates();
+            setTimeout(() => {
+                revealOnScroll();
+            }, 100);
+            // Mostrar chatbot después de 3 segundos
+            showChatbotPopup();
+        });
+
+        // Ocultar loader cuando todo esté cargado
+        window.addEventListener('load', () => {
+            setTimeout(hideLoader, 300);
+        });
+
+        // Fallback: ocultar después de 1 segundo máximo
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            const body = document.body;
+
+            menu.classList.toggle('open');
+
+            if (menu.classList.contains('open')) {
+                icon.setAttribute('data-icon', 'mdi:close');
+                body.style.overflow = 'hidden'; // Prevent scrolling
+            } else {
+                icon.setAttribute('data-icon', 'mdi:menu');
+                body.style.overflow = 'auto'; // Restore scrolling
+            }
+        }
+
+    </script>
+</body>
+
+</html>

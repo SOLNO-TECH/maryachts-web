@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Yate - MarOdyssey Exclusive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a15;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #26c6da 0%, #3498db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #26c6da 0%, #00acc1 100%);
+            transition: all 0.4s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #00acc1 0%, #26c6da 100%);
+            box-shadow: 0 12px 30px rgba(38, 198, 218, 0.5);
+            transform: translateY(-3px);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 250px);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 1;
+                grid-row: span 1;
+                height: 300px;
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+
+            /* Ocultar imágenes extra en móvil para no hacer scroll infinito, mostrar solo 4 */
+            .gallery-item:nth-child(n+5) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#0a0a15]">
+
+    <!-- Navbar sutil -->
+    <nav class="absolute top-0 w-full z-50 px-6 py-4 glass-effect border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 text-white hover:text-[#26c6da] transition">
+                <span class="iconify text-2xl" data-icon="mdi:arrow-left"></span>
+                <span class="font-semibold">Volver / Back</span>
+            </a>
+            <div class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#26c6da] to-[#3498db]">
+                Mar Exclusive Yachts
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-20 px-4 md:px-8 max-w-7xl mx-auto" id="main-content">
+        <!-- Content injected via JS -->
+    </main>
+
+    <footer class="glass-effect mt-12 border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2026 Mar Exclusive Yachts. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/yacht-data.js"></script>
+    <script>
+        // Obtener ID del yate de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const yateId = parseInt(urlParams.get('id'));
+
+        function loadYachtDetails() {
+            if (isNaN(yateId) || !yates[yateId]) {
+                document.getElementById('main-content').innerHTML = `
+                    <div class="text-center py-20">
+                        <h2 class="text-4xl font-bold text-white mb-4">Yate no encontrado</h2>
+                        <a href="index.html" class="text-[#26c6da] hover:underline">Volver al inicio</a>
+                    </div>
+                `;
+                return;
+            }
+
+            const y = yates[yateId];
+
+            // Detectar idioma (simple check, o por defecto ES)
+            // Podríamos pasar lang por URL también, pero por ahora asumimos ES or detect browser
+            const lang = urlParams.get('lang') || 'es';
+            const isEs = lang === 'es';
+
+            const nombre = isEs ? y.nombre : y.nombre_en;
+
+            // Generar HTML de la galería
+            // Usamos las primeras 5 imágenes para el grid
+            const galleryHTML = y.imagenes.slice(0, 5).map((img, index) => {
+                return `
+                    <div class="gallery-item group">
+                        <img src="${img}" alt="${nombre} - Image ${index + 1}">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
+                    </div>
+                `;
+            }).join('');
+
+            // Generar lista de amenidades
+            const amenidadesHTML = y.amenidades.map(am =>
+                `<li class="flex items-start gap-3 text-gray-300">
+                    <span class="iconify text-[#26c6da] mt-1 flex-shrink-0" data-icon="mdi:check-circle"></span>
+                    <span>${traducirAmenidad(am, lang)}</span>
+                </li>`
+            ).join('');
+
+            // Format capacity
+            const capacityText = `${y.capacidad.estandar}${y.capacidad.maxima ? '-' + y.capacidad.maxima : ''} ${isEs ? 'Pasajeros' : 'Guests'}`;
+
+            // Main Layout
+            const html = `
+                <!-- Gallery Section -->
+                <section class="mb-12">
+                    <div class="gallery-grid">
+                        ${galleryHTML}
+                    </div>
+                </section>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                    <!-- Left Column: Details -->
+                    <div class="lg:col-span-2 space-y-12">
+                        
+                        <!-- Header Info -->
+                        <div>
+                            <div class="flex flex-wrap items-center gap-4 mb-4">
+                                <span class="bg-[#26c6da]/20 text-[#26c6da] px-4 py-1.5 rounded-full text-sm font-bold tracking-wider uppercase border border-[#26c6da]/30">
+                                    ${isEs ? 'Yate de Lujo' : 'Luxury Yacht'}
+                                </span>
+                                <span class="flex items-center gap-2 text-gray-300">
+                                    <span class="iconify" data-icon="mdi:map-marker"></span>
+                                    ${y.ubicacion}
+                                </span>
+                            </div>
+                            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">${nombre}</h1>
+                            
+                            <div class="flex flex-wrap gap-8 py-6 border-y border-white/10">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+                                        <span class="iconify text-2xl text-[#26c6da]" data-icon="mdi:account-group"></span>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400 uppercase tracking-wide">${isEs ? 'Capacidad' : 'Capacity'}</p>
+                                        <p class="font-semibold text-white">${capacityText}</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+                                        <span class="iconify text-2xl text-[#26c6da]" data-icon="mdi:bed"></span>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400 uppercase tracking-wide">${isEs ? 'Cabinas' : 'Cabins'}</p>
+                                        <p class="font-semibold text-white">${y.cabinas.replace(/[^0-9]/g, '')} ${isEs ? 'Camarotes' : 'Staterooms'}</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
+                                        <span class="iconify text-2xl text-[#26c6da]" data-icon="mdi:shower"></span>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400 uppercase tracking-wide">${isEs ? 'Baños' : 'Bathrooms'}</p>
+                                        <p class="font-semibold text-white">${y.banos.replace(/[^0-9.]/g, '')} ${isEs ? 'Baños' : 'Bathrooms'}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div>
+                            <h2 class="text-2xl font-bold mb-4 text-[#26c6da]">${isEs ? 'Sobre este yate' : 'About this yacht'}</h2>
+                            <p class="text-gray-300 leading-relaxed text-lg text-justify">
+                                ${traducirDescripcion(y.descripcion, lang)}
+                            </p>
+                        </div>
+
+                        <!-- Amenities -->
+                        <div>
+                            <h2 class="text-2xl font-bold mb-6 text-[#26c6da]">${isEs ? 'Amenidades y Características' : 'Amenities & Features'}</h2>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                ${amenidadesHTML}
+                            </ul>
+                        </div>
+
+                        <!-- Water Toys -->
+                        ${y.waterToys ? `
+                        <div class="bg-gradient-to-r from-blue-900/20 to-transparent p-8 rounded-2xl border border-blue-500/20">
+                            <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-blue-400">
+                                <span class="iconify" data-icon="mdi:surfing"></span>
+                                ${isEs ? 'Juguetes Acuáticos' : 'Water Toys'}
+                            </h3>
+                            <p class="text-gray-300">${traducirWaterToys(y.waterToys, lang)}</p>
+                        </div>
+                        ` : ''}
+
+                        <!-- Inclusions -->
+                        <div class="glass-effect p-8 rounded-2xl">
+                            <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-green-400">
+                                <span class="iconify" data-icon="mdi:glass-cocktail"></span>
+                                ${isEs ? 'Incluye' : 'Includes'}
+                            </h3>
+                            <p class="text-gray-300 mb-4">${traducirInclusiones(y.inclusiones, lang)}</p>
+                            ${y.noIncluido ? `<p class="text-sm text-gray-500 italic border-t border-white/10 pt-4 mt-4"><span class="font-bold text-red-300/80">${isEs ? 'No incluido:' : 'Not included:'}</span> ${traducirNoIncluido(y.noIncluido, lang)}</p>` : ''}
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Booking Card -->
+                    <div class="lg:col-span-1">
+                        <div class="sticky top-32 glass-effect p-8 rounded-2xl border border-[#26c6da]/20 shadow-2xl shadow-[#26c6da]/5">
+                            <div class="text-center mb-8">
+                                <p class="text-gray-400 mb-2 uppercase text-sm tracking-widest">${isEs ? 'Precio desde' : 'Starting at'}</p>
+                                <div class="text-4xl font-bold text-white flex items-center justify-center gap-1">
+                                    ${y.precioInicio}
+                                    <span class="text-lg text-gray-500 font-normal">/ 4h</span>
+                                </div>
+                            </div>
+                            
+                            <a href="https://wa.me/523221569131?text=${isEs ? 'Hola, me interesa reservar el yate ' : 'Hi, I am interested in booking the yacht '}${encodeURIComponent(nombre)}" target="_blank" 
+                               class="btn-primary w-full py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 mb-4 text-white shadow-lg">
+                                <span>${isEs ? 'Reservar vía WhatsApp' : 'Book via WhatsApp'}</span>
+                                <span class="iconify" data-icon="mdi:whatsapp"></span>
+                            </a>
+                            
+                            <div class="text-center">
+                                <p class="text-sm text-gray-400 mb-4">${isEs ? 'También puedes contactarnos para personalizar tu experiencia' : 'You can also contact us to customize your experience'}</p>
+                                <div class="flex justify-center gap-4">
+                                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#26c6da] transition text-white">
+                                        <span class="iconify" data-icon="mdi:instagram"></span>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#26c6da] transition text-white">
+                                        <span class="iconify" data-icon="mdi:facebook"></span>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#26c6da] transition text-white">
+                                        <span class="iconify" data-icon="mdi:email"></span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', loadYachtDetails);
+    </script>
+</body>
+
+</html>
