@@ -21,7 +21,7 @@ const yates = [
             "Jacuzzi para 6 personas",
             "Sistema de sonido de alta calidad",
             "Televisores de pantalla grande",
-            "Sistema de karaoke para entretenimiento a bordo",
+            "Sistema de karaoke para entertainment a bordo",
             "A/C",
             "Starlink Wifi",
             "BBQ Grill"
@@ -91,7 +91,7 @@ const yates = [
         nombre: "60' Mikelson",
         nombre_en: "60' Mikelson",
         imagenes: ["60 Mikelson/60 Mikelson.jpg", "60 Mikelson/60 Mikelson 2.jpg", "60 Mikelson/60 Mikelson 3.jpg", "60 Mikelson/60 Mikelson 4.jpg", "60 Mikelson/60 Mikelson 5.jpg", "60 Mikelson/60 Mikelson 6.jpg", "60 Mikelson/60 Mikelson 7.jpg", "60 Mikelson/60 Mikelson 8.jpg", "60 Mikelson/60 Mikelson 9.jpg", "60 Mikelson/60 Mikelson 10.jpg"],
-        precioInicio: "1,600 USD",
+        precioInicio: "1,800 USD",
         ubicacion: "Marina Puerto Vallarta",
         capacidad: {
             estandar: 10,
@@ -114,10 +114,59 @@ const yates = [
         noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
     },
     {
+        nombre: "60' Sea Ray Express",
+        nombre_en: "60' Sea Ray Express",
+        imagenes: ["60 Sea Ray Express/60_ Sea Ray 1.jpeg", "60 Sea Ray Express/60_ Sea Ray 2 (2).jpeg", "60 Sea Ray Express/60_ Sea Ray 3.jpeg", "60 Sea Ray Express/60_ Sea Ray 4.jpeg", "60 Sea Ray Express/60_ Sea Ray 5.jpeg", "60 Sea Ray Express/60_ Sea Ray 6.jpeg", "60 Sea Ray Express/60_ Sea Ray 7.jpeg", "60 Sea Ray Express/60_ Sea Ray 8.jpeg"],
+        precioInicio: "1,550 USD",
+        ubicacion: "Marina Puerto Vallarta",
+        capacidad: {
+            estandar: 12,
+            maxima: 25,
+            personaExtra: "35 USD each"
+        },
+        cabinas: "2 staterooms (camarotes)",
+        banos: "2 baños",
+        amenidades: [
+            "Salón interior y cabina con aire acondicionado",
+            "Sala exterior",
+            "Proa acojinada",
+            "Cocina equipada",
+            "Sistema de sonido bluetooth"
+        ],
+        waterToys: "Snorkel gear, paddle boards, lilypad",
+        descripcion: "El Sea Ray Express 600 es un yate a motor tipo express cruiser diseñado para ofrecer comodidad, estilo y rendimiento en paseos costeros, chárter recreativo o cruceros de día completo. Es ideal para eventos privados, salidas al atardecer, paseos familiares o con amigos, gracias a su combinación de espacios interiores acogedores, zonas sociales exteriores y buen desempeño en el agua.",
+        inclusiones: "Water, ice",
+        noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
+    },
+    {
+        nombre: "55' Sea Ray L550",
+        nombre_en: "55' Sea Ray L550",
+        imagenes: ["55 Sea Ray L550/55_ Sea Ray.jpeg", "55 Sea Ray L550/55_ Sea Ray 2.jpeg", "55 Sea Ray L550/55_ Sea Ray 3.jpeg", "55 Sea Ray L550/55_ Sea Ray 4.jpeg", "55 Sea Ray L550/55_ Sea Ray 5.jpeg", "55 Sea Ray L550/55_ Sea Ray 6.jpeg", "55 Sea Ray L550/55_ Sea Ray 7.jpeg", "55 Sea Ray L550/55_ Sea Ray 8.jpeg", "55 Sea Ray L550/55_ Sea Ray 9.jpeg", "55 Sea Ray L550/55_ Sea Ray 10.jpeg"],
+        precioInicio: "4,100 USD",
+        ubicacion: "Marina Puerto Vallarta",
+        capacidad: {
+            estandar: 12,
+            maxima: 12
+        },
+        cabinas: "3 staterooms (camarotes) cómodos para dormir",
+        banos: "3 baños",
+        amenidades: [
+            "Sala interior con aire acondicionado",
+            "Sala exterior",
+            "Cocina equipada",
+            "Sistema de sonido Bose",
+            "Starlink Wifi"
+        ],
+        waterToys: "Equipo de snorkel, paddle board, lilypad",
+        descripcion: "El Sea Ray L550 es un yate de lujo que destaca por su diseño moderno, alto rendimiento y confort excepcional. Con líneas elegantes y una presencia imponente, ofrece una experiencia náutica sofisticada pensada para quienes buscan exclusividad y estilo en cada travesía. Sus amplias zonas exteriores incluyen espacios de solárium, áreas de descanso y una distribución perfecta para el entretenimiento a bordo, permitiendo disfrutar del mar con total comodidad tanto en navegación como fondeado. El flybridge y la bañera proporcionan vistas privilegiadas y un ambiente ideal para socializar. En el interior, sorprende con un diseño contemporáneo, materiales de alta gama y una cuidada iluminación natural. Sus camarotes espaciosos, baños elegantes y salón panorámico crean un entorno refinado y acogedor, perfecto para estancias prolongadas. Gracias a su potente motorización, estabilidad y tecnología avanzada, el Sea Ray L550 garantiza una navegación suave, segura y placentera, convirtiéndose en la elección ideal para quienes desean vivir el mar con lujo, confort y experiencias inolvidables.",
+        inclusiones: "Ice, water, sodas, beers, fresh fruit, chips, guacamole, ceviche, hors d'oeuvres.",
+        noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
+    },
+    {
         nombre: "52' Azimut",
         nombre_en: "52' Azimut",
         imagenes: ["52 Azimut/52 Azimut 1.jpg", "52 Azimut/52 Azimut 2.jpg", "52 Azimut/52 Azimut 3.jpg", "52 Azimut/52 Azimut 4.jpg", "52 Azimut/52 Azimut 5.jpg", "52 Azimut/52 Azimut 6.jpg", "52 Azimut/52 Azimut 7.jpg", "52 Azimut/52 Azimut 8.jpg"],
-        precioInicio: "1,700 USD",
+        precioInicio: "1,900 USD",
         ubicacion: "Marina Puerto Vallarta",
         capacidad: {
             estandar: 10,
@@ -165,32 +214,8 @@ const yates = [
         waterToys: "Snorkel gear, lilypad",
         descripcion: "El Marquis 50 es un yate lujoso que combina estilo deportivo moderno, comodidad premium y un rendimiento suave en el agua. Este barco está diseñado para elevar cualquier salida al mar, perfecto para quienes buscan experiencias náuticas exclusivas en la Bahía de Banderas desde paseos al atardecer con pareja hasta celebraciones con amigos o aventuras familiares por la costa.",
         inclusiones: "Water, ice, sodas, ceviche and guacamole. (Menu option available for 60 USD per person)",
-        noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
-    },
-    {
-        nombre: "60' Sea Ray Express",
-        nombre_en: "60' Sea Ray Express",
-        imagenes: ["60 Sea Ray Express/60_ Sea Ray 1.jpeg", "60 Sea Ray Express/60_ Sea Ray 2 (2).jpeg", "60 Sea Ray Express/60_ Sea Ray 3.jpeg", "60 Sea Ray Express/60_ Sea Ray 4.jpeg", "60 Sea Ray Express/60_ Sea Ray 5.jpeg", "60 Sea Ray Express/60_ Sea Ray 6.jpeg", "60 Sea Ray Express/60_ Sea Ray 7.jpeg", "60 Sea Ray Express/60_ Sea Ray 8.jpeg"],
-        precioInicio: "1,550 USD",
-        ubicacion: "Marina Puerto Vallarta",
-        capacidad: {
-            estandar: 12,
-            maxima: 25,
-            personaExtra: "35 USD each"
-        },
-        cabinas: "2 staterooms (camarotes)",
-        banos: "2 baños",
-        amenidades: [
-            "Salón interior y cabina con aire acondicionado",
-            "Sala exterior",
-            "Proa acojinada",
-            "Cocina equipada",
-            "Sistema de audio bluetooth"
-        ],
-        waterToys: "Snorkel gear, paddle boards, lilypad",
-        descripcion: "El Sea Ray Express 600 es un yate a motor tipo express cruiser diseñado para ofrecer comodidad, estilo y rendimiento en paseos costeros, chárter recreativo o cruceros de día completo. Es ideal para eventos privados, salidas al atardecer, paseos familiares o con amigos, gracias a su combinación de espacios interiores acogedores, zonas sociales exteriores y buen desempeño en el agua.",
-        inclusiones: "Water, ice",
-        noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
+        noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina.",
+        masRentado: true
     },
     {
         nombre: "47' Fountaine Pajot",
@@ -315,7 +340,8 @@ const yates = [
         waterToys: "Equipo de snorkel, paddle board, lilypad, caña de pesca",
         descripcion: "El Lagoon 40 es un catamarán moderno y versátil, diseñado para ofrecer una experiencia de navegación cómoda, estable y llena de estilo. Su diseño inteligente maximiza el espacio y la funcionalidad, convirtiéndose en una opción perfecta tanto para escapadas de día como para estancias más largas a bordo. El amplio cockpit a nivel del salón crea una conexión fluida entre interior y exterior, ideal para disfrutar del mar en un ambiente relajado y social. Las zonas de descanso, junto con su puesto de mando bien integrado, permiten navegar con seguridad sin renunciar al confort. En el interior, destaca por su luminosidad, acabados contemporáneos y una distribución pensada para el bienestar de los invitados. Gracias a la reconocida calidad de Lagoon, el Lagoon 40 garantiza una navegación suave y estable, convirtiéndose en la elección ideal para quienes buscan libertad, comodidad y momentos inolvidables en el mar.",
         inclusiones: "Welcome margarita, fresh fruit, guacamole, water, ice, sodas. (Fajitas available at extra cost)",
-        noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
+        noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina.",
+        masRentado: true
     },
     {
         nombre: "40' Ocean",
@@ -338,31 +364,8 @@ const yates = [
         waterToys: "Equipo de snorkel, cañas de pesca",
         descripcion: "El 40' Ocean es una embarcación de pesca deportiva diseñada para ofrecer rendimiento, seguridad y confort en cada jornada en el mar. Robusta, potente y perfectamente equipada, es la elección ideal tanto para pescadores experimentados como para quienes desean vivir una auténtica experiencia de pesca de altura. Su amplia bañera de pesca proporciona el espacio necesario para trabajar cómodamente durante la acción, mientras que su estabilidad y excelente comportamiento en navegación garantizan salidas seguras incluso en condiciones exigentes. 40' Ocean está preparada para la pesca de especies pelágicas, combinando potencia y maniobrabilidad para alcanzar los mejores puntos de pesca con rapidez. En el interior, ofrece un ambiente funcional y confortable para el descanso entre jornadas, con camarote, baño y zona resguardada, aportando comodidad durante salidas prolongadas. Todo ello convierte al 40' Ocean en una plataforma de pesca fiable, eficiente y lista para la acción. Una embarcación pensada para quienes persiguen grandes capturas y experiencias inolvidables en el mar.",
         inclusiones: "Ice, water, six beers, six sodas. Tostadas for ceviche \"catch of the day\" for fishing charters",
-        noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
-    },
-    {
-        nombre: "55' Sea Ray L550",
-        nombre_en: "55' Sea Ray L550",
-        imagenes: ["55 Sea Ray L550/55_ Sea Ray.jpeg", "55 Sea Ray L550/55_ Sea Ray 2.jpeg", "55 Sea Ray L550/55_ Sea Ray 3.jpeg", "55 Sea Ray L550/55_ Sea Ray 4.jpeg", "55 Sea Ray L550/55_ Sea Ray 5.jpeg", "55 Sea Ray L550/55_ Sea Ray 6.jpeg", "55 Sea Ray L550/55_ Sea Ray 7.jpeg", "55 Sea Ray L550/55_ Sea Ray 8.jpeg", "55 Sea Ray L550/55_ Sea Ray 9.jpeg", "55 Sea Ray L550/55_ Sea Ray 10.jpeg"],
-        precioInicio: "4,100 USD",
-        ubicacion: "Marina Puerto Vallarta",
-        capacidad: {
-            estandar: 12,
-            maxima: 12
-        },
-        cabinas: "3 staterooms (camarotes) cómodos para dormir",
-        banos: "3 baños",
-        amenidades: [
-            "Sala interior con aire acondicionado",
-            "Sala exterior",
-            "Cocina equipada",
-            "Sistema de sonido Bose",
-            "Starlink Wifi"
-        ],
-        waterToys: "Equipo de snorkel, paddle board, lilypad",
-        descripcion: "El Sea Ray L550 es un yate de lujo que destaca por su diseño moderno, alto rendimiento y confort excepcional. Con líneas elegantes y una presencia imponente, ofrece una experiencia náutica sofisticada pensada para quienes buscan exclusividad y estilo en cada travesía. Sus amplias zonas exteriores incluyen espacios de solárium, áreas de descanso y una distribución perfecta para el entretenimiento a bordo, permitiendo disfrutar del mar con total comodidad tanto en navegación como fondeado. El flybridge y la bañera proporcionan vistas privilegiadas y un ambiente ideal para socializar. En el interior, sorprende con un diseño contemporáneo, materiales de alta gama y una cuidada iluminación natural. Sus camarotes espaciosos, baños elegantes y salón panorámico crean un entorno refinado y acogedor, perfecto para estancias prolongadas. Gracias a su potente motorización, estabilidad y tecnología avanzada, el Sea Ray L550 garantiza una navegación suave, segura y placentera, convirtiéndose en la elección ideal para quienes desean vivir el mar con lujo, confort y experiencias inolvidables.",
-        inclusiones: "Ice, water, sodas, beers, fresh fruit, chips, guacamole, ceviche, hors d'oeuvres.",
-        noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
+        noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina.",
+        masRentado: true
     },
     {
         nombre: "27' Sea Ray",
@@ -374,13 +377,14 @@ const yates = [
             estandar: 8,
             maxima: 8
         },
+        cabinas: "0 staterooms",
         banos: "1 baños",
         amenidades: [
             "Sala exterior",
             "Baño",
             "Sistema de sonido bluetooth"
         ],
-        descripcion: "El Sea Ray 27 es una embarcación versátil y elegante, perfecta para quienes buscan comodidad, diversión y rendimiento en el mar. Con un diseño compacto y moderno, combina maniobrabilidad con espacios bien distribuidos, ofreciendo una experiencia náutica ágil y placentera. Su cockpit abierto permite disfrutar del sol y del entorno mientras se navega o se fondea, ideal para salidas de día. La zona de mando está diseñada para un control seguro y cómodo, mientras que los asientos acolchados y áreas de descanso garantizan confort para todos los pasajeros. Una embarcación perfecta para quienes buscan libertad, diversión y momentos inolvidables en el mar.",
+        descripcion: "El Sea Ray 27 es una embarcación versátil y elegante, perfecta para quienes buscan comodidad, diversión y rendimiento en el mar. Con un diseño compacto y moderno, combina maniobrabilidad con espacios bien distribuidos, ofreciendo una experiencia náutica ágil y placentera.\n\nSu cockpit abierto permite disfrutar del sol y del entorno mientras se navega o se fondea, ideal para salidas de día. La zona de mando está diseñada para un control seguro y cómodo, mientras que los asientos acolchados y áreas de descanso garantizan confort para todos los pasajeros.\n\nUna embarcación perfecta para quienes buscan libertad, diversión y momentos inolvidables en el mar.",
         inclusiones: "Ice, water, sodas, 12 beers or 2 bottles of white wine.",
         noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
     }
@@ -425,7 +429,7 @@ function traducirAmenidad(amenidad, lang) {
         "Espacio delantero con trampolines que facilitan el descanso sobre el agua y la exploración de zonas poco profundas": "Forward space with trampolines that facilitate rest on the water and exploration of shallow areas",
         "Salón interior y cabina con aire acondicionado": "Interior salon and cabin with air conditioning",
         "Sala exterior": "Exterior salon",
-        "Proa acojinada": "Cushioned bow",
+        "Proa acojinada": "Cushioned bowl",
         "Deck exterior con asoleadero y áreas para sentarse o relajarse al sol": "Exterior deck with sunbathing area and spaces to sit or relax in the sun",
         "Flybridge amplio con zona de mando y asientos para disfrutar del paisaje y socializar en alta mar": "Spacious flybridge with command area and seating to enjoy the landscape and socialize at sea",
         "Plataforma de baño y acceso al agua para natación o snorkel": "Swim platform and water access for swimming or snorkeling",

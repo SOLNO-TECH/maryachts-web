@@ -786,6 +786,7 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(38, 198, 218, 0.3);
             z-index: 9999;
             opacity: 0;
+            pointer-events: none;
             transform: translateY(20px) scale(0.95);
             transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             overflow: hidden;
@@ -793,6 +794,7 @@
 
         .chatbot-popup.show {
             opacity: 1;
+            pointer-events: auto;
             transform: translateY(0) scale(1);
         }
 
@@ -998,6 +1000,17 @@
                 right: 20px;
                 bottom: 80px;
             }
+
+            .chatbot-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+
+            .chatbot-overlay {
+                bottom: 10px;
+                right: 10px;
+            }
         }
 
         /* Accordion styles */
@@ -1167,12 +1180,12 @@
                 </div>
                 <div class="glass-effect p-8 rounded-xl text-center reveal hover:bg-white hover:bg-opacity-15 transition"
                     style="transition-delay: 0.1s;">
-                    <div class="text-5xl md:text-7xl font-bold gradient-text mb-4">500+</div>
+                    <div class="text-5xl md:text-7xl font-bold gradient-text mb-4">300+</div>
                     <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-2">Clientes Felices</div>
                 </div>
                 <div class="glass-effect p-8 rounded-xl text-center reveal hover:bg-white hover:bg-opacity-15 transition"
                     style="transition-delay: 0.2s;">
-                    <div class="text-5xl md:text-7xl font-bold gradient-text mb-4">15</div>
+                    <div class="text-5xl md:text-7xl font-bold gradient-text mb-4">10</div>
                     <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-3">Años Experiencia</div>
                 </div>
                 <div class="glass-effect p-8 rounded-xl text-center reveal hover:bg-white hover:bg-opacity-15 transition"
@@ -1189,7 +1202,7 @@
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-24 reveal">
                 <h2 class="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-relaxed" id="acerca-title">Acerca
-                    de Mar Odyssey
+                    de Mar Exclusive Yachts
                 </h2>
                 <p class="text-gray-300 max-w-3xl mx-auto text-xl md:text-2xl font-light leading-relaxed"
                     id="acerca-subtitle">
@@ -1206,7 +1219,7 @@
                     <div class="space-y-6">
                         <p class="text-gray-200 leading-relaxed text-lg md:text-xl font-light text-justify"
                             id="acerca-quienes-text">
-                            En Mar Odyssey Exclusive, nos dedicamos a crear experiencias náuticas inolvidables. Con más
+                            En Mar Exclusive Yachts, nos dedicamos a crear experiencias náuticas inolvidables. Con más
                             de 15
                             años de experiencia en el sector de yates de lujo, ofrecemos el más alto nivel de servicio y
                             atención personalizada.
@@ -1229,10 +1242,10 @@
                             id="acerca-vision">Visión</h3>
                         <p class="text-gray-200 leading-relaxed text-lg font-light text-justify"
                             id="acerca-vision-text">
-                            Ser la empresa líder en experiencias náuticas de lujo en Puerto Vallarta y Marina La Cruz,
+                            Ser la empresa líder en experiencias náuticas de lujo en Puerto Vallarta y Riviera Nayarit,
                             reconocida
-                            por nuestra excelencia en servicio, innovación y compromiso con la satisfacción total de
-                            nuestros clientes.
+                            por nuestra excelencia en el servicio, atención al detalle, innovación y compromiso con la
+                            satisfacción total de nuestros clientes.
                         </p>
                     </div>
                     <div class="glass-effect p-10 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition">
@@ -1423,7 +1436,7 @@
 
                 <!-- Palito Verde -->
                 <div class="group relative h-64 md:h-80 rounded-2xl overflow-hidden cursor-pointer shadow-xl reveal">
-                    <img src="palito.webp" alt="Palito Verde"
+                    <img src="palito.jpg" alt="Palito Verde"
                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
@@ -1607,7 +1620,7 @@
                 </h2>
                 <p class="text-gray-300 max-w-3xl mx-auto text-xl md:text-2xl font-light leading-relaxed"
                     id="testimonios-subtitle">
-                    Descubre lo que dicen quienes han vivido la experiencia Mar Odyssey
+                    Descubre lo que dicen quienes han vivido la experiencia Mar Exclusive Yachts
                 </p>
                 <!-- Rating Summary -->
                 <div class="flex items-center justify-center gap-4 mt-8">
@@ -1819,7 +1832,7 @@
         <div class="chatbot-body">
             <div class="chatbot-messages" id="chatbot-messages">
                 <div class="chatbot-message bot">
-                    <p>¡Hola! 👋 Soy el asistente virtual de Mar Odyssey Exclusive.</p>
+                    <p>¡Hola! 👋 Soy el asistente virtual de Mar Exclusive Yachts.</p>
                     <p style="margin-top: 8px;">Estoy aquí para ayudarte con cualquier pregunta sobre nuestras
                         embarcaciones, servicios o reservas. ¿En qué puedo asistirte hoy?</p>
                 </div>
@@ -1875,7 +1888,7 @@
                         </p>
                         <p class="flex items-center gap-3 text-lg">
                             <span class="iconify text-teal-400" data-icon="mdi:email"></span>
-                            Info@marodysseyexclusive.com
+                            info@marexclusiveyachts.com
                         </p>
                         <p class="flex items-center gap-3 text-lg">
                             <span class="iconify text-teal-400" data-icon="mdi:map-marker"></span>
@@ -1987,7 +2000,7 @@
                 // Calculate variables for new card design
                 const capacity = `${y.capacidad.estandar}-${y.capacidad.maxima || y.capacidad.estandar} ${lang === 'es' ? 'Pax' : 'Pax'}`;
                 const priceStart = y.precioInicio;
-                const showBadge = index < 3;
+                const showBadge = y.masRentado === true;
                 const badgeHTML = showBadge ? `
                     <div class="absolute top-4 left-4 z-20">
                          <span class="bg-[#26c6da] text-[#0a0a15] text-[10px] font-extrabold px-3 py-1 rounded-sm uppercase tracking-widest shadow-lg">
@@ -2072,13 +2085,13 @@
                     stat2: "Clientes Felices",
                     stat3: "Años Experiencia",
                     stat4: "Satisfacción",
-                    acercaTitle: "Acerca de Mar Odyssey",
+                    acercaTitle: "Acerca de Mar Exclusive Yachts",
                     acercaSubtitle: "La experiencia náutica más exclusiva de Puerto Vallarta",
                     acercaQuienes: "Quiénes Somos",
-                    acercaQuienesText: "En Mar Odyssey Exclusive, nos dedicamos a crear experiencias náuticas inolvidables. Con más de 15 años de experiencia en el sector de yates de lujo, ofrecemos el más alto nivel de servicio y atención personalizada.",
+                    acercaQuienesText: "En Mar Exclusive Yachts, nos dedicamos a crear experiencias náuticas inolvidables. Con más de 15 años de experiencia en el sector de yates de lujo, ofrecemos el más alto nivel de servicio y atención personalizada.",
                     acercaQuienesText2: "Nuestra flota de embarcaciones premium está equipada con las mejores comodidades y tecnología, garantizando que cada viaje sea una aventura memorable en las aguas cristalinas de la Bahía de Banderas.",
                     acercaMision: "Quiénes Somos",
-                    acercaMisionText: "En Mar Odyssey Exclusive, nos dedicamos a crear experiencias náuticas inolvidables. Con más de 15 años de experiencia en el sector de yates de lujo, ofrecemos el más alto nivel de servicio y atención personalizada.",
+                    acercaMisionText: "En Mar Exclusive Yachts, nos dedicamos a crear experiencias náuticas inolvidables. Con más de 15 años de experiencia en el sector de yates de lujo, ofrecemos el más alto nivel de servicio y atención personalizada.",
                     acercaMisionText2: "Nuestra flota de embarcaciones premium está equipada con las mejores comodidades y tecnología, garantizando que cada viaje sea una aventura memorable en las aguas cristalinas de la Bahía de Banderas.",
                     acercaVision: "Visión",
                     acercaVisionText: "Ser la empresa líder en experiencias náuticas de lujo en Puerto Vallarta y Marina La Cruz, reconocida por nuestra excelencia en servicio, innovación y compromiso con la satisfacción total de nuestros clientes.",
@@ -2111,7 +2124,7 @@
                     expChefTitle: "Chef a bordo",
                     expChefDesc: "Alta cocina en el mar",
                     testimoniosTitle: "Experiencias Reales",
-                    testimoniosSubtitle: "Descubre lo que dicen quienes han vivido la experiencia Mar Odyssey",
+                    testimoniosSubtitle: "Descubre lo que dicen quienes han vivido la experiencia Mar Exclusive Yachts",
                     testimonio1Text: "\"Fue, sin duda, el mejor día de nuestras vacaciones. La tripulación fue increíblemente atenta y el yate estaba impecable. Ver el atardecer desde el mar fue mágico.\"",
                     testimonio2Text: "\"Excelente servicio desde el primer contacto. El equipo de reservas hizo todo muy fácil y la experiencia a bordo superó nuestras expectativas. ¡Repetiremos seguro!\"",
                     testimonio3Text: "\"Celebrar mi cumpleaños en el yate fue la mejor decisión. La comida, la música, el ambiente... todo perfecto. Gracias al equipo por los detalles especiales.\"",
@@ -2138,7 +2151,7 @@
                     footerHorariosTitle: "Horarios",
                     footerDias: "Lunes - Domingo",
                     footerWhatsapp: "Disponible 24/7 por WhatsApp",
-                    footerCopyright: "© 2026 MarOdyssey Exclusive. Todos los derechos reservados.",
+                    footerCopyright: "© 2026 MarExclusive Yachts. Todos los derechos reservados.",
                     videoNotSupported: "Tu navegador no soporta el elemento de video."
                 },
                 en: {
@@ -2157,13 +2170,13 @@
                     stat2: "Happy Clients",
                     stat3: "Years Experience",
                     stat4: "Satisfaction",
-                    acercaTitle: "About Mar Odyssey",
+                    acercaTitle: "About Mar Exclusive Yachts",
                     acercaSubtitle: "The most exclusive nautical experience in Puerto Vallarta",
                     acercaQuienes: "Who We Are",
-                    acercaQuienesText: "At Mar Odyssey Exclusive, we are dedicated to creating unforgettable nautical experiences. With over 15 years of experience in the luxury yacht sector, we offer the highest level of service and personalized attention.",
+                    acercaQuienesText: "At Mar Exclusive Yachts, we are dedicated to creating unforgettable nautical experiences. With over 15 years of experience in the luxury yacht sector, we offer the highest level of service and personalized attention.",
                     acercaQuienesText2: "Our fleet of premium vessels is equipped with the best amenities and technology, ensuring that each trip is a memorable adventure in the crystal-clear waters of Banderas Bay.",
                     acercaMision: "Who We Are",
-                    acercaMisionText: "At Mar Odyssey Exclusive, we are dedicated to creating unforgettable nautical experiences. With over 15 years of experience in the luxury yacht sector, we offer the highest level of service and personalized attention.",
+                    acercaMisionText: "At Mar Exclusive Yachts, we are dedicated to creating unforgettable nautical experiences. With over 15 years of experience in the luxury yacht sector, we offer the highest level of service and personalized attention.",
                     acercaMisionText2: "Our fleet of premium vessels is equipped with the best amenities and technology, ensuring that each trip is a memorable adventure in the crystal-clear waters of Banderas Bay.",
                     acercaVision: "Vision",
                     acercaVisionText: "To be the leading company in luxury nautical experiences in Puerto Vallarta and Marina La Cruz, recognized for our excellence in service, innovation and commitment to total customer satisfaction.",
@@ -2196,7 +2209,7 @@
                     expChefTitle: "Onboard Chef",
                     expChefDesc: "Haute cuisine at sea",
                     testimoniosTitle: "Real Experiences",
-                    testimoniosSubtitle: "Discover what those who have lived the Mar Odyssey experience have to say",
+                    testimoniosSubtitle: "Discover what those who have lived the Mar Exclusive Yachts experience have to say",
                     testimonio1Text: "\"It was, without a doubt, the best day of our vacation. The crew was incredibly attentive and the yacht was impeccable. Watching the sunset from the sea was magical.\"",
                     testimonio2Text: "\"Excellent service from the first contact. The booking team made everything very easy and the onboard experience exceeded our expectations. We will definitely be back!\"",
                     testimonio3Text: "\"Celebrating my birthday on the yacht was the best decision. The food, the music, the atmosphere... everything perfect. Thanks to the team for the special details.\"",
@@ -2223,7 +2236,7 @@
                     footerHorariosTitle: "Hours",
                     footerDias: "Monday - Sunday",
                     footerWhatsapp: "Available 24/7 via WhatsApp",
-                    footerCopyright: "© 2026 MarOdyssey Exclusive. All rights reserved.",
+                    footerCopyright: "© 2026 Mar Exclusive Yachts. All rights reserved.",
                     videoNotSupported: "Your browser does not support the video element."
                 }
             };
@@ -2546,7 +2559,7 @@
             }
 
             if (msg.includes('contacto') || msg.includes('contactar') || msg.includes('teléfono') || msg.includes('telefono')) {
-                return 'Puedes contactarnos por:<br>• Teléfono: +52 322 156 9131<br>• WhatsApp: +52 322 156 9131<br>• Email: Info@marodysseyexclusive.com<br>• O llena el formulario de contacto en la página. Estamos aquí para ayudarte!';
+                return 'Puedes contactarnos por:<br>• Teléfono: +52 322 156 9131<br>• WhatsApp: +52 322 156 9131<br>• Email: Info@marexclusiveyachts.com<br>• O llena el formulario de contacto en la página. Estamos aquí para ayudarte!';
             }
 
             if (msg.includes('hola') || msg.includes('hi') || msg.includes('hello') || msg.includes('buenos días') || msg.includes('buenas tardes') || msg.includes('buenas noches')) {
