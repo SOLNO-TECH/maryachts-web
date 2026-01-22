@@ -63,7 +63,7 @@ const yates = [
     {
         nombre: "81' Sailboat",
         nombre_en: "81' Sailboat",
-        imagenes: ["81 Sailboat/81 Sailboat.jpg", "81 Sailboat/81 Sailboat 2.jpg", "81 Sailboat/81 Sailboat 3.jpg", "81 Sailboat/81 Sailboat 4.jpg", "81 Sailboat/81 Sailboat 7.jpg", "81 Sailboat/81 Sailboat 6.jpg", "81 Sailboat/81 Sailboat 5.jpg", "81 Sailboat/81 Sailboat 8.jpg"],
+        imagenes: ["81 Sailboat/81 Sailboat.jpg", "81 Sailboat/81 Sailboat 3.jpg", "81 Sailboat/81 Sailboat 4.jpg", "81 Sailboat/81 Sailboat 7.jpg", "81 Sailboat/81 Sailboat 6.jpg", "81 Sailboat/81 Sailboat 5.jpg", "81 Sailboat/81 Sailboat 8.jpg"],
         precioInicio: "2,050 USD",
         ubicacion: "Marina Puerto Vallarta",
         capacidad: {
@@ -141,7 +141,7 @@ const yates = [
     {
         nombre: "55' Sea Ray L550",
         nombre_en: "55' Sea Ray L550",
-        imagenes: ["55 Sea Ray L550/55_ Sea Ray.jpeg", "55 Sea Ray L550/55_ Sea Ray 2.jpeg", "55 Sea Ray L550/55_ Sea Ray 7.jpeg", "55 Sea Ray L550/55_ Sea Ray 4.jpeg", "55 Sea Ray L550/55_ Sea Ray 5.jpeg", "55 Sea Ray L550/55_ Sea Ray 6.jpeg", "55 Sea Ray L550/55_ Sea Ray 3.jpeg", "55 Sea Ray L550/55_ Sea Ray 8.jpeg", "55 Sea Ray L550/55_ Sea Ray 9.jpeg", "55 Sea Ray L550/55_ Sea Ray 10.jpeg"],
+        imagenes: ["55 Sea Ray L550/55_ Sea Ray.jpeg", "55 Sea Ray L550/55_ Sea Ray 2.jpeg", "55 Sea Ray L550/55_ Sea Ray 10.jpeg", "55 Sea Ray L550/55_ Sea Ray 4.jpeg", "55 Sea Ray L550/55_ Sea Ray 5.jpeg", "55 Sea Ray L550/55_ Sea Ray 6.jpeg", "55 Sea Ray L550/55_ Sea Ray 3.jpeg", "55 Sea Ray L550/55_ Sea Ray 8.jpeg", "55 Sea Ray L550/55_ Sea Ray 9.jpeg", "55 Sea Ray L550/55_ Sea Ray 7.jpeg"],
         precioInicio: "4,100 USD",
         ubicacion: "Marina Puerto Vallarta",
         capacidad: {

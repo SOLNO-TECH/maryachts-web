@@ -108,6 +108,10 @@
                 height: 200px;
             }
 
+            .gallery-item.azimut-vertical {
+                height: 450px;
+            }
+
             /* Ocultar imágenes extra en móvil para no hacer scroll infinito, mostrar solo 4 */
             .gallery-item:nth-child(n+5) {
                 display: none;
@@ -155,7 +159,7 @@
                 document.getElementById('main-content').innerHTML = `
                     <div class="text-center py-20">
                         <h2 class="text-4xl font-bold text-white mb-4">${isEs ? 'Yate no encontrado' : 'Yacht not found'}</h2>
-                        <a href="index.html?lang=${lang}" class="text-[#26c6da] hover:underline">${isEs ? 'Volver al inicio' : 'Back to home'}</a>
+                        <a href="index.html?lang=${lang}#yates" class="text-[#26c6da] hover:underline">${isEs ? 'Volver al inicio' : 'Back to home'}</a>
                     </div>
                 `;
                 return;
@@ -171,7 +175,7 @@
             // Update back link
             const backLink = document.getElementById('back-link');
             const backText = document.getElementById('back-text');
-            if (backLink) backLink.href = `index.html?lang=${lang}`;
+            if (backLink) backLink.href = `index.html?lang=${lang}#yates`;
             if (backText) backText.textContent = isEs ? 'Volver al inicio' : 'Back to home';
 
             const nombre = isEs ? y.nombre : y.nombre_en;
@@ -185,28 +189,15 @@
 
                 if (isAzimutVertical) {
                     return `
-                        <div class="gallery-item group">
+                        <div class="gallery-item group azimut-vertical">
                             <img src="${img}" alt="${nombre} - Image ${index + 1}" 
                                  class="w-full h-full transition-transform duration-500 group-hover:scale-110" 
-                                 style="object-fit: cover; object-position: bottom;">
+                                 style="object-fit: cover; object-position: center;">
                             <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition"></div>
                         </div>
                     `;
                 }
 
-                if (isFountainePajot) {
-                    return `
-                        <div class="gallery-item group relative bg-[#020205] overflow-hidden flex items-center justify-center p-4">
-                            <!-- Background Blur Ultra-Premium -->
-                            <div class="absolute inset-0 bg-cover bg-center blur-3xl opacity-50 scale-150" style="background-image: url('${img}');"></div>
-                            <!-- Main Image without clipping -->
-                            <img src="${img}" alt="${nombre} - Image ${index + 1}" 
-                                 class="relative z-10 max-h-full max-w-full w-auto h-auto transition-transform duration-500 group-hover:scale-110 shadow-2xl" 
-                                 style="object-fit: contain !important; border-radius: 4px;">
-                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition z-20"></div>
-                        </div>
-                    `;
-                }
 
                 return `
                     <div class="gallery-item group">
