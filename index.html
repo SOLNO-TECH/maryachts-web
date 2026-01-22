@@ -201,16 +201,16 @@
         }
 
         .logo-img {
-            height: 200px;
-            /* Increased from 180px */
+            height: 250px;
+            /* Increased size */
             width: auto;
             object-fit: contain;
             position: absolute;
-            top: -55px;
-            /* Adjusted focus for larger size */
+            top: -85px;
+            /* Adjusted for larger size */
             left: 100px;
             z-index: 60;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
             transition: all 0.3s ease;
         }
 
@@ -235,11 +235,12 @@
 
             .logo-img {
                 position: absolute;
-                top: -45px;
+                top: -65px;
+                /* Adjusted for larger mobile size */
                 left: 70px;
                 transform: none;
-                height: 160px;
-                /* Increased from 140px */
+                height: 190px;
+                /* Increased size */
                 width: auto;
                 object-fit: contain;
                 max-width: none;
@@ -283,9 +284,19 @@
             transition: all 0.4s ease;
         }
 
-        .mobile-menu.open .mobile-link {
+        .mobile-menu.open .mobile-link,
+        .mobile-menu.open .mobile-lang-wrapper {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .mobile-lang-wrapper {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
         }
 
         .lang-btn {
@@ -1109,7 +1120,7 @@
                 <a href="https://wa.me/523221569131" target="_blank"
                     class="hidden lg:flex bg-green-600 hover:bg-green-500 px-5 py-2.5 rounded-lg items-center space-x-2 transition shadow-lg hover:shadow-green-600/50">
                     <span class="iconify text-xl" data-icon="mdi:whatsapp"></span>
-                    <span class="font-semibold">WhatsApp</span>
+                    <span class="font-semibold" id="nav-whatsapp-text">WhatsApp</span>
                 </a>
             </div>
             <!-- Hamburger Menu Button (Mobile) -->
@@ -1121,13 +1132,21 @@
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="mobile-menu">
-        <a href="#inicio" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.1s;">Inicio</a>
-        <a href="#acerca" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.2s;">Acerca de</a>
-        <a href="#yates" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.3s;">Yates</a>
-        <a href="#servicios" class="mobile-link" onclick="toggleMobileMenu()"
-            style="transition-delay: 0.4s;">Servicios</a>
-        <a href="#contacto" class="mobile-link" onclick="toggleMobileMenu()"
-            style="transition-delay: 0.5s;">Contacto</a>
+        <a href="#inicio" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.1s;"
+            id="mobile-nav-inicio">Inicio</a>
+        <a href="#acerca" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.2s;"
+            id="mobile-nav-acerca">Acerca de</a>
+        <a href="#yates" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.3s;"
+            id="mobile-nav-yates">Yates</a>
+        <a href="#servicios" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.4s;"
+            id="mobile-nav-servicios">Servicios</a>
+        <a href="#contacto" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.5s;"
+            id="mobile-nav-contacto">Contacto</a>
+
+        <div class="mobile-lang-wrapper" style="transition-delay: 0.6s;">
+            <button onclick="setLang('es'); toggleMobileMenu();" id="btn-es-mobile" class="lang-btn active">ES</button>
+            <button onclick="setLang('en'); toggleMobileMenu();" id="btn-en-mobile" class="lang-btn">EN</button>
+        </div>
     </div>
 
     <!-- HERO VIDEO -->
@@ -1397,7 +1416,8 @@
                         class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
                     </div>
                     <div class="absolute bottom-0 left-0 p-6 w-full">
-                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors"
+                            id="dest-yelapa">
                             Yelapa</h3>
                         <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
                         </div>
@@ -1413,7 +1433,8 @@
                         class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
                     </div>
                     <div class="absolute bottom-0 left-0 p-6 w-full">
-                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">Las
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors"
+                            id="dest-animas">Las
                             Ánimas</h3>
                         <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
                         </div>
@@ -1429,7 +1450,8 @@
                         class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
                     </div>
                     <div class="absolute bottom-0 left-0 p-6 w-full">
-                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors"
+                            id="dest-colomitos">
                             Colomitos</h3>
                         <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
                         </div>
@@ -1445,7 +1467,8 @@
                         class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
                     </div>
                     <div class="absolute bottom-0 left-0 p-6 w-full">
-                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">Los
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors"
+                            id="dest-arcos">Los
                             Arcos</h3>
                         <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
                         </div>
@@ -1460,7 +1483,8 @@
                         class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
                     </div>
                     <div class="absolute bottom-0 left-0 p-6 w-full">
-                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors"
+                            id="dest-palito">
                             Palito Verde</h3>
                         <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
                         </div>
@@ -1476,7 +1500,8 @@
                         class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
                     </div>
                     <div class="absolute bottom-0 left-0 p-6 w-full">
-                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors"
+                            id="dest-careyeros">
                             Careyeros</h3>
                         <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
                         </div>
@@ -1492,7 +1517,8 @@
                         class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity">
                     </div>
                     <div class="absolute bottom-0 left-0 p-6 w-full">
-                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors">Islas
+                        <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-teal-400 transition-colors"
+                            id="dest-marietas">Islas
                             Marietas</h3>
                         <div class="h-1 w-12 bg-teal-400 rounded-full group-hover:w-20 transition-all duration-300">
                         </div>
@@ -1650,7 +1676,7 @@
                         <span class="iconify" data-icon="mdi:star"></span>
                     </div>
                     <span class="text-2xl font-bold text-white">5.0/5.0</span>
-                    <span class="text-gray-400 text-lg">(+500 Reseñas)</span>
+                    <span class="text-gray-400 text-lg" id="testimonios-reviews">(+500 Reseñas)</span>
                 </div>
             </div>
 
@@ -1685,7 +1711,8 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-white">Sarah Roberts</h4>
-                            <span class="text-teal-400 text-sm">USA - Cliente Verificado</span>
+                            <span class="text-teal-400 text-sm" id="testimonio1-author-info">USA - Cliente
+                                Verificado</span>
                         </div>
                     </div>
                 </div>
@@ -1719,7 +1746,8 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-white">Carlos Rodriguez</h4>
-                            <span class="text-teal-400 text-sm">México - Cliente Verificado</span>
+                            <span class="text-teal-400 text-sm" id="testimonio2-author-info">México - Cliente
+                                Verificado</span>
                         </div>
                     </div>
                 </div>
@@ -1753,11 +1781,15 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-white">Emily Martinez</h4>
-                            <span class="text-teal-400 text-sm">Canada - Cliente Verificado</span>
+                            <span class="text-teal-400 text-sm" id="testimonio3-author-info">Canada - Cliente
+                                Verificado</span>
                         </div>
+                        <h4 class="font-bold text-white">Emily Martinez</h4>
+                        <span class="text-teal-400 text-sm">Canada - Cliente Verificado</span>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -1839,8 +1871,8 @@
                     <span class="iconify text-teal-500 text-2xl" data-icon="mdi:robot"></span>
                 </div>
                 <div class="chatbot-info">
-                    <h4>Asistente de Soporte</h4>
-                    <p>Estamos aquí para ayudarte</p>
+                    <h4 id="chatbot-name-display">Asistente de Soporte</h4>
+                    <p id="chatbot-status-display">Estamos aquí para ayudarte</p>
                 </div>
             </div>
             <button class="chatbot-close" onclick="toggleChatbot()">
@@ -1850,8 +1882,9 @@
         <div class="chatbot-body">
             <div class="chatbot-messages" id="chatbot-messages">
                 <div class="chatbot-message bot">
-                    <p>¡Hola! 👋 Soy el asistente virtual de Mar Exclusive Yachts.</p>
-                    <p style="margin-top: 8px;">Estoy aquí para ayudarte con cualquier pregunta sobre nuestras
+                    <p id="chatbot-welcome-1">¡Hola! 👋 Soy el asistente virtual de Mar Exclusive Yachts.</p>
+                    <p style="margin-top: 8px;" id="chatbot-welcome-2">Estoy aquí para ayudarte con cualquier pregunta
+                        sobre nuestras
                         embarcaciones, servicios o reservas. ¿En qué puedo asistirte hoy?</p>
                 </div>
             </div>
@@ -1871,7 +1904,8 @@
             <div class="grid md:grid-cols-4 gap-12 mb-16">
                 <div class="reveal">
                     <img src="logo2.png" alt="MarOdyssey" class="h-14 mb-6 filter drop-shadow-lg">
-                    <p class="text-gray-300 leading-relaxed text-lg mb-6">Tu puerta al lujo náutico en Puerto Vallarta y
+                    <p class="text-gray-300 leading-relaxed text-lg mb-6" id="footer-text">Tu puerta al lujo náutico en
+                        Puerto Vallarta y
                         Marina La Cruz</p>
                     <div class="flex gap-5 mt-6">
                         <a href="https://www.instagram.com/marexclusiveyachts?igsh=Nzk0cWxmaWgxd2xk" target="_blank"
@@ -1930,8 +1964,7 @@
                 </div>
             </div>
             <div class="text-center text-gray-400 border-t border-gray-800 pt-10">
-                <p class="text-lg" id="footer-copyright">&copy; 2026 MarOdyssey Exclusive. Todos los derechos
-                    reservados.</p>
+                <p class="text-lg" id="footer-copyright">Mar Exclusive Yachts</p>
             </div>
         </div>
     </footer>
@@ -1982,16 +2015,19 @@
         function mostrarYates(lang = 'es') {
             const container = document.getElementById('yates-container');
             const selectYate = document.getElementById('select-yate');
+            if (!container) return;
+
             container.innerHTML = '';
             const selectText = lang === 'es' ? 'Selecciona tu yate' : 'Select your yacht';
-            selectYate.innerHTML = `<option value="">${selectText}</option>`;
+            if (selectYate) {
+                selectYate.innerHTML = `<option value="">${selectText}</option>`;
+            }
 
             yates.forEach((y, index) => {
                 const nombre = lang === 'es' ? y.nombre : y.nombre_en;
                 const card = document.createElement('div');
                 card.className = 'rounded-xl overflow-hidden reveal transition flex flex-col h-full shadow-lg hover:shadow-2xl bg-[#0f172a]';
                 card.style.transitionDelay = `${index * 0.1}s`;
-
 
                 // Generar slider de imágenes
                 let sliderHTML = '';
@@ -2015,10 +2051,8 @@
                     `;
                 }
 
-
-
                 // Calculate variables for new card design
-                const capacity = `${y.capacidad.estandar}-${y.capacidad.maxima || y.capacidad.estandar} ${lang === 'es' ? 'Pax' : 'Pax'}`;
+                const capacity = `${y.capacidad.estandar}-${y.capacidad.maxima || y.capacidad.estandar} ${lang === 'es' ? 'Pax' : 'Guests'}`;
                 const priceStart = y.precioInicio;
                 const showBadge = y.masRentado === true;
                 const badgeHTML = showBadge ? `
@@ -2075,310 +2109,370 @@
                 `;
                 container.appendChild(card);
 
-                const option = document.createElement('option');
-                option.value = nombre;
-                option.textContent = nombre;
-                selectYate.appendChild(option);
+                if (selectYate) {
+                    const option = document.createElement('option');
+                    option.value = nombre;
+                    option.textContent = nombre;
+                    selectYate.appendChild(option);
+                }
             });
         }
 
+        let currentLang = 'es';
+
+        const textos = {
+            es: {
+                heroTitle: "Creando experiencias de lujo en el mar",
+                heroBtnReservar: "Reservar ahora",
+                heroBtnFlota: "Flota",
+                heroBtnDestinos: "Destinos",
+                heroBtnExperiencias: "Experiencias",
+                navInicio: "Inicio",
+                navAcerca: "Acerca de",
+                navYates: "Yates",
+                navServicios: "Servicios",
+                navContacto: "Contacto",
+                navWhatsappText: "WhatsApp",
+                stat1: "Yates de Lujo",
+                stat2: "Clientes Felices",
+                stat3: "Años Experiencia",
+                stat4: "Satisfacción",
+                acercaTitle: "Acerca de Mar Exclusive Yachts",
+                acercaSubtitle: "La experiencia náutica más exclusiva de Puerto Vallarta",
+                acercaQuienes: "Quiénes Somos",
+                acercaQuienesText: "En Mar Exclusive Yachts, nos dedicamos a crear experiencias náuticas inolvidables. Con más de 15 años de experiencia en el sector de yates de lujo, ofrecemos el más alto nivel de servicio y atención personalizada.",
+                acercaQuienesText2: "Nuestra flota de embarcaciones premium está equipada con las mejores comodidades y tecnología, garantizando que cada viaje sea una aventura memorable en las aguas cristalinas de la Bahía de Banderas.",
+                acercaVision: "Visión",
+                acercaVisionText: "Ser la empresa líder en experiencias náuticas de lujo en Puerto Vallarta y Riviera Nayarit, reconocida por nuestra excelencia en el servicio, atención al detalle, innovación y compromiso con la satisfacción total de nuestros clientes.",
+                acercaValores: "Valores",
+                acercaValoresText: "Excelencia, integridad, pasión por el servicio y respeto por el medio ambiente marino son los pilares que guían cada experiencia que creamos. Nos comprometemos a superar las expectativas en cada viaje.",
+                valoresSeguridad: "Seguridad",
+                valoresSeguridadDesc: "Certificados y seguros completos",
+                valoresCalidad: "Calidad",
+                valoresCalidadDesc: "Yates premium mantenidos",
+                valoresTripulacion: "Tripulación",
+                valoresTripulacionDesc: "Personal experimentado",
+                valoresPasion: "Pasión",
+                valoresPasionDesc: "Amor por el mar",
+                destinosTitle: "Destinos Exclusivos",
+                destinosSubtitle: "Explora los rincones más bellos de la Bahía de Banderas",
+                yatesTitle: "Nuestra Flota",
+                yatesDescripcion: "Descubre nuestra colección exclusiva de yates de lujo, equipados con todo lo necesario para una experiencia inolvidable",
+                serviciosTitle: "Experiencias",
+                serviciosSubtitle: "Eleva tu viaje con nuestros servicios exclusivos",
+                expJetskiTitle: "Jetski",
+                expJetskiDesc: "Adrenalina pura en las olas",
+                expMasajeTitle: "Masajista",
+                expMasajeDesc: "Relajación total a bordo",
+                expDjTitle: "DJ",
+                expDjDesc: "Tu música, tu ambiente",
+                expFuegosTitle: "Fuegos Artificiales",
+                expFuegosDesc: "Ilumina tu celebración",
+                expFotoTitle: "Fotógrafo",
+                expFotoDesc: "Captura momentos inolvidables",
+                expChefTitle: "Chef a bordo",
+                expChefDesc: "Alta cocina en el mar",
+                testimoniosTitle: "Experiencias Reales",
+                testimoniosSubtitle: "Descubre lo que dicen quienes han vivido la experiencia Mar Exclusive Yachts",
+                testimoniosReviews: "(+500 Reseñas)",
+                testimonio1Text: "\"Fue, sin duda, el mejor día de nuestras vacaciones. La tripulación fue increíblemente atenta y el yate estaba impecable. Ver el atardecer desde el mar fue mágico.\"",
+                testimonio1AuthorInfo: "USA - Cliente Verificado",
+                testimonio2Text: "\"Excelente servicio desde el primer contacto. El equipo de reservas hizo todo muy fácil y la experiencia a bordo superó nuestras expectativas. ¡Repetiremos seguro!\"",
+                testimonio2AuthorInfo: "México - Cliente Verificado",
+                testimonio3Text: "\"Celebrar mi cumpleaños en el yate fue la mejor decisión. La comida, la música, el ambiente... todo perfecto. Gracias al equipo por los detalles especiales.\"",
+                testimonio3AuthorInfo: "Canada - Cliente Verificado",
+                contactoTitle: "Contacto / Reserva",
+                contactoSubtitle: "Estamos listos para hacer realidad tu experiencia perfecta en el mar",
+                formNombreLabel: "Nombre / Name",
+                formNombrePlaceholder: "Tu nombre completo",
+                formEmailLabel: "Correo / Email",
+                formEmailPlaceholder: "tu@email.com",
+                formPhoneLabel: "Teléfono / Phone",
+                formPhonePlaceholder: "+52 123 456 7890",
+                formYateLabel: "Yate",
+                formMensajeLabel: "Mensaje / Message",
+                formMensajePlaceholder: "Cuéntanos sobre tu experiencia ideal...",
+                formEnviarText: "Enviar / Send",
+                chatbotNameDisplay: "Asistente de Soporte",
+                chatbotStatusDisplay: "Estamos aquí para ayudarte",
+                chatbotWelcome1: "¡Hola! 👋 Soy el asistente virtual de Mar Exclusive Yachts.",
+                chatbotWelcome2: "Estoy aquí para ayudarte con cualquier pregunta sobre nuestras embarcaciones, servicios o reservas. ¿En qué puedo asistirte hoy?",
+                chatbotInputPlaceholder: "Escribe tu mensaje...",
+                footerText: "Tu puerta al lujo náutico en Puerto Vallarta y Marina La Cruz",
+                footerNavTitle: "Navegación",
+                footerContactTitle: "Contacto",
+                footerHorariosTitle: "Horarios",
+                footerDias: "Lunes - Domingo",
+                footerWhatsapp: "Disponible 24/7 por WhatsApp",
+                footerCopyright: "© 2026 Mar Exclusive Yachts. All rights reserved.",
+                destYelapa: "Yelapa",
+                destAnimas: "Las Ánimas",
+                destColomitos: "Colomitos",
+                destArcos: "Los Arcos",
+                destPalito: "Palito Verde",
+                destCareyeros: "Careyeros",
+                destMarietas: "Islas Marietas",
+                pageTitle: "Mar Exclusive Yachts - Yates de Lujo",
+                metaDescription: "Agencia de alquiler de yates y embarcaciones de lujo en Puerto Vallarta y Marina La Cruz"
+            },
+            en: {
+                heroTitle: "Luxury Experiences in the Sea",
+                heroBtnReservar: "Reserve Now",
+                heroBtnFlota: "Fleet",
+                heroBtnDestinos: "Destinations",
+                heroBtnExperiencias: "Experiences",
+                navInicio: "Home",
+                navAcerca: "About Us",
+                navYates: "Yachts",
+                navServicios: "Services",
+                navContacto: "Contact",
+                navWhatsappText: "WhatsApp",
+                stat1: "Luxury Yachts",
+                stat2: "Happy Clients",
+                stat3: "Years Experience",
+                stat4: "Satisfaction",
+                acercaTitle: "About Mar Exclusive Yachts",
+                acercaSubtitle: "The most exclusive nautical experience in Puerto Vallarta",
+                acercaQuienes: "Who We Are",
+                acercaQuienesText: "At Mar Exclusive Yachts, we are dedicated to creating unforgettable nautical experiences. With over 15 years of experience in the luxury yacht sector, we offer the highest level of service and personalized attention.",
+                acercaQuienesText2: "Our fleet of premium vessels is equipped with the best amenities and technology, ensuring that each trip is a memorable adventure in the crystal-clear waters of Banderas Bay.",
+                acercaVision: "Vision",
+                acercaVisionText: "To be the leading company in luxury nautical experiences in Puerto Vallarta and Riviera Nayarit, recognized for our excellence in service, attention to detail, innovation, and total commitment to our clients' satisfaction.",
+                acercaValores: "Values",
+                acercaValoresText: "Excellence, integrity, passion for service, and respect for the marine environment are the pillars that guide every experience we create. We are committed to exceeding expectations on every trip.",
+                valoresSeguridad: "Safety",
+                valoresSeguridadDesc: "Certificates and complete insurance",
+                valoresCalidad: "Quality",
+                valoresCalidadDesc: "Premium maintained yachts",
+                valoresTripulacion: "Crew",
+                valoresTripulacionDesc: "Experienced personnel",
+                valoresPasion: "Passion",
+                valoresPasionDesc: "Love for the sea",
+                destinosTitle: "Exclusive Destinations",
+                destinosSubtitle: "Explore the most beautiful corners of Banderas Bay",
+                yatesTitle: "Our Fleet",
+                yatesDescripcion: "Discover our exclusive collection of luxury yachts, equipped with everything needed for an unforgettable experience",
+                serviciosTitle: "Experiences",
+                serviciosSubtitle: "Elevate your trip with our exclusive services",
+                expJetskiTitle: "Jetski",
+                expJetskiDesc: "Pure adrenaline on the waves",
+                expMasajeTitle: "Masseuse",
+                expMasajeDesc: "Total relaxation onboard",
+                expDjTitle: "DJ",
+                expDjDesc: "Your music, your vibe",
+                expFuegosTitle: "Fireworks",
+                expFuegosDesc: "Light up your celebration",
+                expFotoTitle: "Photographer",
+                expFotoDesc: "Capture unforgettable moments",
+                expChefTitle: "Onboard Chef",
+                expChefDesc: "Fine dining at sea",
+                testimoniosTitle: "Real Experiences",
+                testimoniosSubtitle: "Discover what those who have lived the Mar Exclusive Yachts experience have to say",
+                testimoniosReviews: "(+500 Reviews)",
+                testimonio1Text: "\"It was, without a doubt, the best day of our vacation. The crew was incredibly attentive and the yacht was impeccable. Watching the sunset from the sea was magical.\"",
+                testimonio1AuthorInfo: "USA - Verified Customer",
+                testimonio2Text: "\"Excellent service from the first contact. The booking team made everything very easy and the onboard experience exceeded our expectations. We will repeat for sure!\"",
+                testimonio2AuthorInfo: "Mexico - Verified Customer",
+                testimonio3Text: "\"Celebrating my birthday on the yacht was the best decision. The food, the music, the vibe... everything perfect. Thanks to the team for the special details.\"",
+                testimonio3AuthorInfo: "Canada - Verified Customer",
+                contactoTitle: "Contact / Reservation",
+                contactoSubtitle: "We are ready to make your perfect experience at sea a reality",
+                formNombreLabel: "Nombre / Name",
+                formNombrePlaceholder: "Your full name",
+                formEmailLabel: "Correo / Email",
+                formEmailPlaceholder: "your@email.com",
+                formPhoneLabel: "Teléfono / Phone",
+                formPhonePlaceholder: "+52 123 456 7890",
+                formYateLabel: "Yacht",
+                formMensajeLabel: "Message",
+                formMensajePlaceholder: "Tell us about your ideal experience...",
+                formEnviarText: "Send",
+                chatbotNameDisplay: "Support Assistant",
+                chatbotStatusDisplay: "We are here to help you",
+                chatbotWelcome1: "Hello! 👋 I am the Mar Exclusive Yachts virtual assistant.",
+                chatbotWelcome2: "I'm here to help you with any questions about our vessels, services, or reservations. How can I assist you today?",
+                chatbotInputPlaceholder: "Type your message...",
+                footerText: "Your gateway to nautical luxury in Puerto Vallarta and Marina La Cruz",
+                footerNavTitle: "Navigation",
+                footerContactTitle: "Contact",
+                footerHorariosTitle: "Hours",
+                footerDias: "Monday - Sunday",
+                footerWhatsapp: "Available 24/7 via WhatsApp",
+                footerCopyright: "© 2026 Mar Exclusive Yachts. All rights reserved.",
+                destYelapa: "Yelapa",
+                destAnimas: "Las Ánimas",
+                destColomitos: "Colomitos",
+                destArcos: "Los Arcos",
+                destPalito: "Palito Verde",
+                destCareyeros: "Careyeros",
+                destMarietas: "Marietas Islands",
+                pageTitle: "Mar Exclusive Yachts - Luxury Yacht Rentals",
+                metaDescription: "Luxury yacht and boat rental agency in Puerto Vallarta and Marina La Cruz"
+            }
+        };
+
         function setLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('preferred_lang', lang);
             mostrarYates(lang);
-
-            document.getElementById('btn-es').className = lang === 'es' ? 'lang-btn active' : 'lang-btn';
-            document.getElementById('btn-en').className = lang === 'en' ? 'lang-btn active' : 'lang-btn';
-
-            const textos = {
-                es: {
-                    heroTitle: "Creando experiencias de lujo en el mar",
-                    heroSubtitle: "Reserva tu experiencia náutica premium con Mar Exclusive Yachts",
-                    heroBtnReservar: "Reservar ahora",
-                    heroBtnFlota: "Flota",
-                    heroBtnDestinos: "Destinos",
-                    heroBtnExperiencias: "Experiencias",
-                    navInicio: "Inicio",
-                    navAcerca: "Acerca de",
-                    navYates: "Yates",
-                    navServicios: "Servicios",
-                    navContacto: "Contacto",
-                    stat1: "Yates de Lujo",
-                    stat2: "Clientes Felices",
-                    stat3: "Años Experiencia",
-                    stat4: "Satisfacción",
-                    acercaTitle: "Acerca de Mar Exclusive Yachts",
-                    acercaSubtitle: "La experiencia náutica más exclusiva de Puerto Vallarta",
-                    acercaQuienes: "Quiénes Somos",
-                    acercaQuienesText: "En Mar Exclusive Yachts, nos dedicamos a crear experiencias náuticas inolvidables. Con más de 15 años de experiencia en el sector de yates de lujo, ofrecemos el más alto nivel de servicio y atención personalizada.",
-                    acercaQuienesText2: "Nuestra flota de embarcaciones premium está equipada con las mejores comodidades y tecnología, garantizando que cada viaje sea una aventura memorable en las aguas cristalinas de la Bahía de Banderas.",
-                    acercaMision: "Quiénes Somos",
-                    acercaMisionText: "En Mar Exclusive Yachts, nos dedicamos a crear experiencias náuticas inolvidables. Con más de 15 años de experiencia en el sector de yates de lujo, ofrecemos el más alto nivel de servicio y atención personalizada.",
-                    acercaMisionText2: "Nuestra flota de embarcaciones premium está equipada con las mejores comodidades y tecnología, garantizando que cada viaje sea una aventura memorable en las aguas cristalinas de la Bahía de Banderas.",
-                    acercaVision: "Visión",
-                    acercaVisionText: "Ser la empresa líder en experiencias náuticas de lujo en Puerto Vallarta y Marina La Cruz, reconocida por nuestra excelencia en servicio, innovación y compromiso con la satisfacción total de nuestros clientes.",
-                    destinosTitle: "Destinos Exclusivos",
-                    destinosSubtitle: "Explora los rincones más bellos de la Bahía de Banderas",
-                    acercaValores: "Valores",
-                    acercaValoresText: "Excelencia, integridad, pasión por el servicio y respeto por el medio ambiente marino son los pilares que guían cada experiencia que creamos. Nos comprometemos a superar las expectativas en cada viaje.",
-                    valoresSeguridad: "Seguridad",
-                    valoresSeguridadDesc: "Certificados y seguros completos",
-                    valoresCalidad: "Calidad",
-                    valoresCalidadDesc: "Yates premium mantenidos",
-                    valoresTripulacion: "Tripulación",
-                    valoresTripulacionDesc: "Personal experimentado",
-                    valoresPasion: "Pasión",
-                    valoresPasionDesc: "Amor por el mar",
-                    yatesTitle: "Nuestra Flota",
-                    yatesDescripcion: "Descubre nuestra colección exclusiva de yates de lujo, equipados con todo lo necesario para una experiencia inolvidable",
-                    serviciosTitle: "Experiencias",
-                    serviciosSubtitle: "Eleva tu viaje con nuestros servicios exclusivos",
-                    expJetskiTitle: "Jetski",
-                    expJetskiDesc: "Adrenalina pura en las olas",
-                    expMasajeTitle: "Masajista",
-                    expMasajeDesc: "Relajación total a bordo",
-                    expDjTitle: "DJ",
-                    expDjDesc: "Tu música, tu ambiente",
-                    expFuegosTitle: "Fuegos Artificiales",
-                    expFuegosDesc: "Ilumina tu celebración",
-                    expFotoTitle: "Fotógrafo",
-                    expFotoDesc: "Captura momentos inolvidables",
-                    expChefTitle: "Chef a bordo",
-                    expChefDesc: "Alta cocina en el mar",
-                    testimoniosTitle: "Experiencias Reales",
-                    testimoniosSubtitle: "Descubre lo que dicen quienes han vivido la experiencia Mar Exclusive Yachts",
-                    testimonio1Text: "\"Fue, sin duda, el mejor día de nuestras vacaciones. La tripulación fue increíblemente atenta y el yate estaba impecable. Ver el atardecer desde el mar fue mágico.\"",
-                    testimonio2Text: "\"Excelente servicio desde el primer contacto. El equipo de reservas hizo todo muy fácil y la experiencia a bordo superó nuestras expectativas. ¡Repetiremos seguro!\"",
-                    testimonio3Text: "\"Celebrar mi cumpleaños en el yate fue la mejor decisión. La comida, la música, el ambiente... todo perfecto. Gracias al equipo por los detalles especiales.\"",
-                    servicioStarlinkTitle: "Internet Starlink",
-                    servicioStarlinkDesc: "Conexión de alta velocidad en alta mar para mantenerte conectado",
-                    servicioJacuzziTitle: "Jacuzzi y áreas de relax",
-                    servicioJacuzziDesc: "Espacios diseñados para tu máxima comodidad y relajación",
-                    servicioChefTitle: "Chef a bordo",
-                    servicioChefDesc: "Experiencia culinaria personalizada según tus preferencias",
-                    contactoTitle: "Contacto / Reserva",
-                    contactoSubtitle: "Estamos listos para hacer realidad tu experiencia perfecta en el mar",
-                    formNombreLabel: "Nombre / Name",
-                    formNombrePlaceholder: "Tu nombre completo",
-                    formEmailLabel: "Correo / Email",
-                    formEmailPlaceholder: "tu@email.com",
-                    formPhoneLabel: "Teléfono / Phone",
-                    formPhonePlaceholder: "+52 123 456 7890",
-                    formYateLabel: "Yate",
-                    formMensajeLabel: "Mensaje / Message",
-                    formMensajePlaceholder: "Cuéntanos sobre tu experiencia ideal...",
-                    formEnviarText: "Enviar / Send",
-                    footerNavTitle: "Navegación",
-                    footerContactTitle: "Contacto",
-                    footerHorariosTitle: "Horarios",
-                    footerDias: "Lunes - Domingo",
-                    footerWhatsapp: "Disponible 24/7 por WhatsApp",
-                    footerCopyright: "© 2026 MarExclusive Yachts. Todos los derechos reservados.",
-                    videoNotSupported: "Tu navegador no soporta el elemento de video."
-                },
-                en: {
-                    heroTitle: "Creating Luxury Sea Experiences",
-                    heroSubtitle: "Book your premium nautical experience with Mar Exclusive Yachts",
-                    heroBtnReservar: "Reserve Now",
-                    heroBtnFlota: "Fleet",
-                    heroBtnDestinos: "Destinations",
-                    heroBtnExperiencias: "Experiences",
-                    navInicio: "Home",
-                    navAcerca: "About",
-                    navYates: "Yachts",
-                    navServicios: "Services",
-                    navContacto: "Contact",
-                    stat1: "Luxury Yachts",
-                    stat2: "Happy Clients",
-                    stat3: "Years Experience",
-                    stat4: "Satisfaction",
-                    acercaTitle: "About Mar Exclusive Yachts",
-                    acercaSubtitle: "The most exclusive nautical experience in Puerto Vallarta",
-                    acercaQuienes: "Who We Are",
-                    acercaQuienesText: "At Mar Exclusive Yachts, we are dedicated to creating unforgettable nautical experiences. With over 15 years of experience in the luxury yacht sector, we offer the highest level of service and personalized attention.",
-                    acercaQuienesText2: "Our fleet of premium vessels is equipped with the best amenities and technology, ensuring that each trip is a memorable adventure in the crystal-clear waters of Banderas Bay.",
-                    acercaMision: "Who We Are",
-                    acercaMisionText: "At Mar Exclusive Yachts, we are dedicated to creating unforgettable nautical experiences. With over 15 years of experience in the luxury yacht sector, we offer the highest level of service and personalized attention.",
-                    acercaMisionText2: "Our fleet of premium vessels is equipped with the best amenities and technology, ensuring that each trip is a memorable adventure in the crystal-clear waters of Banderas Bay.",
-                    acercaVision: "Vision",
-                    acercaVisionText: "To be the leading company in luxury nautical experiences in Puerto Vallarta and Marina La Cruz, recognized for our excellence in service, innovation and commitment to total customer satisfaction.",
-                    destinosTitle: "Exclusive Destinations",
-                    destinosSubtitle: "Explore the most beautiful corners of Banderas Bay",
-                    acercaValores: "Values",
-                    acercaValoresText: "Excellence, integrity, passion for service and respect for the marine environment are the pillars that guide each experience we create. We are committed to exceeding expectations on every trip.",
-                    valoresSeguridad: "Security",
-                    valoresSeguridadDesc: "Complete certificates and insurance",
-                    valoresCalidad: "Quality",
-                    valoresCalidadDesc: "Premium maintained yachts",
-                    valoresTripulacion: "Crew",
-                    valoresTripulacionDesc: "Experienced personnel",
-                    valoresPasion: "Passion",
-                    valoresPasionDesc: "Love for the sea",
-                    yatesTitle: "Our Fleet",
-                    yatesDescripcion: "Discover our exclusive collection of luxury yachts, equipped with everything needed for an unforgettable experience",
-                    serviciosTitle: "Experiences",
-                    serviciosSubtitle: "Elevate your trip with our exclusive services",
-                    expJetskiTitle: "Jetski",
-                    expJetskiDesc: "Pure adrenaline on the waves",
-                    expMasajeTitle: "Masseuse",
-                    expMasajeDesc: "Total relaxation onboard",
-                    expDjTitle: "DJ",
-                    expDjDesc: "Your music, your vibe",
-                    expFuegosTitle: "Fireworks",
-                    expFuegosDesc: "Light up your celebration",
-                    expFotoTitle: "Photographer",
-                    expFotoDesc: "Capture unforgettable moments",
-                    expChefTitle: "Onboard Chef",
-                    expChefDesc: "Haute cuisine at sea",
-                    testimoniosTitle: "Real Experiences",
-                    testimoniosSubtitle: "Discover what those who have lived the Mar Exclusive Yachts experience have to say",
-                    testimonio1Text: "\"It was, without a doubt, the best day of our vacation. The crew was incredibly attentive and the yacht was impeccable. Watching the sunset from the sea was magical.\"",
-                    testimonio2Text: "\"Excellent service from the first contact. The booking team made everything very easy and the onboard experience exceeded our expectations. We will definitely be back!\"",
-                    testimonio3Text: "\"Celebrating my birthday on the yacht was the best decision. The food, the music, the atmosphere... everything perfect. Thanks to the team for the special details.\"",
-                    servicioStarlinkTitle: "Starlink Internet",
-                    servicioStarlinkDesc: "High-speed connection at sea to keep you connected",
-                    servicioJacuzziTitle: "Jacuzzi and Relaxation Areas",
-                    servicioJacuzziDesc: "Spaces designed for your maximum comfort and relaxation",
-                    servicioChefTitle: "Onboard Chef",
-                    servicioChefDesc: "Personalized culinary experience according to your preferences",
-                    contactoTitle: "Contact / Reservation",
-                    contactoSubtitle: "We are ready to make your perfect experience at sea a reality",
-                    formNombreLabel: "Name",
-                    formNombrePlaceholder: "Your full name",
-                    formEmailLabel: "Email",
-                    formEmailPlaceholder: "your@email.com",
-                    formPhoneLabel: "Phone",
-                    formPhonePlaceholder: "+52 123 456 7890",
-                    formYateLabel: "Yacht",
-                    formMensajeLabel: "Message",
-                    formMensajePlaceholder: "Tell us about your ideal experience...",
-                    formEnviarText: "Send",
-                    footerNavTitle: "Navigation",
-                    footerContactTitle: "Contact",
-                    footerHorariosTitle: "Hours",
-                    footerDias: "Monday - Sunday",
-                    footerWhatsapp: "Available 24/7 via WhatsApp",
-                    footerCopyright: "© 2026 Mar Exclusive Yachts. All rights reserved.",
-                    videoNotSupported: "Your browser does not support the video element."
-                }
-            };
 
             const t = textos[lang];
 
+            // Helper function for safe text setting
+            const safeSetText = (id, text, isPlaceholder = false) => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (isPlaceholder) el.placeholder = text;
+                    else el.textContent = text;
+                }
+            };
+
+            // Update Language Buttons
+            const btnEs = document.getElementById('btn-es');
+            const btnEn = document.getElementById('btn-en');
+            if (btnEs) btnEs.className = lang === 'es' ? 'lang-btn active' : 'lang-btn';
+            if (btnEn) btnEn.className = lang === 'en' ? 'lang-btn active' : 'lang-btn';
+
+            const btnEsMobile = document.getElementById('btn-es-mobile');
+            const btnEnMobile = document.getElementById('btn-en-mobile');
+            if (btnEsMobile) btnEsMobile.className = lang === 'es' ? 'lang-btn active' : 'lang-btn';
+            if (btnEnMobile) btnEnMobile.className = lang === 'en' ? 'lang-btn active' : 'lang-btn';
+
             // Hero section
-            document.getElementById('hero-title').textContent = t.heroTitle;
-            document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
-            document.getElementById('hero-btn-reservar').textContent = t.heroBtnReservar;
-            document.getElementById('hero-btn-flota').textContent = t.heroBtnFlota;
-            document.getElementById('hero-btn-destinos').textContent = t.heroBtnDestinos;
-            document.getElementById('hero-btn-experiencias').textContent = t.heroBtnExperiencias;
+            safeSetText('hero-title', t.heroTitle);
+            safeSetText('hero-btn-reservar', t.heroBtnReservar);
+            safeSetText('hero-btn-flota', t.heroBtnFlota);
+            safeSetText('hero-btn-destinos', t.heroBtnDestinos);
+            safeSetText('hero-btn-experiencias', t.heroBtnExperiencias);
 
             // Navbar
-            document.getElementById('nav-inicio').textContent = t.navInicio;
-            document.getElementById('nav-acerca').textContent = t.navAcerca;
-            document.getElementById('nav-yates').textContent = t.navYates;
-            document.getElementById('nav-servicios').textContent = t.navServicios;
-            document.getElementById('nav-contacto').textContent = t.navContacto;
+            safeSetText('nav-inicio', t.navInicio);
+            safeSetText('nav-acerca', t.navAcerca);
+            safeSetText('nav-yates', t.navYates);
+            safeSetText('nav-servicios', t.navServicios);
+            safeSetText('nav-contacto', t.navContacto);
+            safeSetText('nav-whatsapp-text', t.navWhatsappText);
+
+            // Mobile Navbar
+            safeSetText('mobile-nav-inicio', t.navInicio);
+            safeSetText('mobile-nav-acerca', t.navAcerca);
+            safeSetText('mobile-nav-yates', t.navYates);
+            safeSetText('mobile-nav-servicios', t.navServicios);
+            safeSetText('mobile-nav-contacto', t.navContacto);
 
             // Stats
-            document.getElementById('stat-1').textContent = t.stat1;
-            document.getElementById('stat-2').textContent = t.stat2;
-            document.getElementById('stat-3').textContent = t.stat3;
-            document.getElementById('stat-4').textContent = t.stat4;
+            safeSetText('stat-1', t.stat1);
+            safeSetText('stat-2', t.stat2);
+            safeSetText('stat-3', t.stat3);
+            safeSetText('stat-4', t.stat4);
 
             // Acerca de section
-            document.getElementById('acerca-title').textContent = t.acercaTitle;
-            document.getElementById('acerca-subtitle').textContent = t.acercaSubtitle;
-            const acercaQuienes = document.getElementById('acerca-quienes');
-            const acercaQuienesText = document.getElementById('acerca-quienes-text');
-            const acercaQuienesText2 = document.getElementById('acerca-quienes-text2');
-            const acercaVision = document.getElementById('acerca-vision');
-            const acercaVisionText = document.getElementById('acerca-vision-text');
-            const acercaValores = document.getElementById('acerca-valores');
-            const acercaValoresText = document.getElementById('acerca-valores-text');
-
-            if (acercaQuienes) acercaQuienes.textContent = t.acercaQuienes || t.acercaMision;
-            if (acercaQuienesText) acercaQuienesText.textContent = t.acercaQuienesText || t.acercaMisionText;
-            if (acercaQuienesText2) acercaQuienesText2.textContent = t.acercaQuienesText2 || t.acercaMisionText2;
-            if (acercaVision) acercaVision.textContent = t.acercaVision || 'Visión';
-            if (acercaVisionText) acercaVisionText.textContent = t.acercaVisionText || 'Ser la empresa líder en experiencias náuticas de lujo...';
-            if (acercaValores) acercaValores.textContent = t.acercaValores || 'Valores';
-            if (acercaValoresText) acercaValoresText.textContent = t.acercaValoresText || 'Excelencia, integridad, pasión por el servicio...';
+            safeSetText('acerca-title', t.acercaTitle);
+            safeSetText('acerca-subtitle', t.acercaSubtitle);
+            safeSetText('acerca-quienes', t.acercaQuienes);
+            safeSetText('acerca-quienes-text', t.acercaQuienesText);
+            safeSetText('acerca-quienes-text2', t.acercaQuienesText2);
+            safeSetText('acerca-vision', t.acercaVision);
+            safeSetText('acerca-vision-text', t.acercaVisionText);
+            safeSetText('acerca-valores', t.acercaValores);
+            safeSetText('acerca-valores-text', t.acercaValoresText);
 
             // Valores section
-            document.getElementById('valores-seguridad').textContent = t.valoresSeguridad;
-            document.getElementById('valores-seguridad-desc').textContent = t.valoresSeguridadDesc;
-            document.getElementById('valores-calidad').textContent = t.valoresCalidad;
-            document.getElementById('valores-calidad-desc').textContent = t.valoresCalidadDesc;
-            document.getElementById('valores-tripulacion').textContent = t.valoresTripulacion;
-            document.getElementById('valores-tripulacion-desc').textContent = t.valoresTripulacionDesc;
-            document.getElementById('valores-pasion').textContent = t.valoresPasion;
-            document.getElementById('valores-pasion-desc').textContent = t.valoresPasionDesc;
+            safeSetText('valores-seguridad', t.valoresSeguridad);
+            safeSetText('valores-seguridad-desc', t.valoresSeguridadDesc);
+            safeSetText('valores-calidad', t.valoresCalidad);
+            safeSetText('valores-calidad-desc', t.valoresCalidadDesc);
+            safeSetText('valores-tripulacion', t.valoresTripulacion);
+            safeSetText('valores-tripulacion-desc', t.valoresTripulacionDesc);
+            safeSetText('valores-pasion', t.valoresPasion);
+            safeSetText('valores-pasion-desc', t.valoresPasionDesc);
 
             // Yates y Servicios
-            document.getElementById('yates-title').textContent = t.yatesTitle;
-            document.getElementById('yates-descripcion').textContent = t.yatesDescripcion;
-            document.getElementById('servicios-title').textContent = t.serviciosTitle;
-            document.getElementById('servicios-subtitle').textContent = t.serviciosSubtitle;
+            safeSetText('yates-title', t.yatesTitle);
+            safeSetText('yates-descripcion', t.yatesDescripcion);
+            safeSetText('servicios-title', t.serviciosTitle);
+            safeSetText('servicios-subtitle', t.serviciosSubtitle);
 
-            // Experiencias (Nuevas)
-            if (document.getElementById('exp-jetski-title')) {
-                document.getElementById('exp-jetski-title').textContent = t.expJetskiTitle;
-                document.getElementById('exp-jetski-desc').textContent = t.expJetskiDesc;
-                document.getElementById('exp-masaje-title').textContent = t.expMasajeTitle;
-                document.getElementById('exp-masaje-desc').textContent = t.expMasajeDesc;
-                document.getElementById('exp-dj-title').textContent = t.expDjTitle;
-                document.getElementById('exp-dj-desc').textContent = t.expDjDesc;
-                document.getElementById('exp-fuegos-title').textContent = t.expFuegosTitle;
-                document.getElementById('exp-fuegos-desc').textContent = t.expFuegosDesc;
-                document.getElementById('exp-foto-title').textContent = t.expFotoTitle;
-                document.getElementById('exp-foto-desc').textContent = t.expFotoDesc;
-                document.getElementById('exp-chef-title').textContent = t.expChefTitle;
-                document.getElementById('exp-chef-desc').textContent = t.expChefDesc;
-            }
+            // Experiencias
+            safeSetText('exp-jetski-title', t.expJetskiTitle);
+            safeSetText('exp-jetski-desc', t.expJetskiDesc);
+            safeSetText('exp-masaje-title', t.expMasajeTitle);
+            safeSetText('exp-masaje-desc', t.expMasajeDesc);
+            safeSetText('exp-dj-title', t.expDjTitle);
+            safeSetText('exp-dj-desc', t.expDjDesc);
+            safeSetText('exp-fuegos-title', t.expFuegosTitle);
+            safeSetText('exp-fuegos-desc', t.expFuegosDesc);
+            safeSetText('exp-foto-title', t.expFotoTitle);
+            safeSetText('exp-foto-desc', t.expFotoDesc);
+            safeSetText('exp-chef-title', t.expChefTitle);
+            safeSetText('exp-chef-desc', t.expChefDesc);
 
             // Testimonios
-            if (document.getElementById('testimonios-title')) {
-                document.getElementById('testimonios-title').textContent = t.testimoniosTitle;
-                document.getElementById('testimonios-subtitle').textContent = t.testimoniosSubtitle;
-                document.getElementById('testimonio1-text').textContent = t.testimonio1Text;
-                document.getElementById('testimonio2-text').textContent = t.testimonio2Text;
-                document.getElementById('testimonio3-text').textContent = t.testimonio3Text;
-            }
+            safeSetText('testimonios-title', t.testimoniosTitle);
+            safeSetText('testimonios-subtitle', t.testimoniosSubtitle);
+            safeSetText('testimonios-reviews', t.testimoniosReviews);
+            safeSetText('testimonio1-text', t.testimonio1Text);
+            safeSetText('testimonio1-author-info', t.testimonio1AuthorInfo);
+            safeSetText('testimonio2-text', t.testimonio2Text);
+            safeSetText('testimonio2-author-info', t.testimonio2AuthorInfo);
+            safeSetText('testimonio3-text', t.testimonio3Text);
+            safeSetText('testimonio3-author-info', t.testimonio3AuthorInfo);
 
             // Destinos
-            if (document.getElementById('destinos-title')) {
-                document.getElementById('destinos-title').textContent = t.destinosTitle;
-                document.getElementById('destinos-subtitle').textContent = t.destinosSubtitle;
-            }
-            document.getElementById('contacto-title').textContent = t.contactoTitle;
-            document.getElementById('contacto-subtitle').textContent = t.contactoSubtitle;
+            safeSetText('destinos-title', t.destinosTitle);
+            safeSetText('destinos-subtitle', t.destinosSubtitle);
+            safeSetText('dest-yelapa', t.destYelapa);
+            safeSetText('dest-animas', t.destAnimas);
+            safeSetText('dest-colomitos', t.destColomitos);
+            safeSetText('dest-arcos', t.destArcos);
+            safeSetText('dest-palito', t.destPalito);
+            safeSetText('dest-careyeros', t.destCareyeros);
+            safeSetText('dest-marietas', t.destMarietas);
 
-            // Formulario
-            document.getElementById('form-nombre-label').textContent = t.formNombreLabel;
-            document.getElementById('input-name').placeholder = t.formNombrePlaceholder;
-            document.getElementById('form-email-label').textContent = t.formEmailLabel;
-            document.getElementById('input-email').placeholder = t.formEmailPlaceholder;
-            document.getElementById('form-phone-label').textContent = t.formPhoneLabel;
-            document.getElementById('input-phone').placeholder = t.formPhonePlaceholder;
-            document.getElementById('form-yate-label').textContent = t.formYateLabel;
-            document.getElementById('form-mensaje-label').textContent = t.formMensajeLabel;
-            document.getElementById('input-message').placeholder = t.formMensajePlaceholder;
-            document.getElementById('form-enviar-text').textContent = t.formEnviarText;
+            // Contacto
+            safeSetText('contacto-title', t.contactoTitle);
+            safeSetText('contacto-subtitle', t.contactoSubtitle);
+            safeSetText('form-nombre-label', t.formNombreLabel);
+            safeSetText('input-name', t.formNombrePlaceholder, true);
+            safeSetText('form-email-label', t.formEmailLabel);
+            safeSetText('input-email', t.formEmailPlaceholder, true);
+            safeSetText('form-phone-label', t.formPhoneLabel);
+            safeSetText('input-phone', t.formPhonePlaceholder, true);
+            safeSetText('form-yate-label', t.formYateLabel);
+            safeSetText('form-mensaje-label', t.formMensajeLabel);
+            safeSetText('input-message', t.formMensajePlaceholder, true);
+            safeSetText('form-enviar-text', t.formEnviarText);
 
             // Footer
-            document.getElementById('footer-nav-title').textContent = t.footerNavTitle;
-            document.getElementById('footer-nav-inicio').textContent = t.navInicio;
-            document.getElementById('footer-nav-acerca').textContent = t.navAcerca;
-            document.getElementById('footer-nav-yates').textContent = t.navYates;
-            document.getElementById('footer-nav-servicios').textContent = t.navServicios;
-            document.getElementById('footer-contact-title').textContent = t.footerContactTitle;
-            document.getElementById('footer-horarios-title').textContent = t.footerHorariosTitle;
-            document.getElementById('footer-dias').textContent = t.footerDias;
-            document.getElementById('footer-whatsapp').textContent = t.footerWhatsapp;
-            document.getElementById('footer-copyright').textContent = t.footerCopyright;
+            safeSetText('footer-text', t.footerText);
 
-            // Video message
-            const videoNotSupported = document.getElementById('video-not-supported');
-            if (videoNotSupported) videoNotSupported.textContent = t.videoNotSupported;
+            // SEO
+            document.title = t.pageTitle;
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute('content', t.metaDescription);
+            safeSetText('footer-nav-title', t.footerNavTitle);
+            safeSetText('footer-nav-inicio', t.navInicio);
+            safeSetText('footer-nav-acerca', t.navAcerca);
+            safeSetText('footer-nav-yates', t.navYates);
+            safeSetText('footer-nav-servicios', t.navServicios);
+            safeSetText('footer-contact-title', t.footerContactTitle);
+            safeSetText('footer-horarios-title', t.footerHorariosTitle);
+            safeSetText('footer-dias', t.footerDias);
+            safeSetText('footer-whatsapp', t.footerWhatsapp);
+            safeSetText('footer-copyright', t.footerCopyright);
+
+            // Chatbot
+            safeSetText('chatbot-name-display', t.chatbotNameDisplay);
+            safeSetText('chatbot-status-display', t.chatbotStatusDisplay);
+            safeSetText('chatbot-welcome-1', t.chatbotWelcome1);
+            safeSetText('chatbot-welcome-2', t.chatbotWelcome2);
+            safeSetText('chatbot-input', t.chatbotInputPlaceholder, true);
+
+            // Update chatbot header (backup if specific IDs fail)
+            const chatbotTitleHeader = document.querySelector('#chatbot-popup h4');
+            if (chatbotTitleHeader && !document.getElementById('chatbot-name-display')) {
+                chatbotTitleHeader.textContent = t.chatbotNameDisplay;
+            }
         }
 
         // Scroll navbar mejorado
@@ -2548,54 +2642,88 @@
         // Obtener respuesta del chatbot basada en el mensaje
         function getChatbotResponse(message) {
             const msg = message.toLowerCase();
+            const lang = currentLang;
 
-            // Respuestas basadas en palabras clave
-            if (msg.includes('precio') || msg.includes('costo') || msg.includes('cuánto') || msg.includes('cuanto')) {
-                return 'Nuestros precios varían según el yate y la duración del viaje. Para 4 horas, los precios van desde $1,300 USD hasta $8,700 USD. Puedes ver todos los precios en la sección "Nuestra Flota". ¿Te gustaría que te ayude a elegir un yate?';
+            const responses = {
+                es: {
+                    price: 'Nuestros precios varían según el yate y la duración del viaje. Para 4 horas, los precios van desde $1,300 USD hasta $8,700 USD. Puedes ver todos los precios en la sección "Nuestra Flota". ¿Te gustaría que te ayude a elegir un yate?',
+                    yacht: 'Tenemos una flota de 14 yates de lujo, desde el 27\' Sea Ray hasta el 92\' President. Cada uno está equipado con diferentes comodidades. ¿Te gustaría que te recomiende uno según el tamaño de tu grupo?',
+                    booking: 'Para hacer una reserva, puedes llenar el formulario de contacto o contactarnos directamente por WhatsApp al +52 322 156 9131. También puedes hacer clic en el botón de WhatsApp para iniciar una conversación.',
+                    includes: 'Cada yate incluye diferentes cosas, pero generalmente incluyen agua, hielo, refrescos, y algunos incluyen comida, bebidas alcohólicas y actividades acuáticas. Los detalles específicos están en cada yate de la sección "Nuestra Flota".',
+                    toys: 'Ofrecemos diversas actividades acuáticas como snorkel, paddle boards, lilypad, toboganes, jetski, kayak, pesca y más, dependiendo del yate. Cada yate tiene diferentes equipos disponibles. ¿Quieres saber qué actividades tiene un yate específico?',
+                    capacity: 'La capacidad varía según el yate. Nuestros yates pueden acomodar desde pequeños grupos hasta eventos de 30 personas. El 92\' President tiene la mayor capacidad. ¿Cuántas personas serán en tu grupo?',
+                    hours: 'Estamos disponibles de lunes a domingo de 8:00 AM a 8:00 PM. También puedes contactarnos 24/7 por WhatsApp. Los viajes pueden ser de 4, 6 u 8 horas. ¿Qué duración prefieres?',
+                    contact: 'Puedes contactarnos por:<br>• Teléfono: +52 322 156 9131<br>• WhatsApp: +52 322 156 9131<br>• Email: Info@marexclusiveyachts.com<br>• O llena el formulario de contacto en la página. Estamos aquí para ayudarte!',
+                    greeting: '¡Hola! 👋 ¿En qué puedo ayudarte hoy? Puedo responder preguntas sobre nuestros yates, precios, disponibilidad, actividades y más.',
+                    thanks: '¡De nada! 😊 Estoy aquí para ayudarte cuando lo necesites. Si tienes más preguntas, no dudes en preguntarme.',
+                    location: 'Estamos ubicados en Puerto Vallarta y Marina La Cruz, México. Nuestros yates están en diferentes marinas. ¿Te gustaría conocer la ubicación específica de algún yate?',
+                    default: 'Gracias por tu pregunta. Puedo ayudarte con información sobre nuestros yates, precios, reservas, actividades y más. También puedes contactarnos directamente por WhatsApp al +52 322 156 9131 o llenar el formulario de contacto. ¿Hay algo específico en lo que pueda ayudarte?'
+                },
+                en: {
+                    price: 'Our prices vary depending on the yacht and duration of the trip. For 4 hours, prices range from $1,300 USD to $8,700 USD. You can see all prices in the "Our Fleet" section. Would you like me to help you choose a yacht?',
+                    yacht: 'We have a fleet of 14 luxury yachts, from the 27\' Sea Ray to the 92\' President. Each is equipped with different amenities. Would you like me to recommend one based on your group size?',
+                    booking: 'To make a reservation, you can fill out the contact form or contact us directly via WhatsApp at +52 322 156 9131. You can also click the WhatsApp button to start a conversation.',
+                    includes: 'Each yacht includes different things, but they generally include water, ice, sodas, and some include food, alcoholic beverages, and water activities. Specific details are on each yacht in the "Our Fleet" section.',
+                    toys: 'We offer various water activities such as snorkeling, paddle boards, lilypad, slides, jetski, kayak, fishing and more, depending on the yacht. Each yacht has different equipment available. Want to know what activities a specific yacht has?',
+                    capacity: 'Capacity varies by yacht. Our yachts can accommodate from small groups to events of up to 30 people. The 92\' President has the highest capacity. How many people will be in your group?',
+                    hours: 'We are available Monday to Sunday from 8:00 AM to 8:00 PM. You can also contact us 24/7 via WhatsApp. Trips can be 4, 6, or 8 hours. What duration do you prefer?',
+                    contact: 'You can contact us via:<br>• Phone: +52 322 156 9131<br>• WhatsApp: +52 322 156 9131<br>• Email: Info@marexclusiveyachts.com<br>• Or fill out the contact form on the page. We are here to help!',
+                    greeting: 'Hello! 👋 How can I help you today? I can answer questions about our yachts, prices, availability, activities and more.',
+                    thanks: 'You\'re welcome! 😊 I\'m here to help whenever you need it. If you have more questions, don\'t hesitate to ask.',
+                    location: 'We are located in Puerto Vallarta and Marina La Cruz, Mexico. Our yachts are in different marinas. Would you like to know the specific location of a yacht?',
+                    default: 'Thank you for your question. I can help with information about our yachts, prices, reservations, activities and more. You can also contact us directly via WhatsApp at +52 322 156 9131 or fill out the contact form. Is there anything specific I can help you with?'
+                }
+            };
+
+            const r = responses[lang];
+
+            // Respuestas basadas en palabras clave (bilingüe)
+            if (msg.includes('precio') || msg.includes('costo') || msg.includes('cuánto') || msg.includes('price') || msg.includes('cost') || msg.includes('how much')) {
+                return r.price;
             }
 
-            if (msg.includes('yate') || msg.includes('embarcación') || msg.includes('barco') || msg.includes('flota')) {
-                return 'Tenemos una flota de 14 yates de lujo, desde el 27\' Sea Ray hasta el 92\' President. Cada uno está equipado con diferentes comodidades. ¿Te gustaría que te recomiende uno según el tamaño de tu grupo?';
+            if (msg.includes('yate') || msg.includes('embarcación') || msg.includes('barco') || msg.includes('flota') || msg.includes('yacht') || msg.includes('boat') || msg.includes('fleet')) {
+                return r.yacht;
             }
 
-            if (msg.includes('reserva') || msg.includes('reservar') || msg.includes('disponibilidad')) {
-                return 'Para hacer una reserva, puedes llenar el formulario de contacto o contactarnos directamente por WhatsApp al +52 322 156 9131. También puedes hacer clic en el botón de WhatsApp para iniciar una conversación.';
+            if (msg.includes('reserva') || msg.includes('reservar') || msg.includes('disponibilidad') || msg.includes('book') || msg.includes('reservation') || msg.includes('availability')) {
+                return r.booking;
             }
 
-            if (msg.includes('incluye') || msg.includes('incluido') || msg.includes('qué incluye')) {
-                return 'Cada yate incluye diferentes cosas, pero generalmente incluyen agua, hielo, refrescos, y algunos incluyen comida, bebidas alcohólicas y actividades acuáticas. Los detalles específicos están en cada yate de la sección "Nuestra Flota".';
+            if (msg.includes('incluye') || msg.includes('incluido') || msg.includes('qué incluye') || msg.includes('include') || msg.includes('included') || msg.includes('what\'s included')) {
+                return r.includes;
             }
 
-            if (msg.includes('actividades') || msg.includes('actividad') || msg.includes('water toys')) {
-                return 'Ofrecemos diversas actividades acuáticas como snorkel, paddle boards, lilypad, toboganes, jetski, kayak, pesca y más, dependiendo del yate. Cada yate tiene diferentes equipos disponibles. ¿Quieres saber qué actividades tiene un yate específico?';
+            if (msg.includes('actividades') || msg.includes('actividad') || msg.includes('water toys') || msg.includes('activities') || msg.includes('activity')) {
+                return r.toys;
             }
 
-            if (msg.includes('capacidad') || msg.includes('personas') || msg.includes('cuántas personas')) {
-                return 'La capacidad varía según el yate. Nuestros yates pueden acomodar desde pequeños grupos hasta eventos de 30 personas. El 92\' President tiene la mayor capacidad. ¿Cuántas personas serán en tu grupo?';
+            if (msg.includes('capacidad') || msg.includes('personas') || msg.includes('cuántas personas') || msg.includes('capacity') || msg.includes('guests') || msg.includes('how many people')) {
+                return r.capacity;
             }
 
-            if (msg.includes('horario') || msg.includes('hora') || msg.includes('cuándo') || msg.includes('cuando')) {
-                return 'Estamos disponibles de lunes a domingo de 8:00 AM a 8:00 PM. También puedes contactarnos 24/7 por WhatsApp. Los viajes pueden ser de 4, 6 u 8 horas. ¿Qué duración prefieres?';
+            if (msg.includes('horario') || msg.includes('hora') || msg.includes('cuándo') || msg.includes('hours') || msg.includes('time') || msg.includes('when')) {
+                return r.hours;
             }
 
-            if (msg.includes('contacto') || msg.includes('contactar') || msg.includes('teléfono') || msg.includes('telefono')) {
-                return 'Puedes contactarnos por:<br>• Teléfono: +52 322 156 9131<br>• WhatsApp: +52 322 156 9131<br>• Email: Info@marexclusiveyachts.com<br>• O llena el formulario de contacto en la página. Estamos aquí para ayudarte!';
+            if (msg.includes('contacto') || msg.includes('contactar') || msg.includes('teléfono') || msg.includes('contact') || msg.includes('phone')) {
+                return r.contact;
             }
 
-            if (msg.includes('hola') || msg.includes('hi') || msg.includes('hello') || msg.includes('buenos días') || msg.includes('buenas tardes') || msg.includes('buenas noches')) {
-                return '¡Hola! 👋 ¿En qué puedo ayudarte hoy? Puedo responder preguntas sobre nuestros yates, precios, disponibilidad, actividades y más.';
+            if (msg.includes('hola') || msg.includes('hi') || msg.includes('hello') || msg.includes('buenos días') || msg.includes('good morning') || msg.includes('afternoon') || msg.includes('evening')) {
+                return r.greeting;
             }
 
             if (msg.includes('gracias') || msg.includes('thank you') || msg.includes('thanks')) {
-                return '¡De nada! 😊 Estoy aquí para ayudarte cuando lo necesites. Si tienes más preguntas, no dudes en preguntarme.';
+                return r.thanks;
             }
 
-            if (msg.includes('ubicación') || msg.includes('ubicacion') || msg.includes('dónde') || msg.includes('donde') || msg.includes('localización')) {
-                return 'Estamos ubicados en Puerto Vallarta y Marina La Cruz, México. Nuestros yates están en diferentes marinas. ¿Te gustaría conocer la ubicación específica de algún yate?';
+            if (msg.includes('ubicación') || msg.includes('dónde') || msg.includes('location') || msg.includes('where')) {
+                return r.location;
             }
 
             // Respuesta por defecto
-            return 'Gracias por tu pregunta. Puedo ayudarte con información sobre nuestros yates, precios, reservas, actividades y más. También puedes contactarnos directamente por WhatsApp al +52 322 156 9131 o llenar el formulario de contacto. ¿Hay algo específico en lo que pueda ayudarte?';
+            return r.default;
         }
 
         // Cerrar chatbot al hacer clic fuera
@@ -2609,12 +2737,19 @@
         });
 
         // Inicializar
+        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            mostrarYates();
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            const savedLang = localStorage.getItem('preferred_lang') || 'es';
+
+            setLang(urlLang || savedLang);
+
             setTimeout(() => {
                 revealOnScroll();
             }, 100);
-            // Mostrar chatbot después de 3 segundos
+
+            // Show chatbot after 3 seconds
             showChatbotPopup();
         });
 

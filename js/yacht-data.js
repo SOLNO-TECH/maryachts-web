@@ -34,7 +34,7 @@ const yates = [
     {
         nombre: "85' Azimut",
         nombre_en: "85' Azimut",
-        imagenes: ["85 Azimut/85 Azimut HT 1.jpg", "85 Azimut/85 Azimut HT 2.jpg", "85 Azimut/85 Azimut HT 3.jpg", "85 Azimut/85 Azimut HT 4.jpg", "85 Azimut/85 Aimut HT 5.jpg", "85 Azimut/85 Azimut HT 6.jpg", "85 Azimut/85 Azimut HT 7.jpg", "85 Azimut/85 Azimut HT 8.jpg", "85 Azimut/85 Azimut HT 9.jpg", "85 Azimut/85 Azimut HT 10.jpg"],
+        imagenes: ["85 Azimut/85 Azimut HT 1.jpg", "85 Azimut/85 Azimut HT 2.jpg", "85 Azimut/85 Azimut HT 3.jpg", "85 Azimut/85 Azimut HT 10.jpg", "85 Azimut/85 Aimut HT 5.jpg", "85 Azimut/85 Azimut HT 6.jpg", "85 Azimut/85 Azimut HT 7.jpg", "85 Azimut/85 Azimut HT 8.jpg", "85 Azimut/85 Azimut HT 9.jpg", "85 Azimut/85 Azimut HT 4.jpg"],
         precioInicio: "7,600 USD",
         ubicacion: "Marina Puerto Vallarta",
         capacidad: {
@@ -63,7 +63,7 @@ const yates = [
     {
         nombre: "81' Sailboat",
         nombre_en: "81' Sailboat",
-        imagenes: ["81 Sailboat/81 Sailboat.jpg", "81 Sailboat/81 Sailboat 2.jpg", "81 Sailboat/81 Sailboat 3.jpg", "81 Sailboat/81 Sailboat 4.jpg", "81 Sailboat/81 Sailboat 5.jpg", "81 Sailboat/81 Sailboat 6.jpg", "81 Sailboat/81 Sailboat 7.jpg", "81 Sailboat/81 Sailboat 8.jpg"],
+        imagenes: ["81 Sailboat/81 Sailboat.jpg", "81 Sailboat/81 Sailboat 2.jpg", "81 Sailboat/81 Sailboat 3.jpg", "81 Sailboat/81 Sailboat 4.jpg", "81 Sailboat/81 Sailboat 7.jpg", "81 Sailboat/81 Sailboat 6.jpg", "81 Sailboat/81 Sailboat 5.jpg", "81 Sailboat/81 Sailboat 8.jpg"],
         precioInicio: "2,050 USD",
         ubicacion: "Marina Puerto Vallarta",
         capacidad: {
@@ -84,7 +84,7 @@ const yates = [
         ],
         waterToys: "Paddleboards, lilypad, cañas de pesca",
         descripcion: "Navegar en el 81' Sailboat ofrece una experiencia serena y panorámica de las costas de Puerto Vallarta, con vistas espectaculares de la Sierra Madre, playas doradas y el Pacífico — ideal para relajarse o tomar fotografías memorables.",
-        inclusiones: "Water, ice, sodas, juice, fresh fruit, guacamole, ceviche",
+        inclusiones: "Agua, hielo, refrescos, jugo, fruta fresca, guacamole, ceviche.",
         noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
     },
     {
@@ -108,7 +108,7 @@ const yates = [
             "Plataforma de baño para acceso al agua",
             "Wifi, bimini y equipos de navegación estándar"
         ],
-        waterToys: "Snorkel gear, paddle boards, lilypad. (Fishing equipment for fishing charters)",
+        waterToys: "Equipo de snorkel, tablas de paddle, lilypad. (Equipo de pesca para charters de pesca).",
         descripcion: "El 60′ Mikelson es un yate deportivo de motor con flybridge de 60 pies. Es versátil para paseos de lujo, pesca deportiva en alta mar y avistamiento de ballenas, con espacios tanto interiores como exteriores cómodos y equipados para disfrutar el mar.",
         inclusiones: "Water, ice",
         noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
@@ -141,7 +141,7 @@ const yates = [
     {
         nombre: "55' Sea Ray L550",
         nombre_en: "55' Sea Ray L550",
-        imagenes: ["55 Sea Ray L550/55_ Sea Ray.jpeg", "55 Sea Ray L550/55_ Sea Ray 2.jpeg", "55 Sea Ray L550/55_ Sea Ray 3.jpeg", "55 Sea Ray L550/55_ Sea Ray 4.jpeg", "55 Sea Ray L550/55_ Sea Ray 5.jpeg", "55 Sea Ray L550/55_ Sea Ray 6.jpeg", "55 Sea Ray L550/55_ Sea Ray 7.jpeg", "55 Sea Ray L550/55_ Sea Ray 8.jpeg", "55 Sea Ray L550/55_ Sea Ray 9.jpeg", "55 Sea Ray L550/55_ Sea Ray 10.jpeg"],
+        imagenes: ["55 Sea Ray L550/55_ Sea Ray.jpeg", "55 Sea Ray L550/55_ Sea Ray 2.jpeg", "55 Sea Ray L550/55_ Sea Ray 7.jpeg", "55 Sea Ray L550/55_ Sea Ray 4.jpeg", "55 Sea Ray L550/55_ Sea Ray 5.jpeg", "55 Sea Ray L550/55_ Sea Ray 6.jpeg", "55 Sea Ray L550/55_ Sea Ray 3.jpeg", "55 Sea Ray L550/55_ Sea Ray 8.jpeg", "55 Sea Ray L550/55_ Sea Ray 9.jpeg", "55 Sea Ray L550/55_ Sea Ray 10.jpeg"],
         precioInicio: "4,100 USD",
         ubicacion: "Marina Puerto Vallarta",
         capacidad: {
@@ -165,7 +165,7 @@ const yates = [
     {
         nombre: "52' Azimut",
         nombre_en: "52' Azimut",
-        imagenes: ["52 Azimut/52 Azimut 1.jpg", "52 Azimut/52 Azimut 2.jpg", "52 Azimut/52 Azimut 3.jpg", "52 Azimut/52 Azimut 4.jpg", "52 Azimut/52 Azimut 5.jpg", "52 Azimut/52 Azimut 6.jpg", "52 Azimut/52 Azimut 7.jpg", "52 Azimut/52 Azimut 8.jpg"],
+        imagenes: ["52 Azimut/52 Azimut 1.jpg", "52 Azimut/52 Azimut 2.jpg", "52 Azimut/52 Azimut 7.jpg", "52 Azimut/52 Azimut 4.jpg", "52 Azimut/52 Azimut 5.jpg", "52 Azimut/52 Azimut 6.jpg", "52 Azimut/52 Azimut 3.jpg", "52 Azimut/52 Azimut 8.jpg"],
         precioInicio: "1,900 USD",
         ubicacion: "Marina Puerto Vallarta",
         capacidad: {
@@ -193,7 +193,7 @@ const yates = [
     {
         nombre: "50' Marquis",
         nombre_en: "50' Marquis",
-        imagenes: ["50 Marquis/50 Marquis.jpg", "50 Marquis/50 Marquis 2.jpg", "50 Marquis/50 Marquis 3.jpg", "50 Marquis/50 Marquis 4.jpeg", "50 Marquis/50 Marquis 5.jpeg", "50 Marquis/50 Marquis 6.jpeg", "50 Marquis/50 Marquis 7.jpeg", "50 Marquis/50 Marquis 8.jpg", "50 Marquis/50 Marquis 9.jpg", "50 Marquis/50 Marquis 10.jpg"],
+        imagenes: ["50 Marquis/50 Marquis.jpg", "50 Marquis/50 Marquis 5.jpeg", "50 Marquis/50 Marquis 3.jpg", "50 Marquis/50 Marquis 4.jpeg", "50 Marquis/50 Marquis 2.jpg", "50 Marquis/50 Marquis 6.jpeg", "50 Marquis/50 Marquis 7.jpeg", "50 Marquis/50 Marquis 8.jpg", "50 Marquis/50 Marquis 9.jpg", "50 Marquis/50 Marquis 10.jpg"],
         precioInicio: "2,940 USD",
         ubicacion: "Marina Puerto Vallarta",
         capacidad: {
@@ -222,7 +222,7 @@ const yates = [
         nombre_en: "47' Fountaine Pajot",
         imagenes: [
             "47 Fountaine Pajot/RAYANDOELSOLDRONLOTE11.JPG",
-            "47 Fountaine Pajot/RAYANDOELSOLDRONLOTE12.JPG",
+            "47 Fountaine Pajot/CATAMARÁNEXT_INT_27.jpg",
             "47 Fountaine Pajot/RAYANDOELSOLDRONLOTE13.JPG",
             "47 Fountaine Pajot/RAYANDOELSOLDRONLOTE14.JPG",
             "47 Fountaine Pajot/RAYANDOELSOLDRONLOTE15.JPG",
@@ -234,7 +234,7 @@ const yates = [
             "47 Fountaine Pajot/CATAMARÁNEXT_INT_19.jpg",
             "47 Fountaine Pajot/CATAMARÁNEXT_INT_20.jpg",
             "47 Fountaine Pajot/CATAMARÁNEXT_INT_24.jpg",
-            "47 Fountaine Pajot/CATAMARÁNEXT_INT_27.jpg",
+            "47 Fountaine Pajot/RAYANDOELSOLDRONLOTE12.JPG",
             "47 Fountaine Pajot/CATAMARÁNEXT_INT_56.jpg",
             "47 Fountaine Pajot/RAYANDOELSOLVELANOCHE_6.jpg",
             "47 Fountaine Pajot/RES_LIFESTYLE_34.jpg",
@@ -315,7 +315,7 @@ const yates = [
         ],
         waterToys: "Equipo de snorkel, paddle board, lilypad, caña de pesca",
         descripcion: "El Lagoon 42 es un catamarán que combina a la perfección espacio, estabilidad y confort, ofreciendo una experiencia de navegación relajada y sofisticada. Diseñado para disfrutar del mar con total comodidad, destaca por su amplitud, luminosidad y excelente distribución tanto en interior como en exterior. Su cockpit a nivel del salón, perfectamente integrado, crea un espacio social amplio y fluido, ideal para compartir momentos inolvidables fondeados o en navegación. Las zonas de solárium, junto con el puesto de mando elevado, permiten disfrutar del entorno con una vista privilegiada y una navegación segura. Gracias a su diseño equilibrado y a la reconocida ingeniería de Lagoon, el Lagoon 42 garantiza una navegación estable, eficiente y placentera, convirtiéndose en la elección ideal para quienes buscan libertad, confort y elegancia en el mar.",
-        inclusiones: "Welcome margarita, fresh fruit, guacamole, water, ice, sodas. (Fajitas available at extra cost)",
+        inclusiones: "Margarita de bienvenida, fruta fresca, guacamole, agua, hielo, refrescos. (Fajitas disponibles con costo adicional).",
         noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
     },
     {
@@ -339,7 +339,7 @@ const yates = [
         ],
         waterToys: "Equipo de snorkel, paddle board, lilypad, caña de pesca",
         descripcion: "El Lagoon 40 es un catamarán moderno y versátil, diseñado para ofrecer una experiencia de navegación cómoda, estable y llena de estilo. Su diseño inteligente maximiza el espacio y la funcionalidad, convirtiéndose en una opción perfecta tanto para escapadas de día como para estancias más largas a bordo. El amplio cockpit a nivel del salón crea una conexión fluida entre interior y exterior, ideal para disfrutar del mar en un ambiente relajado y social. Las zonas de descanso, junto con su puesto de mando bien integrado, permiten navegar con seguridad sin renunciar al confort. En el interior, destaca por su luminosidad, acabados contemporáneos y una distribución pensada para el bienestar de los invitados. Gracias a la reconocida calidad de Lagoon, el Lagoon 40 garantiza una navegación suave y estable, convirtiéndose en la elección ideal para quienes buscan libertad, comodidad y momentos inolvidables en el mar.",
-        inclusiones: "Welcome margarita, fresh fruit, guacamole, water, ice, sodas. (Fajitas available at extra cost)",
+        inclusiones: "Margarita de bienvenida, fruta fresca, guacamole, agua, hielo, refrescos. (Fajitas disponibles con costo adicional).",
         noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina.",
         masRentado: true
     },
@@ -363,7 +363,7 @@ const yates = [
         ],
         waterToys: "Equipo de snorkel, cañas de pesca",
         descripcion: "El 40' Ocean es una embarcación de pesca deportiva diseñada para ofrecer rendimiento, seguridad y confort en cada jornada en el mar. Robusta, potente y perfectamente equipada, es la elección ideal tanto para pescadores experimentados como para quienes desean vivir una auténtica experiencia de pesca de altura. Su amplia bañera de pesca proporciona el espacio necesario para trabajar cómodamente durante la acción, mientras que su estabilidad y excelente comportamiento en navegación garantizan salidas seguras incluso en condiciones exigentes. 40' Ocean está preparada para la pesca de especies pelágicas, combinando potencia y maniobrabilidad para alcanzar los mejores puntos de pesca con rapidez. En el interior, ofrece un ambiente funcional y confortable para el descanso entre jornadas, con camarote, baño y zona resguardada, aportando comodidad durante salidas prolongadas. Todo ello convierte al 40' Ocean en una plataforma de pesca fiable, eficiente y lista para la acción. Una embarcación pensada para quienes persiguen grandes capturas y experiencias inolvidables en el mar.",
-        inclusiones: "Ice, water, six beers, six sodas. Tostadas for ceviche \"catch of the day\" for fishing charters",
+        inclusiones: "Hielo, agua, seis cervezas, seis refrescos. Tostadas para ceviche \"pesca del día\" para charters de pesca.",
         noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina.",
         masRentado: true
     },
@@ -385,7 +385,7 @@ const yates = [
             "Sistema de sonido bluetooth"
         ],
         descripcion: "El Sea Ray 27 es una embarcación versátil y elegante, perfecta para quienes buscan comodidad, diversión y rendimiento en el mar. Con un diseño compacto y moderno, combina maniobrabilidad con espacios bien distribuidos, ofreciendo una experiencia náutica ágil y placentera.\n\nSu cockpit abierto permite disfrutar del sol y del entorno mientras se navega o se fondea, ideal para salidas de día. La zona de mando está diseñada para un control seguro y cómodo, mientras que los asientos acolchados y áreas de descanso garantizan confort para todos los pasajeros.\n\nUna embarcación perfecta para quienes buscan libertad, diversión y momentos inolvidables en el mar.",
-        inclusiones: "Ice, water, sodas, 12 beers or 2 bottles of white wine.",
+        inclusiones: "Hielo, agua, refrescos, 12 cervezas o 2 botellas de vino blanco.",
         noIncluido: "Crew gratuity. Extra cost applies if pickup location is in a different marina."
     }
 ];
@@ -512,44 +512,56 @@ function traducirNoIncluido(texto, lang) {
 }
 
 function traducirInclusiones(texto, lang) {
-    if (lang !== 'es' || !texto) return texto;
+    if (!texto) return texto;
 
-    return texto
-        .replace(/Water/gi, 'Agua')
-        .replace(/ice/gi, 'hielo')
-        .replace(/sodas/gi, 'refrescos')
-        .replace(/beers/gi, 'cervezas')
-        .replace(/fresh fruit/gi, 'fruta fresca')
-        .replace(/guacamole/gi, 'guacamole')
-        .replace(/ceviche/gi, 'ceviche')
-        .replace(/Welcome margarita/gi, 'Margarita de bienvenida')
-        .replace(/juice/gi, 'jugo')
-        .replace(/1 bottle of tequila/gi, '1 botella de tequila')
-        .replace(/bottle of tequila/gi, 'botella de tequila')
-        .replace(/Fishing equipment for fishing charters/gi, 'Equipo de pesca para charters de pesca')
-        .replace(/Menu option available for 60 usd per person/gi, 'Opción de menú disponible por 60 USD por persona')
-        .replace(/Surf n' Turf meal available with an extra cost/gi, 'Comida Surf n\' Turf disponible con costo adicional')
-        .replace(/6 hrs & 8 hrs \+ grilled burgers/gi, '6 hrs y 8 hrs + hamburguesas a la parrilla')
-        .replace(/grilled burgers/gi, 'hamburguesas a la parrilla')
-        .replace(/& tuna sashimi/gi, 'y sashimi de atún')
-        .replace(/tuna sashimi/gi, 'sashimi de atún')
-        .replace(/Full 4 course menu & premium open bar/gi, 'Menú completo de 4 tiempos y barra libre premium')
-        .replace(/12 beers or 2 white wine bottles/gi, '12 cervezas o 2 botellas de vino blanco')
-        .replace(/chips/gi, 'papas')
-        .replace(/hors d'oeuvres/gi, 'entremeses')
-        .replace(/Ice, water/gi, 'Hielo, agua')
-        .replace(/ & /g, ' y ')
-        .replace(/jacuzzi on board/gi, 'jacuzzi a bordo')
-        .replace(/fishing rods/gi, 'cañas de pescar')
-        .replace(/paddle boards/gi, 'tablas de paddle')
-        .replace(/paddle board/gi, 'tabla de paddle')
-        .replace(/Snorkel gear/gi, 'Equipo de snorkel')
-        .replace(/lilypad/gi, 'lilypad')
-        .replace(/waterslide/gi, 'tobogán acuático')
-        .replace(/jetski/gi, 'jetski')
-        .replace(/banana boat/gi, 'banana acuática')
-        .replace(/dinghy/gi, 'bote auxiliar')
-        .replace(/kayak/gi, 'kayak');
+    if (lang === 'en') {
+        const traduccionesEn = {
+            "Hielo, agua, refrescos, 12 cervezas o 2 botellas de vino blanco.": "Ice, water, sodas, 12 beers or 2 bottles of white wine.",
+            "Hielo, agua, seis cervezas, seis refrescos. Tostadas para ceviche \"pesca del día\" para charters de pesca.": "Ice, water, six beers, six sodas. Tostadas for ceviche \"catch of the day\" for fishing charters.",
+            "Margarita de bienvenida, fruta fresca, guacamole, agua, hielo, refrescos. (Fajitas disponibles con costo adicional).": "Welcome margarita, fresh fruit, guacamole, water, ice, sodas. (Fajitas available at extra cost)."
+        };
+        return traduccionesEn[texto] || texto;
+    }
+
+    if (lang === 'es') {
+        return texto
+            .replace(/Water/gi, 'Agua')
+            .replace(/ice/gi, 'hielo')
+            .replace(/sodas/gi, 'refrescos')
+            .replace(/beers/gi, 'cervezas')
+            .replace(/fresh fruit/gi, 'fruta fresca')
+            .replace(/guacamole/gi, 'guacamole')
+            .replace(/ceviche/gi, 'ceviche')
+            .replace(/Welcome margarita/gi, 'Margarita de bienvenida')
+            .replace(/juice/gi, 'jugo')
+            .replace(/1 bottle of tequila/gi, '1 botella de tequila')
+            .replace(/bottle of tequila/gi, 'botella de tequila')
+            .replace(/Fishing equipment for fishing charters/gi, 'Equipo de pesca para charters de pesca')
+            .replace(/Menu option available for 60 usd per person/gi, 'Opción de menú disponible por 60 USD por persona')
+            .replace(/Surf n' Turf meal available with an extra cost/gi, 'Comida Surf n\' Turf disponible con costo adicional')
+            .replace(/6 hrs & 8 hrs \+ grilled burgers/gi, '6 hrs y 8 hrs + hamburguesas a la parrilla')
+            .replace(/grilled burgers/gi, 'hamburguesas a la parrilla')
+            .replace(/& tuna sashimi/gi, 'y sashimi de atún')
+            .replace(/tuna sashimi/gi, 'sashimi de atún')
+            .replace(/Full 4 course menu & premium open bar/gi, 'Menú completo de 4 tiempos y barra libre premium')
+            .replace(/12 beers or 2 white wine bottles/gi, '12 cervezas o 2 botellas de vino blanco')
+            .replace(/chips/gi, 'papas')
+            .replace(/hors d'oeuvres/gi, 'entremeses')
+            .replace(/Ice, water/gi, 'Hielo, agua')
+            .replace(/ & /g, ' y ')
+            .replace(/jacuzzi on board/gi, 'jacuzzi a bordo')
+            .replace(/fishing rods/gi, 'cañas de pescar')
+            .replace(/paddle boards/gi, 'tablas de paddle')
+            .replace(/paddle board/gi, 'tabla de paddle')
+            .replace(/Snorkel gear/gi, 'Equipo de snorkel')
+            .replace(/lilypad/gi, 'lilypad')
+            .replace(/waterslide/gi, 'tobogán acuático')
+            .replace(/jetski/gi, 'jetski')
+            .replace(/banana boat/gi, 'banana acuática')
+            .replace(/dinghy/gi, 'bote auxiliar')
+            .replace(/kayak/gi, 'kayak');
+    }
+    return texto;
 }
 
 function traducirWaterToys(texto, lang) {
