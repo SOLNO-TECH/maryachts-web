@@ -239,7 +239,7 @@
                                 </span>
                                 <span class="flex items-center gap-2 text-gray-300">
                                     <span class="iconify" data-icon="mdi:map-marker"></span>
-                                    ${y.ubicacion}
+                                    ${y.ubicacion.replace('Marina Puerto Vallarta', isEs ? 'Marina Puerto Vallarta' : 'Puerto Vallarta Marina').replace('Marina La Cruz', isEs ? 'Marina La Cruz' : 'La Cruz Marina')}
                                 </span>
                             </div>
                             <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">${nombre}</h1>
