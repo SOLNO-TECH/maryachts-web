@@ -1806,7 +1806,7 @@
                     id="contacto-subtitle">Estamos listos para hacer realidad tu experiencia
                     perfecta en el mar</p>
             </div>
-            <form class="glass-effect p-10 md:p-16 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition">
+            <form id="contact-form" class="glass-effect p-10 md:p-16 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition" novalidate>
                 <div class="grid md:grid-cols-2 gap-8 mb-8">
                     <div>
                         <label class="block text-sm font-bold mb-3 text-gray-200" id="form-nombre-label">Nombre /
@@ -1856,6 +1856,51 @@
                     </span>
                 </button>
             </form>
+            <script>
+                (function () {
+                    const form = document.getElementById('contact-form');
+                    if (!form) return;
+
+                    form.addEventListener('submit', async function (e) {
+                        e.preventDefault();
+
+                        const name = document.getElementById('input-name')?.value || '';
+                        const email = document.getElementById('input-email')?.value || '';
+                        const phone = document.getElementById('input-phone')?.value || '';
+                        const yacht = document.getElementById('select-yate')?.value || '';
+                        const message = document.getElementById('input-message')?.value || '';
+
+                        const submitBtnText = document.getElementById('form-enviar-text');
+                        const originalText = submitBtnText?.textContent || '';
+
+                        try {
+                            if (submitBtnText) submitBtnText.textContent = 'Enviando...';
+
+                            const resp = await fetch('php/send_mail.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ name, email, phone, yacht, message })
+                            });
+
+                            const data = await resp.json();
+
+                            if (resp.ok && data.success) {
+                                alert(data.message || 'Mensaje enviado. Gracias!');
+                                form.reset();
+                            } else {
+                                alert(data.message || 'Error al enviar el mensaje.');
+                            }
+                        } catch (err) {
+                            console.error(err);
+                            alert('Error de red al intentar enviar el mensaje.');
+                        } finally {
+                            if (submitBtnText) submitBtnText.textContent = originalText;
+                        }
+                    });
+                })();
+            </script>
         </div>
     </section>
 
