@@ -70,18 +70,36 @@ try {
         $mail->addReplyTo($email, $name);
     }
 
-    // Content
+    // Content using template
     $mail->isHTML(true);
     $mail->Subject = "Nuevo mensaje desde formulario - " . ($yacht ?: 'Contacto general');
 
-    $body = "<p><strong>Nombre:</strong> " . htmlspecialchars($name) . "</p>";
-    $body .= "<p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>";
-    $body .= "<p><strong>Teléfono:</strong> " . htmlspecialchars($phone) . "</p>";
-    $body .= "<p><strong>Yate:</strong> " . htmlspecialchars($yacht) . "</p>";
-    $body .= "<p><strong>Mensaje:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>";
+    // Load email template renderer
+    $templatePath = __DIR__ . '/email_template.php';
+    if (file_exists($templatePath)) {
+        require_once $templatePath;
+        if (function_exists('render_email')) {
+            $body = render_email($name, $email, $phone, $yacht, $message);
+        } else {
+            // fallback
+            $body = "<p><strong>Nombre:</strong> " . htmlspecialchars($name) . "</p>";
+            $body .= "<p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>";
+            $body .= "<p><strong>Teléfono:</strong> " . htmlspecialchars($phone) . "</p>";
+            $body .= "<p><strong>Yate:</strong> " . htmlspecialchars($yacht) . "</p>";
+            $body .= "<p><strong>Mensaje:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>";
+        }
+    } else {
+        $body = "<p><strong>Nombre:</strong> " . htmlspecialchars($name) . "</p>";
+        $body .= "<p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>";
+        $body .= "<p><strong>Teléfono:</strong> " . htmlspecialchars($phone) . "</p>";
+        $body .= "<p><strong>Yate:</strong> " . htmlspecialchars($yacht) . "</p>";
+        $body .= "<p><strong>Mensaje:</strong><br>" . nl2br(htmlspecialchars($message)) . "</p>";
+    }
 
     $mail->Body = $body;
-    $mail->AltBody = strip_tags(str_replace(['<br>', '<br/>', '<br />'], "\n", $body));
+    // Provide a plain-text AltBody
+    $alt = "Nombre: {$name}\nEmail: {$email}\nTeléfono: {$phone}\nYate: {$yacht}\nMensaje:\n" . strip_tags($message);
+    $mail->AltBody = $alt;
 
     $mail->send();
     echo json_encode(['success' => true, 'message' => 'Mensaje enviado correctamente.']);
