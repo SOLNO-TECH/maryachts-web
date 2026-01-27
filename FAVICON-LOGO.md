@@ -1,6 +1,8 @@
 # Cómo poner el logo de Mar Exclusive Yachts en el favicon (el "mundito" de Google)
 
-El favicon que aparece junto a tu enlace en los resultados de búsqueda de Google se genera a partir de estos archivos en tu sitio:
+En la web se ha añadido **logo.png como primera opción de favicon** para que el "mundito" use tu logo. Si aun así sale el icono genérico (globo), hay que sustituir los archivos de favicon por versiones generadas desde tu logo.
+
+El favicon que usa Google se obtiene de estos archivos en tu sitio:
 
 - `favicon.ico`
 - `favicon-16x16.png`
@@ -57,3 +59,11 @@ En la web ya está configurado que la **imagen principal** (og:image y redes soc
 - Google puede tardar días o semanas en volver a rastrear la página. Cuando lo haga, debería usar más la del yate.
 - Comprueba que los cambios de la web estén **publicados en marexclusiveyachts.com** (no solo en local).
 - Si la miniatura que ves está **dentro del panel de “Mar Exclusive Yachts”** (junto a Llamar, Sitio web, etc.), esa es la de **Google Business Profile** del punto 1; cámbiala ahí.
+
+---
+
+## Título y descripción en inglés ("Yates de Lujo", texto en español)
+
+El **contenido inicial** de la web (título, meta description, hero, estadísticas, About) está ya **en inglés** para que Google muestre texto en inglés.
+
+Si en Google **sigue saliendo** "Mar Exclusive Yachts - Yates de Lujo" o descripción en español: (1) Puede ser caché: espera o usa "Solicitar indexación" en Google Search Console. (2) Puede venir de **Google Business Profile**: en [business.google.com](https://business.google.com) → Mar Exclusive Yachts → Información, pon el **nombre** y la **descripción** en inglés (p. ej. "Mar Exclusive Yachts - Luxury Yachts").

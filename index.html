@@ -50,7 +50,8 @@
     <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     
-    <!-- Favicons -->
+    <!-- Favicons (logo.png como opción principal para el "mundito"; si se ve mal, sustituir favicon.ico y favicon-32x32 por versiones del logo) -->
+    <link rel="icon" type="image/png" href="/logo.png" sizes="32x32">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -1312,11 +1313,11 @@
             </div>
 
             <nav class="hidden lg:flex space-x-8 items-center fade-in" style="animation-delay: 0.2s;">
-                <a href="#inicio" class="hover:text-teal-400 transition font-medium" id="nav-inicio">Inicio</a>
-                <a href="#acerca" class="hover:text-teal-400 transition font-medium" id="nav-acerca">Acerca de</a>
-                <a href="#yates" class="hover:text-teal-400 transition font-medium" id="nav-yates">Yates</a>
-                <a href="#servicios" class="hover:text-teal-400 transition font-medium" id="nav-servicios">Servicios</a>
-                <a href="#contacto" class="hover:text-teal-400 transition font-medium" id="nav-contacto">Contacto</a>
+                <a href="#inicio" class="hover:text-teal-400 transition font-medium" id="nav-inicio">Home</a>
+                <a href="#acerca" class="hover:text-teal-400 transition font-medium" id="nav-acerca">About Us</a>
+                <a href="#yates" class="hover:text-teal-400 transition font-medium" id="nav-yates">Yachts</a>
+                <a href="#servicios" class="hover:text-teal-400 transition font-medium" id="nav-servicios">Services</a>
+                <a href="#contacto" class="hover:text-teal-400 transition font-medium" id="nav-contacto">Contact</a>
             </nav>
 
             <div class="flex items-center gap-4 fade-in-right" style="animation-delay: 0.3s;">
@@ -1346,17 +1347,17 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="mobile-menu">
         <a href="#inicio" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.1s;"
-            id="mobile-nav-inicio">Inicio</a>
+            id="mobile-nav-inicio">Home</a>
         <a href="#acerca" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.2s;"
-            id="mobile-nav-acerca">Acerca de</a>
+            id="mobile-nav-acerca">About Us</a>
         <a href="#yates" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.3s;"
-            id="mobile-nav-yates">Yates</a>
+            id="mobile-nav-yates">Yachts</a>
         <a href="#destinos" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.35s;"
-            id="mobile-nav-destinos">Destinos</a>
+            id="mobile-nav-destinos">Destinations</a>
         <a href="#servicios" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.4s;"
-            id="mobile-nav-servicios">Servicios</a>
+            id="mobile-nav-servicios">Services</a>
         <a href="#contacto" class="mobile-link" onclick="toggleMobileMenu()" style="transition-delay: 0.5s;"
-            id="mobile-nav-contacto">Contacto</a>
+            id="mobile-nav-contacto">Contact</a>
 
         <div class="mobile-lang-wrapper" style="transition-delay: 0.6s;">
             <button onclick="setLang('es'); toggleMobileMenu();" id="btn-es-mobile" class="lang-btn">ES</button>
@@ -1380,13 +1381,13 @@
         <div class="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 pt-32">
             <div class="max-w-5xl relative z-10">
                 <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 md:mb-8 leading-tight fade-in"
-                    style="animation-delay: 0.2s;" id="hero-title">Mar Exclusive Yachts - Alquiler de Yates de Lujo en Puerto Vallarta y Riviera Nayarit</h1>
+                    style="animation-delay: 0.2s;" id="hero-title">Mar Exclusive Yachts - Luxury Yacht Rentals in Puerto Vallarta and Riviera Nayarit</h1>
 
                 <div class="flex justify-center fade-in" style="animation-delay: 0.6s;">
                     <a href="#contacto"
                         class="btn-primary text-white px-8 sm:px-10 md:px-12 py-4 md:py-5 rounded-xl font-bold text-base md:text-lg shadow-2xl">
                         <span class="relative z-10 flex items-center gap-2 justify-center">
-                            <span id="hero-btn-reservar">Reservar ahora</span>
+                            <span id="hero-btn-reservar">Reserve Now</span>
                             <span class="iconify" data-icon="mdi:arrow-right"></span>
                         </span>
                     </a>
@@ -1396,17 +1397,17 @@
                     <a href="#yates"
                         class="glass-effect text-white border border-white w-48 py-4 md:py-5 rounded-xl font-bold text-base md:text-lg hover:bg-white hover:bg-opacity-15 transition shadow-lg flex items-center justify-center"
                         id="hero-btn-flota">
-                        Flota
+                        Fleet
                     </a>
                     <a href="#destinos"
                         class="glass-effect text-white border border-white w-48 py-4 md:py-5 rounded-xl font-bold text-base md:text-lg hover:bg-white hover:bg-opacity-15 transition shadow-lg flex items-center justify-center"
                         id="hero-btn-destinos">
-                        Destinos
+                        Destinations
                     </a>
                     <a href="#servicios"
                         class="glass-effect text-white border border-white w-48 py-4 md:py-5 rounded-xl font-bold text-base md:text-lg hover:bg-white hover:bg-opacity-15 transition shadow-lg flex items-center justify-center"
                         id="hero-btn-experiencias">
-                        Experiencias
+                        Experiences
                     </a>
                 </div>
             </div>
@@ -1428,22 +1429,22 @@
                 <div
                     class="glass-effect p-8 rounded-xl text-center reveal hover:bg-white hover:bg-opacity-15 transition">
                     <div class="text-5xl md:text-7xl font-bold gradient-text mb-4">10+</div>
-                    <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-1">Yates de Lujo</div>
+                    <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-1">Luxury Yachts</div>
                 </div>
                 <div class="glass-effect p-8 rounded-xl text-center reveal hover:bg-white hover:bg-opacity-15 transition"
                     style="transition-delay: 0.1s;">
                     <div class="text-5xl md:text-7xl font-bold gradient-text mb-4">300+</div>
-                    <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-2">Clientes Felices</div>
+                    <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-2">Happy Clients</div>
                 </div>
                 <div class="glass-effect p-8 rounded-xl text-center reveal hover:bg-white hover:bg-opacity-15 transition"
                     style="transition-delay: 0.2s;">
                     <div class="text-5xl md:text-7xl font-bold gradient-text mb-4">10</div>
-                    <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-3">Años Experiencia</div>
+                    <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-3">Years Experience</div>
                 </div>
                 <div class="glass-effect p-8 rounded-xl text-center reveal hover:bg-white hover:bg-opacity-15 transition"
                     style="transition-delay: 0.3s;">
                     <div class="text-5xl md:text-7xl font-bold gradient-text mb-4">100%</div>
-                    <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-4">Satisfacción</div>
+                    <div class="text-gray-300 text-base md:text-lg font-medium" id="stat-4">Satisfaction</div>
                 </div>
             </div>
         </div>
@@ -1453,12 +1454,12 @@
     <section id="acerca" class="py-28 px-4 relative">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-24 reveal">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-relaxed" id="acerca-title">Acerca
-                    de Mar Exclusive Yachts
+                <h2 class="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-relaxed" id="acerca-title">About
+                    Mar Exclusive Yachts
                 </h2>
                 <p class="text-gray-300 max-w-3xl mx-auto text-xl md:text-2xl font-light leading-relaxed"
                     id="acerca-subtitle">
-                    La experiencia náutica más exclusiva de Puerto Vallarta
+                    The most exclusive nautical experience in Puerto Vallarta
                 </p>
             </div>
 
@@ -1467,22 +1468,15 @@
                 <div
                     class="glass-effect p-12 md:p-16 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition mb-12">
                     <h3 class="text-3xl md:text-4xl font-bold mb-10 gradient-text leading-tight text-center"
-                        id="acerca-quienes">Quiénes Somos</h3>
+                        id="acerca-quienes">Who We Are</h3>
                     <div class="space-y-6">
                         <p class="text-gray-200 leading-relaxed text-lg md:text-xl font-light text-justify"
                             id="acerca-quienes-text">
-                            En Mar Exclusive Yachts, nos dedicamos a crear experiencias náuticas inolvidables. Con más
-                            de 15
-                            años de experiencia en el sector de yates de lujo, ofrecemos el más alto nivel de servicio y
-                            atención personalizada.
+                            At Mar Exclusive Yachts, we are dedicated to creating unforgettable nautical experiences. With over 10 years of experience in the luxury yacht sector, we offer the highest level of service and personalized attention.
                         </p>
                         <p class="text-gray-200 leading-relaxed text-lg md:text-xl font-light text-justify"
                             id="acerca-quienes-text2">
-                            Nuestra flota de embarcaciones premium está equipada con las mejores comodidades y
-                            tecnología,
-                            garantizando que cada viaje sea una aventura memorable en las aguas cristalinas de la Bahía
-                            de
-                            Banderas.
+                            Our fleet of premium vessels is equipped with the best amenities and technology, ensuring that each trip is a memorable adventure in the crystal-clear waters of Banderas Bay.
                         </p>
                     </div>
                 </div>
@@ -1491,24 +1485,18 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                     <div class="glass-effect p-10 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition">
                         <h3 class="text-2xl md:text-3xl font-bold mb-6 gradient-text leading-tight text-center"
-                            id="acerca-vision">Visión</h3>
+                            id="acerca-vision">Vision</h3>
                         <p class="text-gray-200 leading-relaxed text-lg font-light text-justify"
                             id="acerca-vision-text">
-                            Ser la empresa líder en experiencias náuticas de lujo en Puerto Vallarta y Riviera Nayarit,
-                            reconocida
-                            por nuestra excelencia en el servicio, atención al detalle, innovación y compromiso con la
-                            satisfacción total de nuestros clientes.
+                            To be the leading company in luxury nautical experiences in Puerto Vallarta and Riviera Nayarit, recognized for our excellence in service, attention to detail, innovation, and total commitment to our clients' satisfaction.
                         </p>
                     </div>
                     <div class="glass-effect p-10 rounded-xl reveal hover:bg-white hover:bg-opacity-15 transition">
                         <h3 class="text-2xl md:text-3xl font-bold mb-6 gradient-text leading-tight text-center"
-                            id="acerca-valores">Valores</h3>
+                            id="acerca-valores">Values</h3>
                         <p class="text-gray-200 leading-relaxed text-lg font-light text-justify"
                             id="acerca-valores-text">
-                            Excelencia, integridad, pasión por el servicio y respeto por el medio ambiente marino son
-                            los pilares
-                            que guían cada experiencia que creamos. Nos comprometemos a superar las expectativas en cada
-                            viaje.
+                            Excellence, integrity, passion for service, and respect for the marine environment are the pillars that guide every experience we create. We are committed to exceeding expectations on every trip.
                         </p>
                     </div>
                 </div>
