@@ -12,8 +12,8 @@ function cfg($k, $fallback) {
 
 define('SMTP_HOST', cfg('SMTP_HOST', 'smtp.gmail.com'));
 define('SMTP_PORT', intval(cfg('SMTP_PORT', '587')));
-define('SMTP_USER', cfg('SMTP_USER', 'your@gmail.com'));
-define('SMTP_PASS', cfg('SMTP_PASS', 'your_app_password'));
+define('SMTP_USER', cfg('SMTP_USER', 'info@marexclusiveyachts.com'));
+define('SMTP_PASS', cfg('SMTP_PASS', 'cytvbxnpuuomqyyl'));
 
 define('FROM_EMAIL', cfg('FROM_EMAIL', SMTP_USER));
 define('FROM_NAME', cfg('FROM_NAME', 'Mar Exclusive Yachts'));
