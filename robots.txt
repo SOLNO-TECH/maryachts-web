@@ -1,0 +1,36 @@
+# robots.txt para Mar Exclusive Yachts
+# https://marexclusiveyachts.com/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /vendor/
+Disallow: /php/
+Disallow: /*.php$
+Disallow: /composer.json
+Disallow: /composer.lock
+
+# Permitir acceso a recursos importantes
+Allow: /js/
+Allow: /logo.png
+Allow: /logo2.png
+Allow: /sitemap.xml
+
+# Sitemap
+Sitemap: https://marexclusiveyachts.com/sitemap.xml
+
+# Crawl-delay (opcional, para ser amigable con los servidores)
+Crawl-delay: 1
+
+# Bots específicos
+User-agent: Googlebot
+Allow: /
+Disallow: /vendor/
+Disallow: /php/
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Disallow: /vendor/
+Disallow: /php/

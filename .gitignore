@@ -1,0 +1,24 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Environment and config files with sensitive data
+# php/config.php - Contains SMTP credentials, should use environment variables in production
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
