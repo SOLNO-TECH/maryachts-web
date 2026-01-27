@@ -1181,6 +1181,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
         .chatbot-toggle:hover {
@@ -1191,6 +1192,41 @@
 
         .chatbot-toggle.active {
             background: #e74c3c;
+        }
+
+        /* Badge de notificación */
+        .chatbot-notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #26c6da 0%, #00acc1 100%);
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 2px 8px rgba(38, 198, 218, 0.6);
+            animation: pulse-badge 2s infinite;
+            z-index: 10;
+        }
+
+        .chatbot-notification-badge.show {
+            display: flex;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 2px 8px rgba(38, 198, 218, 0.6);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 4px 12px rgba(38, 198, 218, 0.8);
+            }
         }
 
         @media (max-width: 640px) {
@@ -2077,6 +2113,7 @@
     <div class="chatbot-overlay">
         <button id="chatbot-toggle" class="chatbot-toggle" onclick="toggleChatbot()">
             <span class="iconify" data-icon="mdi:message-text"></span>
+            <span class="chatbot-notification-badge" id="chatbot-notification-badge">!</span>
         </button>
     </div>
 
@@ -2765,8 +2802,14 @@
         function toggleChatbot() {
             const popup = document.getElementById('chatbot-popup');
             const toggle = document.getElementById('chatbot-toggle');
+            const badge = document.getElementById('chatbot-notification-badge');
 
             chatbotVisible = !chatbotVisible;
+
+            // Ocultar el badge cuando se abre el chat
+            if (badge) {
+                badge.classList.remove('show');
+            }
 
             if (chatbotVisible) {
                 popup.classList.add('show');
@@ -2808,14 +2851,19 @@
             }
         }
 
-        function showChatbotPopup() {
+        // Mostrar notificación en el botón en lugar de abrir el popup
+        function showChatbotNotification() {
             setTimeout(() => {
-                const popup = document.getElementById('chatbot-popup');
-                if (popup && !chatbotVisible) {
-                    popup.classList.add('show');
-                    chatbotVisible = true;
+                const badge = document.getElementById('chatbot-notification-badge');
+                if (badge && !chatbotVisible) {
+                    badge.classList.add('show');
                 }
             }, 3000);
+        }
+
+        // Función antigua (ya no se usa, pero la mantenemos por si acaso)
+        function showChatbotPopup() {
+            // Ya no se abre automáticamente
         }
 
         // Enviar mensaje en el chatbot
@@ -2968,8 +3016,8 @@
                 revealOnScroll();
             }, 100);
 
-            // Show chatbot after 3 seconds
-            showChatbotPopup();
+            // Mostrar notificación en el botón después de 3 segundos (sin abrir el popup)
+            showChatbotNotification();
         });
 
         // Ocultar loader cuando todo esté cargado
