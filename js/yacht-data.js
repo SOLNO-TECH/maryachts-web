@@ -184,7 +184,7 @@ const yates = [
         ],
         waterToys: "Equipo de snorkel, paddle board, lilypad",
         descripcion: "El Sea Ray L550 es un yate de lujo que destaca por su diseño moderno, alto rendimiento y confort excepcional. Con líneas elegantes y una presencia imponente, ofrece una experiencia náutica sofisticada pensada para quienes buscan exclusividad y estilo en cada travesía. Sus amplias zonas exteriores incluyen espacios de solárium, áreas de descanso y una distribución perfecta para el entretenimiento a bordo, permitiendo disfrutar del mar con total comodidad tanto en navegación como fondeado. El flybridge y la bañera proporcionan vistas privilegiadas y un ambiente ideal para socializar. En el interior, sorprende con un diseño contemporáneo, materiales de alta gama y una cuidada iluminación natural. Sus camarotes espaciosos, baños elegantes y salón panorámico crean un entorno refinado y acogedor, perfecto para estancias prolongas. Gracias a su potente motorización, estabilidad y tecnología avanzada, el Sea Ray L550 garantiza una navegación suave, segura y placentera, convirtiéndose en la elección ideal para quienes desean vivir el mar con lujo, confort y experiencias inolvidables.",
-        inclusiones: "Hielo, agua, refrescos, cervezas, fruta fresca, papas, guacamole, ceviche, entremeses.",
+        inclusiones: "Hielo, agua, refrescos, cervezas, fruta fresca, papas, guacamole, ceviche.",
         noIncluido: "Propina de la tripulación. Costo adicional si el punto de recogida es en una marina diferente."
     },
     {
