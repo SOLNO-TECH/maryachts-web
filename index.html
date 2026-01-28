@@ -62,6 +62,8 @@
     <!-- Preconnect para mejorar performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+    <link rel="preload" as="image" href="ola.png">
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://code.iconify.design">
     
@@ -188,8 +190,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
-
         * {
             margin: 0;
             padding: 0;
@@ -893,7 +893,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: opacity 1.2s ease-out, visibility 1.2s ease-out;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
             opacity: 1;
         }
 
@@ -1299,7 +1299,7 @@
     <!-- LOADER -->
     <div id="loader" class="loader-overlay">
         <div class="loader-container">
-            <img src="logo.png" alt="Mar Exclusive Yachts - Logo de alquiler de yates de lujo en Puerto Vallarta" class="loader-logo">
+            <img src="logo.png" alt="Mar Exclusive Yachts" class="loader-logo" decoding="async" width="280">
             <div class="loader-spinner"></div>
         </div>
     </div>
@@ -1367,11 +1367,11 @@
 
     <!-- HERO VIDEO -->
     <section id="inicio" class="slider-container hero-section">
-        <video autoplay muted loop playsinline class="hero-video hero-video-desktop">
+        <video autoplay muted loop playsinline preload="metadata" class="hero-video hero-video-desktop">
             <source src="video.mp4" type="video/mp4">
             <span id="video-not-supported">Tu navegador no soporta el elemento de video.</span>
         </video>
-        <video autoplay muted loop playsinline class="hero-video hero-video-mobile">
+        <video autoplay muted loop playsinline preload="metadata" class="hero-video hero-video-mobile">
             <source src="video2.mp4" type="video/mp4">
             <span id="video-not-supported-mobile">Tu navegador no soporta el elemento de video.</span>
         </video>
@@ -1417,7 +1417,7 @@
             <div class="absolute bottom-0 left-0 w-full pointer-events-none flex justify-center items-end pb-0"
                 style="z-index: 0; transform: translateY(30%);">
                 <img src="ola.png" alt="Mar Exclusive Yachts - Decoración ola marina en hero section" class="w-full md:w-auto opacity-30 filter drop-shadow-lg"
-                    style="max-height: 500px; object-fit: contain;">
+                    style="max-height: 500px; object-fit: contain;" fetchpriority="high" decoding="async">
             </div>
         </div>
     </section>
@@ -3015,12 +3015,19 @@
             showChatbotNotification();
         });
 
-        // Ocultar loader cuando todo esté cargado
-        window.addEventListener('load', () => {
+        // Ocultar loader: ya NO se espera a window.load (videos e imágenes retrasaban mucho).
+        // Se oculta cuando el DOM está listo + 300ms, o a lo sumo a los 3s.
+        function scheduleHideLoader() {
             setTimeout(hideLoader, 300);
-        });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', scheduleHideLoader);
+        } else {
+            scheduleHideLoader();
+        }
+        setTimeout(hideLoader, 3000); // tope: si algo falla, ocultar a los 3s
 
-        // Fallback: ocultar después de 1 segundo máximo
+        // Fallback
         // Mobile Menu Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
