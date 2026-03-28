@@ -13,6 +13,6 @@ npm run build:css
 
 (O `npm run build`). El resultado se genera en `css/tailwind.css`. Sube ese archivo al repo.
 
-## En Vercel / despliegue
+## En despliegue (Docker, CI, etc.)
 
-Si el despliegue ejecuta `npm run build`, el CSS se generará solo. Si no, debe estar ya commiteado `css/tailwind.css`.
+Con el `Dockerfile` del repo, la imagen ejecuta `npm run build:css` y genera `css/tailwind.css` en el build. Si despliegas sin Docker, commitea `css/tailwind.css` o ejecuta `npm run build:css` en el servidor antes de publicar.

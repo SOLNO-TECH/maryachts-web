@@ -1,0 +1,9 @@
+node_modules
+vendor
+.git
+.gitignore
+*.md
+.vscode
+.idea
+Thumbs.db
+.DS_Store
