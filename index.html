@@ -50,19 +50,19 @@
     <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     
-    <!-- Favicons (logo.png como opción principal para el "mundito"; si se ve mal, sustituir favicon.ico y favicon-32x32 por versiones del logo) -->
-    <link rel="icon" type="image/png" href="/logo.png" sizes="32x32">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <!-- Favicon: el .ico y el PNG pequeño primero (la pestaña carga antes; logo.png es grande para icono de pestaña) -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="manifest" href="/site.webmanifest">
     <meta name="msapplication-TileImage" content="/android-chrome-192x192.png">
     
     <!-- Preconnect para mejorar performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap"></noscript>
     <link rel="preload" as="image" href="ola.png">
     <link rel="dns-prefetch" href="https://code.iconify.design">
     
@@ -917,26 +917,6 @@
             filter: drop-shadow(0 0 20px rgba(26, 188, 156, 0.5));
         }
 
-        .loader-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(26, 188, 156, 0.2);
-            border-top-color: #1abc9c;
-            border-right-color: #3498db;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
         /* Hero fade in */
         .hero-section {
             opacity: 0;
@@ -1299,8 +1279,7 @@
     <!-- LOADER -->
     <div id="loader" class="loader-overlay">
         <div class="loader-container">
-            <img src="logo.png" alt="Mar Exclusive Yachts" class="loader-logo" decoding="async" width="280">
-            <div class="loader-spinner"></div>
+            <img src="logo.png" alt="Mar Exclusive Yachts" class="loader-logo" decoding="async" width="280" fetchpriority="high">
         </div>
     </div>
 
@@ -1367,11 +1346,11 @@
 
     <!-- HERO VIDEO -->
     <section id="inicio" class="slider-container hero-section">
-        <video autoplay muted loop playsinline preload="metadata" class="hero-video hero-video-desktop">
+        <video autoplay muted loop playsinline preload="none" poster="yate.png" class="hero-video hero-video-desktop">
             <source src="video.mp4" type="video/mp4">
             <span id="video-not-supported">Tu navegador no soporta el elemento de video.</span>
         </video>
-        <video autoplay muted loop playsinline preload="metadata" class="hero-video hero-video-mobile">
+        <video autoplay muted loop playsinline preload="none" poster="yate.png" class="hero-video hero-video-mobile">
             <source src="video2.mp4" type="video/mp4">
             <span id="video-not-supported-mobile">Tu navegador no soporta el elemento de video.</span>
         </video>
@@ -3018,14 +2997,14 @@
         // Ocultar loader: ya NO se espera a window.load (videos e imágenes retrasaban mucho).
         // Se oculta cuando el DOM está listo + 300ms, o a lo sumo a los 3s.
         function scheduleHideLoader() {
-            setTimeout(hideLoader, 300);
+            setTimeout(hideLoader, 80);
         }
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', scheduleHideLoader);
         } else {
             scheduleHideLoader();
         }
-        setTimeout(hideLoader, 3000); // tope: si algo falla, ocultar a los 3s
+        setTimeout(hideLoader, 2000); // tope: si algo falla, ocultar a los 2s
 
         // Fallback
         // Mobile Menu Toggle
