@@ -3,7 +3,10 @@ FROM node:20-alpine AS css
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
+COPY tailwind.config.js ./
 COPY css/input.css ./css/
+COPY *.html ./
+COPY js ./js
 RUN npm run build:css
 
 FROM composer:2 AS vendor

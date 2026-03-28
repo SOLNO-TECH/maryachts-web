@@ -45,8 +45,10 @@ Requisito: que permitan **Composer** o que subas la carpeta **`vendor/`** genera
 ### 4. **VPS con Dokploy (Docker)** (mismo stack: HTML + PHP + formulario)
 
 - **Ventajas:** Un contenedor con PHP 8 + Apache; el `Dockerfile` compila Tailwind e instala dependencias con Composer (PHPMailer).
+- **Dos formas en Dokploy:**
+  1. **Application → Dockerfile:** solo el `Dockerfile`; puerto del contenedor **80**.
+  2. **Compose → Docker Compose:** usa el `docker-compose.yml` del repo; en la app, **Compose path** `./docker-compose.yml`; la red `dokploy-network` debe existir (la crea Dokploy). En **Domains**, elige el servicio **`web`** y **Container port `80`**.
 - **Puerto interno del contenedor:** `80` (no uses el 3000 por defecto de apps Node).
-- **Dominio:** En Dokploy, al añadir el dominio, configura **Container port** / puerto del contenedor en **80**.
 - **`php/config.php`:** No debe subirse al repo con secretos. En el servidor, créalo desde `php/config.example.php` o móntalo como volumen/archivo en Dokploy.
 
 ---
